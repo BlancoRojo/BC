@@ -1,0 +1,53 @@
+body, html{
+    margin : 0;
+    padding : 0;
+    overflow : hidden;
+    height:100%;
+    width:100%;
+}
+
+#tercer-pantalla-mapa{
+
+    background-image: url("../images/bc-memoria-fondo.png");
+
+    background-position: center center; /* imagen de fondo este centrada vertical y horizontalmente */
+    
+    background-repeat: no-repeat;/* La imagen de fondo no se repite */
+    
+    background-attachment: unset;/* La imagen de fondo está fija en el viewport, de modo que no se mueva cuando la altura del contenido supere la altura de la imagen. */
+
+    background-size: cover;/* La imagen de fondo se reescala cuando se cambia el ancho de ventana del navegador */
+
+
+}
+
+#inicio-mapa{
+	position:absolute;
+	
+
+}
+
+#pantalla-mapa{
+	position:absolute;
+	padding-left: 100px;
+
+}
+
+#empezar {
+
+	margin-top: 380px;
+
+}
+
+#titulo-memoria{
+	margin-top: -20px;
+}
+
+#mapa{
+  	
+    height: 100%;
+    width: 100%;
+    max-height: 700px;
+    max-width: 700px;
+ 
+}

@@ -1,0 +1,93 @@
+{{extend 'layout.html'}}
+
+
+<link rel="stylesheet" type="text/css" href="{{=URL('static/css', 'jugador.css')}}">
+<div class="form">
+      
+      <ul class="tab-group">
+        <li class="tab active"></li>
+      </ul>
+      
+      <div class="tab-content">
+        <div id="signup">   
+          {{if Error=='Registro Exitoso!':}}
+            <h1><font color="#00FF00">{{=Error}}</font></h1>
+          {{else:}}
+
+          	{{if (Error!='') and (EError!=''):}}
+                <h1>Registrate Gratis!<hr></h1>
+                
+                <font color="red"><h4>{{=Error}} y {{=EError}}</h4></font>
+            {{else:}}
+              {{if EError!='':}}
+                <h1>Registrate Gratis!<hr></h1>
+                
+                <font color="red"><h4>{{=EError}}</h4></font>
+              {{else:}}
+                {{if Error!='':}}
+                <h1>Registrate Gratis!<hr></h1>
+                
+                <font color="red"><h4>{{=Error}}</h4></font>
+             
+                {{else:}}
+                <h1>Registrate Gratis!<hr></h1>
+               
+                {{pass}}
+              {{pass}}
+          {{pass}}
+          {{pass}}
+
+          {{if Error!='Registro Exitoso!':}}
+          <form action="{{=URL('JugadorController','registroCompleto')}}" method="post">
+          
+          
+            <div class="field-wrap">
+              <label {{if nombre!='':}} class="active highlight"{{pass}}>
+                Nombre<span class="req">*</span>
+              </label>
+              <input type="text" id="Nom" name="Nom" {{if nombre!='':}}value={{=nombre}}{{pass}} required autocomplete="off" />
+            </div>
+ 
+
+
+          <div class="field-wrap">
+            <label {{if email!='':}} class="active highlight"{{pass}}>
+              Email<span class="req" >*</span>
+            </label>
+            <input type="email" name="Eml" {{if email!='':}}value={{=email}}{{pass}} required autocomplete="off"/>
+          </div>
+          
+          <div class="field-wrap">
+            <label {{if psw!='':}} class="active highlight"{{pass}}>
+              Contraseña<span class="req">*</span>
+            </label>
+            <input type="password" name="Pas" {{if psw!='':}}value={{=psw}}{{pass}} required autocomplete="off"/>
+          </div>
+          
+          <p class="forgot"><a href="{{=URL('JugadorController','login')}}">Login</a></p>
+          <div align="right">
+           <button type="submit" class="button button-block"/><h1>Registrar</h1></button>
+           </div>
+                  
+          
+          </form>
+          
+          {{else:}}
+           <form action="{{=URL('HomeController','index')}}" method="post">
+             <div align="right">
+           <button type="submit" class="button button-block"/><h1>Jugar!</h1></button>
+           </div>
+           </form>
+          {{pass}}
+
+          
+
+        </div>
+        
+        <div id="login">   
+        </div>
+        
+      </div><!-- tab-content -->
+      
+</div> <!-- /form -->
+<script src="{{=URL('static/js','jugador.js')}}"></script>

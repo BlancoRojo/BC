@@ -1,0 +1,214 @@
+{{extend 'layout.html'}}
+
+
+<body id="fondo-preguntas">
+		    
+  <br>
+  <div class="container">
+  <br>
+  <br>
+  <br>
+
+ 
+      <div id="cuadro-preguntas">
+        <div id="preload" class="panel-body">
+            <center><img src="{{=URL('static/images','preload.gif')}}" alt=""></center>
+        </div>
+      </div>
+
+   <div id="segunda-pantalla" class="container hidden">
+    
+
+    <div class="row">
+
+      
+      <div class="col-lg-12 col-md-12 col-xs-12">
+          <center>
+          <br>
+            <img class="img-responsive" id="inicio-mapa" height="6" src="{{=URL('static/images','2pantalla-pregunta.png')}}" alt="">
+          </center>
+        </div>
+
+        
+        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-4"></div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" id="titulo-memoria">
+        <div class="col-lg-3 col-md-2 col-sm-2 col-xs-2"></div>
+        
+        <div class="col-md-4 col-xs-4"></div>
+        <center><img class="img-responsive animated flash" height="6" src="{{=URL('static/images','titulo-pregunta.png')}}" alt=""></center>
+      </div>
+      
+        <div class="col-lg-5 col-md-6 col-sm-7 col-xs-8"></div>
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" >
+
+          <center>
+            <a> 
+              <img class="img-responsive" id="jugar-preguntas" src="{{=URL('static/images','bc-boton-jugar.png')}}" alt="responsive image">
+            </a>      
+          </center>
+
+      
+      <div class="col-lg-3 col-md-2 col-sm-1"></div>
+      </div>
+    </div>
+  </div>
+
+    
+
+
+      <div id="tercer-pantalla" class="container hidden">
+        <div class="row">
+       
+            <div class="col-md-4">
+              <center>
+                      <div class="head"><h1>Intentos Restante: <p id="intentos">2</p></h2>
+                     </div>
+              </center>
+             
+             </div>
+        
+
+            <div class="col-md-4 puntos">
+              <div class="boxIndicador">
+                <div class="points">
+                  <div class="boxArrow">
+                    <div id="numPuntos" class="numIndicador">0</div>
+                    <div id="titPuntos" class="titIndicador">Puntos</div>
+                  </div>
+                  <div class="bgArrow"></div>
+                </div>
+              </div>
+            </div>
+
+
+          <div class="col-md-4">
+              <center>
+                  <div class="boxIndicador" id="cajaTiempo">
+                    <div id="numTiempo" class="numIndicador">
+                        <span id="minutos">00</span> :
+                        <span id="segundos">00</span>
+                    </div>
+                    <div id="titTiempo" class="titIndicador">Tiempo</div>
+                  </div>
+              </center>
+          </div> 
+
+
+        </div>
+    <br>
+    <br>
+    <br>  
+          <div class="row">
+
+              <center><h1 id="categoria"></h1></center>   
+              <div class="col-md-6 col-md-offset-3 panel panel-body">
+                  
+                  <center><h2 id="pregunta"></h2><input class="hidden" id="idPregunta"></label></center>
+                  
+                  <center>
+                    
+                    <div class="wrap">
+                      <form class="formulario">
+                        <div class="radio">
+                          <input type="radio" name="respuestas" id="respuesta1">    
+                          <label id="lblrespuesta1"></label>
+                        </div>
+
+                        <div class="radio">
+                          <input type="radio" name="respuestas" id="respuesta2">
+                          <label id="lblrespuesta2"></label>
+                        </div>
+                        
+                        <div class="radio">
+                          <input type="radio" name="respuestas" id="respuesta3">
+                          <label id="lblrespuesta3"></label>
+                        </div>
+                      </form>
+                    </div>
+                    
+                  </center>
+
+              </div>
+              
+          </div>
+     
+          
+          <audio id="incorrecto" src="{{=URL('static/sonidos','ouch.mp3')}}"> </audio>
+          <audio id="correcto" src="{{=URL('static/sonidos','homer_simpson_yuju.mp3')}}"> </audio>
+          
+      </div>
+      
+      <div id="looser-pantalla" class="hidden">
+         <br>
+         <br>
+         <br>
+          <center><h1 id="perdiste">PERDISTE!!!</h1></center><br>
+            <div class="col-md-5 col-md-offset-3 panel panel-body">
+
+              <div class="row">
+
+                <div class="col-md-6">
+                  <h5>RESPUESTAS CORRECTAS:</h5>
+                </div>
+                <div class="col-md-6">
+                 <h5 id="resp_correctas"></h5>
+                </div>
+                
+              </div>  
+                       
+              <div class="row">
+                <div class="col-md-6">
+                  <h5> PUNTAJE TOTAL:</h5>
+                </div>
+                <div class="col-md-6">
+                 <h5 id="puntajetotal"></h5>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <h5>TIEMPO: </h5>
+              </div>
+              <div class="col-md-6">
+                <div class="row">
+                   <div class="col-md-6">
+                     <h5 id="total-minutos"></h5>
+                   </div>
+                   <div class="col-md-6">
+                  <h5 id="total-segundos"></h5>
+                   </div>
+                </div>
+              </div>
+            </div>
+             
+              <audio id="looser" src="{{=URL('static/sonidos','risa_Nelson.mp3')}}"> </audio>
+              <button class="btn btn-primary" id="reintentar">REINTENTAR</button>
+            
+          </div>
+      </div>
+    
+  </div><!--fin container cuadro-preguntas -->
+  
+
+
+    <!--MODAL PARA INGRESAR EL NOMBRE-->
+    <div class="modal fade" id="mostrarmodal" tabindex="-1" role="dialogaria-labelledby="basicModal" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <h3>Ingrese Nombre</h3>
+               </div>
+               <div class="modal-body">
+                  <input type="text" class="form-control"  name="nomJugador" id="nomJugador">  
+                  
+                </div>
+               <div class="modal-footer">
+                <button onclick="ajax('registro', '', 'LblnomJugador')" href="#" data-dismiss="modal" class="btn btn-info" id="btn-nom">Aceptar</button>
+               </div>
+            </div>
+          </div>
+    </div>
+
+</body>
+  
+      
+  

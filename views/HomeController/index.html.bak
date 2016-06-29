@@ -1,0 +1,83 @@
+{{extend 'layout.html'}}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>HOME</title>
+	
+   <!--
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="{{=URL('static/css', 'styles.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{=URL('static/css', 'animate.css')}}"> 
+
+</head>
+
+<body >
+
+<!--<div class="container-fluid">
+  
+    <ul class="nav navbar-nav">
+                <li class="active"><a href="#">INICIO</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">JUEGOS <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">MEMORIA</a></li>
+                    <li><a href="#">ROMPE CABEZAS</a></li>
+                    <li><a href="#">PREGUNTAS</a></li>
+                    <li><a href="#">ESCULTURAS</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">NOSOTROS</a></li>
+                <li><a href="#">CONTACTOS</a></li>
+    </ul>
+  -->
+
+<div class="row">
+  <br>
+  <br>
+  <div class="col-xs-4 col-md-4">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <a href="#">
+      <img align="right" class="img-responsive  animated flash" alt="Responsive image" src="{{=URL('static/images','esculturas.png')}}">
+    </a>
+    <a href="{{=URL('PreguntasController','index')}}">
+      <img align="right" class="img-responsive animated flash" alt="Responsive image" src="{{=URL('static/images','preguntas.png')}}">
+    </a>    
+  </div>
+  <div class="col-xs-4 col-md-4">
+    <a>
+      <img class="animated flip img-responsive" alt="Responsive image" src="{{=URL('static/images','logo-brain.png')}}">
+    </a>
+  </div>
+  <div class="col-xs-4 col-md-4">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>    
+    <br>
+    <br>
+    <br>
+      <a href="#">
+        <img  class="img-responsive animated flash" alt="Responsive image" src="{{=URL('static/images','rompecabezas.png')}}">
+      </a>
+      <a href="#">
+        <img  class="img-responsive animated flash" alt="Responsive image "  src="{{=URL('static/images','memoria.png')}}">
+      </a>
+  </div>
+</div>
+
+</body>
+
+</html>
+{{=BEAUTIFY(response._vars)}}

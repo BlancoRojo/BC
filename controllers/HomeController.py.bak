@@ -1,0 +1,6 @@
+# -*- coding: utf-8 -*-
+# intente algo como
+def index(): 
+    response.view='Head.html'
+    response.view= 'HomeController/index.html '
+    return dict(message="hello from HomeController.py")

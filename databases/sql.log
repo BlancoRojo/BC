@@ -1,0 +1,422 @@
+timestamp: 2016-05-30T13:57:42.656000
+CREATE TABLE auth_user(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    first_name CHAR(128),
+    last_name CHAR(128),
+    email CHAR(512),
+    password CHAR(512),
+    registration_key CHAR(512),
+    reset_password_key CHAR(512),
+    registration_id CHAR(512)
+);
+success!
+timestamp: 2016-05-30T13:57:42.682000
+CREATE TABLE auth_group(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    role CHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2016-05-30T13:57:42.746000
+CREATE TABLE auth_membership(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ,
+    group_id INTEGER REFERENCES auth_group (id) ON DELETE CASCADE  
+);
+success!
+timestamp: 2016-05-30T13:57:42.970000
+CREATE TABLE auth_permission(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    group_id INTEGER REFERENCES auth_group (id) ON DELETE CASCADE  ,
+    name CHAR(512),
+    table_name CHAR(512),
+    record_id INTEGER
+);
+success!
+timestamp: 2016-05-30T13:57:42.979000
+CREATE TABLE auth_event(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    time_stamp TIMESTAMP,
+    client_ip CHAR(512),
+    user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ,
+    origin CHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2016-05-30T13:57:43.006000
+CREATE TABLE auth_cas(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ,
+    created_on TIMESTAMP,
+    service CHAR(512),
+    ticket CHAR(512),
+    renew CHAR(1)
+);
+success!
+CREATE TABLE Pregunta(
+		     Id_Pregunta INTEGER PRIMARY KEY AUTOINCREMENT,
+		     Descripcion varchar(100),
+		      );
+success!
+timestamp: 2016-06-04T21:49:48.678000
+CREATE TABLE auth_user(
+    id INT AUTO_INCREMENT NOT NULL,
+    first_name VARCHAR(128),
+    last_name VARCHAR(128),
+    email VARCHAR(512),
+    password VARCHAR(512),
+    registration_key VARCHAR(512),
+    reset_password_key VARCHAR(512),
+    registration_id VARCHAR(512),
+    PRIMARY KEY (id)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2016-06-04T21:49:48.848000
+CREATE TABLE auth_group(
+    id INT AUTO_INCREMENT NOT NULL,
+    role VARCHAR(512),
+    description LONGTEXT,
+    PRIMARY KEY (id)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2016-06-04T21:49:48.958000
+CREATE TABLE auth_membership(
+    id INT AUTO_INCREMENT NOT NULL,
+    user_id INT  , INDEX user_id__idx (user_id), FOREIGN KEY (user_id) REFERENCES auth_user (id) ON DELETE CASCADE,
+    group_id INT  , INDEX group_id__idx (group_id), FOREIGN KEY (group_id) REFERENCES auth_group (id) ON DELETE CASCADE,
+    PRIMARY KEY (id)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2016-06-04T21:49:49
+CREATE TABLE auth_permission(
+    id INT AUTO_INCREMENT NOT NULL,
+    group_id INT  , INDEX group_id__idx (group_id), FOREIGN KEY (group_id) REFERENCES auth_group (id) ON DELETE CASCADE,
+    name VARCHAR(512),
+    table_name VARCHAR(512),
+    record_id INT,
+    PRIMARY KEY (id)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2016-06-04T21:49:49.090000
+CREATE TABLE auth_event(
+    id INT AUTO_INCREMENT NOT NULL,
+    time_stamp DATETIME,
+    client_ip VARCHAR(512),
+    user_id INT  , INDEX user_id__idx (user_id), FOREIGN KEY (user_id) REFERENCES auth_user (id) ON DELETE CASCADE,
+    origin VARCHAR(512),
+    description LONGTEXT,
+    PRIMARY KEY (id)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2016-06-04T21:49:49.135000
+CREATE TABLE auth_cas(
+    id INT AUTO_INCREMENT NOT NULL,
+    user_id INT  , INDEX user_id__idx (user_id), FOREIGN KEY (user_id) REFERENCES auth_user (id) ON DELETE CASCADE,
+    created_on DATETIME,
+    service VARCHAR(512),
+    ticket VARCHAR(512),
+    renew CHAR(1),
+    PRIMARY KEY (id)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2016-06-05T01:56:40.877000
+CREATE TABLE auth_user(
+    id INT AUTO_INCREMENT NOT NULL,
+    first_name VARCHAR(128),
+    last_name VARCHAR(128),
+    email VARCHAR(512),
+    password VARCHAR(512),
+    registration_key VARCHAR(512),
+    reset_password_key VARCHAR(512),
+    registration_id VARCHAR(512),
+    PRIMARY KEY (id)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2016-06-05T01:56:40.985000
+CREATE TABLE auth_group(
+    id INT AUTO_INCREMENT NOT NULL,
+    role VARCHAR(512),
+    description LONGTEXT,
+    PRIMARY KEY (id)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2016-06-05T01:56:41.108000
+CREATE TABLE auth_membership(
+    id INT AUTO_INCREMENT NOT NULL,
+    user_id INT  , INDEX user_id__idx (user_id), FOREIGN KEY (user_id) REFERENCES auth_user (id) ON DELETE CASCADE,
+    group_id INT  , INDEX group_id__idx (group_id), FOREIGN KEY (group_id) REFERENCES auth_group (id) ON DELETE CASCADE,
+    PRIMARY KEY (id)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2016-06-05T01:56:41.248000
+CREATE TABLE auth_permission(
+    id INT AUTO_INCREMENT NOT NULL,
+    group_id INT  , INDEX group_id__idx (group_id), FOREIGN KEY (group_id) REFERENCES auth_group (id) ON DELETE CASCADE,
+    name VARCHAR(512),
+    table_name VARCHAR(512),
+    record_id INT,
+    PRIMARY KEY (id)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2016-06-05T01:56:41.318000
+CREATE TABLE auth_event(
+    id INT AUTO_INCREMENT NOT NULL,
+    time_stamp DATETIME,
+    client_ip VARCHAR(512),
+    user_id INT  , INDEX user_id__idx (user_id), FOREIGN KEY (user_id) REFERENCES auth_user (id) ON DELETE CASCADE,
+    origin VARCHAR(512),
+    description LONGTEXT,
+    PRIMARY KEY (id)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2016-06-05T01:56:41.413000
+CREATE TABLE auth_cas(
+    id INT AUTO_INCREMENT NOT NULL,
+    user_id INT  , INDEX user_id__idx (user_id), FOREIGN KEY (user_id) REFERENCES auth_user (id) ON DELETE CASCADE,
+    created_on DATETIME,
+    service VARCHAR(512),
+    ticket VARCHAR(512),
+    renew CHAR(1),
+    PRIMARY KEY (id)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2016-06-05T02:05:08.480000
+CREATE TABLE pregunta(
+    id INT AUTO_INCREMENT NOT NULL,
+    Id_Pregunta VARCHAR(512),
+    Descripcion VARCHAR(512),
+    PRIMARY KEY (id)
+) ENGINE=InnoDB CHARACTER SET utf8;
+timestamp: 2016-06-05T02:05:25.949000
+CREATE TABLE pregunta(
+    id INT AUTO_INCREMENT NOT NULL,
+    Id_Pregunta VARCHAR(512),
+    Descripcion VARCHAR(512),
+    PRIMARY KEY (id)
+) ENGINE=InnoDB CHARACTER SET utf8;
+timestamp: 2016-06-05T02:06:03.318000
+CREATE TABLE pregunta(
+    id INT AUTO_INCREMENT NOT NULL,
+    Id_Pregunta VARCHAR(512),
+    Descripcion VARCHAR(512),
+    PRIMARY KEY (id)
+) ENGINE=InnoDB CHARACTER SET utf8;
+timestamp: 2016-06-05T23:48:17.342000
+CREATE TABLE auth_user(
+    id INT AUTO_INCREMENT NOT NULL,
+    first_name VARCHAR(128),
+    last_name VARCHAR(128),
+    email VARCHAR(512),
+    password VARCHAR(512),
+    registration_key VARCHAR(512),
+    reset_password_key VARCHAR(512),
+    registration_id VARCHAR(512),
+    PRIMARY KEY (id)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2016-06-05T23:48:17.404000
+CREATE TABLE auth_group(
+    id INT AUTO_INCREMENT NOT NULL,
+    role VARCHAR(512),
+    description LONGTEXT,
+    PRIMARY KEY (id)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2016-06-05T23:48:17.452000
+CREATE TABLE auth_membership(
+    id INT AUTO_INCREMENT NOT NULL,
+    user_id INT  , INDEX user_id__idx (user_id), FOREIGN KEY (user_id) REFERENCES auth_user (id) ON DELETE CASCADE,
+    group_id INT  , INDEX group_id__idx (group_id), FOREIGN KEY (group_id) REFERENCES auth_group (id) ON DELETE CASCADE,
+    PRIMARY KEY (id)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2016-06-05T23:48:17.700000
+CREATE TABLE auth_permission(
+    id INT AUTO_INCREMENT NOT NULL,
+    group_id INT  , INDEX group_id__idx (group_id), FOREIGN KEY (group_id) REFERENCES auth_group (id) ON DELETE CASCADE,
+    name VARCHAR(512),
+    table_name VARCHAR(512),
+    record_id INT,
+    PRIMARY KEY (id)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2016-06-05T23:48:17.801000
+CREATE TABLE auth_event(
+    id INT AUTO_INCREMENT NOT NULL,
+    time_stamp DATETIME,
+    client_ip VARCHAR(512),
+    user_id INT  , INDEX user_id__idx (user_id), FOREIGN KEY (user_id) REFERENCES auth_user (id) ON DELETE CASCADE,
+    origin VARCHAR(512),
+    description LONGTEXT,
+    PRIMARY KEY (id)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2016-06-05T23:48:17.953000
+CREATE TABLE auth_cas(
+    id INT AUTO_INCREMENT NOT NULL,
+    user_id INT  , INDEX user_id__idx (user_id), FOREIGN KEY (user_id) REFERENCES auth_user (id) ON DELETE CASCADE,
+    created_on DATETIME,
+    service VARCHAR(512),
+    ticket VARCHAR(512),
+    renew CHAR(1),
+    PRIMARY KEY (id)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2016-06-05T23:54:14.768000
+CREATE TABLE loca(
+    id INT AUTO_INCREMENT NOT NULL,
+    nombre VARCHAR(512),
+    PRIMARY KEY (id)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2016-06-06T10:45:33.416000
+CREATE TABLE tabla(
+    id INT AUTO_INCREMENT NOT NULL,
+    PRIMARY KEY (id)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2016-06-06T10:51:31.128000
+CREATE TABLE categorias(
+    id INT AUTO_INCREMENT NOT NULL,
+    IdCategoria INT,
+    Descripcion VARCHAR(512),
+    PRIMARY KEY (id)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2016-06-06T10:52:56.282000
+CREATE TABLE categorias(
+    id INT AUTO_INCREMENT NOT NULL,
+    IdCategoria INT,
+    Descripcion VARCHAR(512),
+    PRIMARY KEY (id)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2016-06-06T11:01:34.695000
+ALTER TABLE categorias DROP COLUMN idcategoria;
+timestamp: 2016-06-06T11:01:46.655000
+ALTER TABLE categorias DROP COLUMN idcategoria;
+timestamp: 2016-06-06T11:02:43.964000
+ALTER TABLE categorias DROP COLUMN idcategoria;
+timestamp: 2016-06-06T11:03:29.661000
+ALTER TABLE categorias DROP COLUMN idcategoria;
+timestamp: 2016-06-06T11:04:04.250000
+ALTER TABLE categorias DROP COLUMN idcategoria;
+timestamp: 2016-06-06T11:04:29.598000
+ALTER TABLE categorias DROP COLUMN idcategoria;
+timestamp: 2016-06-06T11:04:49.738000
+ALTER TABLE categorias DROP COLUMN idcategoria;
+timestamp: 2016-06-06T11:05:49.448000
+ALTER TABLE categorias DROP COLUMN idcategoria;
+timestamp: 2016-06-06T11:07:54.765000
+ALTER TABLE categorias DROP COLUMN idcategoria;
+timestamp: 2016-06-06T11:09:11.781000
+ALTER TABLE categorias DROP COLUMN idcategoria;
+timestamp: 2016-06-06T11:10:05.678000
+ALTER TABLE categorias DROP COLUMN idcategoria;
+timestamp: 2016-06-06T11:10:48.492000
+ALTER TABLE categorias DROP COLUMN idcategoria;
+timestamp: 2016-06-06T11:17:11.695000
+ALTER TABLE categorias DROP COLUMN idcategoria;
+timestamp: 2016-06-06T11:17:25.821000
+ALTER TABLE categorias DROP COLUMN idcategoria;
+timestamp: 2016-06-06T11:18:05.434000
+CREATE TABLE pepe(
+    id INT AUTO_INCREMENT NOT NULL,
+    descripcion VARCHAR(512),
+    PRIMARY KEY (id)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2016-06-06T11:23:44.664000
+ALTER TABLE categorias DROP COLUMN idcategoria;
+timestamp: 2016-06-06T11:24:15.600000
+ALTER TABLE categorias DROP COLUMN idcategoria;
+timestamp: 2016-06-06T11:24:40.360000
+ALTER TABLE categorias DROP COLUMN idcategoria;
+timestamp: 2016-06-06T11:24:54.026000
+ALTER TABLE categorias DROP COLUMN idcategoria;
+timestamp: 2016-06-06T11:25:09.080000
+CREATE TABLE prueba(
+    id INT AUTO_INCREMENT NOT NULL,
+    descripcion VARCHAR(512),
+    PRIMARY KEY (id)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2016-06-06T11:28:42.820000
+ALTER TABLE categorias DROP COLUMN idcategoria;
+timestamp: 2016-06-06T11:30:59.967000
+ALTER TABLE categorias DROP COLUMN idcategoria;
+timestamp: 2016-06-06T11:31:08.400000
+ALTER TABLE categorias DROP COLUMN idcategoria;
+timestamp: 2016-06-06T11:31:40.808000
+ALTER TABLE categorias DROP COLUMN idcategoria;
+timestamp: 2016-06-06T11:31:50.619000
+CREATE TABLE categoria(
+    id INT AUTO_INCREMENT NOT NULL,
+    descripcion VARCHAR(512),
+    PRIMARY KEY (id)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2016-06-06T11:42:46.270000
+CREATE TABLE pregunta(
+    id INT AUTO_INCREMENT NOT NULL,
+    descripcion VARCHAR(512),
+    PRIMARY KEY (id)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2016-06-06T11:47:05.277000
+ALTER TABLE pregunta ADD categoria_id INT  , ADD INDEX categoria_id__idx (categoria_id), ADD FOREIGN KEY (categoria_id) REFERENCES categoria (id) ON DELETE CASCADE;
+timestamp: 2016-06-06T11:47:44.082000
+ALTER TABLE pregunta ADD categoria_id INT  , ADD INDEX categoria_id__idx (categoria_id), ADD FOREIGN KEY (categoria_id) REFERENCES categoria (id) ON DELETE CASCADE;
+timestamp: 2016-06-06T11:48:18.997000
+ALTER TABLE pregunta ADD categoria_id INT  , ADD INDEX categoria_id__idx (categoria_id), ADD FOREIGN KEY (categoria_id) REFERENCES categoria (id) ON DELETE CASCADE;
+timestamp: 2016-06-06T11:49:03.091000
+ALTER TABLE pregunta ADD categoria_id INT  , ADD INDEX categoria_id__idx (categoria_id), ADD FOREIGN KEY (categoria_id) REFERENCES categoria (id) ON DELETE CASCADE;
+timestamp: 2016-06-06T11:50:02.661000
+ALTER TABLE pregunta ADD categoria_id INT  , ADD INDEX categoria_id__idx (categoria_id), ADD FOREIGN KEY (categoria_id) REFERENCES categoria (id) ON DELETE CASCADE;
+timestamp: 2016-06-06T11:50:07.701000
+ALTER TABLE pregunta ADD categoria_id INT  , ADD INDEX categoria_id__idx (categoria_id), ADD FOREIGN KEY (categoria_id) REFERENCES categoria (id) ON DELETE CASCADE;
+timestamp: 2016-06-06T11:50:23.289000
+ALTER TABLE pregunta ADD categoria_id INT  , ADD INDEX categoria_id__idx (categoria_id), ADD FOREIGN KEY (categoria_id) REFERENCES categoria (id) ON DELETE CASCADE;
+timestamp: 2016-06-07T10:19:57.152000
+CREATE TABLE categoria(
+    id INT AUTO_INCREMENT NOT NULL,
+    descripcion VARCHAR(512),
+    PRIMARY KEY (id)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2016-06-07T10:19:57.415000
+CREATE TABLE pregunta(
+    id INT AUTO_INCREMENT NOT NULL,
+    descripcion VARCHAR(512),
+    PRIMARY KEY (id)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2016-06-07T10:26:28.188000
+ALTER TABLE pregunta ADD idcat INT  , ADD INDEX idCat__idx (idCat), ADD FOREIGN KEY (idCat) REFERENCES categoria (id) ON DELETE CASCADE;
+success!
+success!
+timestamp: 2016-06-07T10:47:59.503000
+CREATE TABLE respuesta(
+    id INT NOT NULL,
+    descripcion VARCHAR(512),
+    idPreg INT  NOT NULL , INDEX idPreg__idx (idPreg), FOREIGN KEY (idPreg) REFERENCES pregunta (id) ON DELETE CASCADE,
+    opcion VARCHAR(512),
+    PRIMARY KEY(id, idPreg))  ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2016-06-07T11:18:50.559000
+CREATE TABLE respuestapregunta(
+    id INT NOT NULL,
+    idPreg INT  NOT NULL , INDEX idPreg__idx (idPreg), FOREIGN KEY (idPreg) REFERENCES pregunta (id) ON DELETE CASCADE,
+    descripcion VARCHAR(512),
+    opcion VARCHAR(512),
+    PRIMARY KEY(id, idPreg))  ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2016-06-26T13:09:07.409000
+CREATE TABLE usuarios(
+    id INT AUTO_INCREMENT NOT NULL,
+    nombre VARCHAR(512),
+    correo VARCHAR(512),
+    password VARCHAR(512),
+    PRIMARY KEY (id)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!

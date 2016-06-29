@@ -1,0 +1,122 @@
+{{extend 'layout.html'}}
+
+<body id="fondo-preguntas">
+	<br>
+ <div class="container" >
+   	
+  <br>
+  <br>
+  <br>
+
+		
+	<div id="cuadro-mapa">
+	 <div id="preload ">
+          <center><img src="{{=URL('static/images','preload.gif')}}" alt=""></center>
+      </div>
+    </div>
+
+	<div id="segunda-pantalla-mapa" class="container hidden">
+		
+
+		<div class="row">
+
+			
+			<div class="col-lg-12 col-md-12 col-xs-12">
+	     		<center>
+	     		<br>
+		     		<img class="img-responsive" id="inicio-mapa" height="6" src="{{=URL('static/images','bc-memoria-presentacion.png')}}" alt="">
+		     	</center>
+	     	</div>
+
+	     	
+	     	<div class="col-lg-3 col-md-4 col-sm-4 col-xs-4"></div>
+	     	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" id="titulo-memoria">
+	     	<div class="col-lg-3 col-md-2 col-sm-2 col-xs-2"></div>
+	     	
+	     	<div class="col-md-4 col-xs-4"></div>
+				<center><img class="img-responsive animated flash" height="6" src="{{=URL('static/images','bc-memoria-titulo.png')}}" alt=""></center>
+			</div>
+			
+	     	<div class="col-lg-5 col-md-6 col-sm-7 col-xs-8"></div>
+			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" >
+
+			    <center>
+			    	<a>	
+			    		<img class="img-responsive" id="empezar" src="{{=URL('static/images','bc-boton-jugar.png')}}" alt="responsive image">
+			    	</a> 			
+			   	</center>
+
+			
+			<div class="col-lg-3 col-md-2 col-sm-1"></div>
+			</div>
+		</div>
+	</div>
+
+	<div class="hidden container" id="tercer-pantalla-mapa">
+			
+		  <div class="row">
+       
+        <div class="col-md-4">
+          <center>
+                  <div class="head"><h1>Intentos Restante: <p id="intentos">2</p></h2>
+                 </div>
+          </center>
+         
+        </div>
+        
+
+        <div class="col-md-4 puntos">
+            <div class="boxIndicador">
+              <div class="points">
+                <div class="boxArrow">
+                  <div id="numPuntos" class="numIndicador">0</div>
+                  <div id="titPuntos" class="titIndicador">Puntos</div>
+                </div>
+                <div class="bgArrow"></div>
+              </div>
+            </div>
+          </div>
+
+
+        <div class="col-md-4">
+            <center>
+                <div class="boxIndicador" id="cajaTiempo">
+                  <div id="numTiempo" class="numIndicador">
+                      <span id="minutos">00</span> :
+                      <span id="segundos">00</span>
+                  </div>
+                  <div id="titTiempo" class="titIndicador">Tiempo</div>
+                </div>
+            </center>
+        </div> 
+
+
+      </div>
+
+
+			<div id="jugar">
+			   	
+			   	<div class="row">
+			   		
+
+			   		<div class="row">
+				   		
+				   		<div class="col-md-12">
+				   			<center><font size="5px" color='#ffffff'><h1 id="localidad"></h1></font></center>
+				   		</div>
+
+						<center><div id="mapa" class="col-md-6 col-md-offset-3"></div></center>
+						
+					</div>
+				   
+			 	</div> 
+
+		    </div>
+	</div>
+					
+	
+</div>
+
+    
+
+</body>

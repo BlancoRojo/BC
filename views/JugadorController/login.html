@@ -1,0 +1,66 @@
+{{extend 'layout.html'}}
+
+
+<link rel="stylesheet" type="text/css" href="{{=URL('static/css', 'jugador.css')}}">
+<div class="form">
+      
+      <ul class="tab-group">
+            <li ></li>
+      </ul>
+      
+      <div class="tab-content">
+        <div id="signup">   
+                   {{if LError=='Bienvenido':}}
+                   
+                  <h1>{{=LError}} <font color="#00ff00">{{=session.jugador}}</font> </h1>
+                    {{else:}}
+                    {{if LError!='':}}
+                     <h1>Accede a tu cuenta!<hr></h1>
+                      <h4><font color="red">{{=LError}}</font></h4>
+                     {{else:}}
+            <h1>Accede a tu cuenta!<hr></h1>
+            
+          {{pass}}
+          {{pass}}
+          {{if LError!='Bienvenido':}}
+          <form action="{{=URL('JugadorController','loginCompleto')}}" method="post">
+          
+            <div class="field-wrap">
+            <label {{if LNom!='':}} class="active highlight"{{pass}}>
+              Nombre<span class="req">*</span>
+            </label>
+            <input type="text" name="LNom" {{if LNom!='':}}value={{=LNom}}{{pass}} required autocomplete="off"/>
+          </div>
+          
+          <div class="field-wrap">
+            <label {{if LPsw!='':}} class="active highlight"{{pass}}>
+              Contraseña<span class="req">*</span>
+            </label>
+            <input type="password" name="LPsw" {{if LPsw!='':}}value={{=LPsw}}{{pass}} required autocomplete="off"/>
+          </div>
+          
+          <p class="forgot"><a href="{{=URL('JugadorController','recuperar')}}">Recuperar Contraseña</a></p>
+          <div align="right">
+            <button class="button button-block"/><h1>Iniciar sesión</h1></button>
+          </div>
+          
+          
+          </form>
+           {{else:}}
+           <form action="{{=URL('HomeController','index')}}" method="post">
+             <div align="right">
+           <button type="submit" class="button button-block"/><h1>Jugar!</h1></button>
+           </div>
+           </form>
+          {{pass}}
+        </div>
+        
+        <div id="login">   
+
+
+        </div>
+        
+      </div><!-- tab-content -->
+      
+</div> <!-- /form -->
+<script src="{{=URL('static/js','jugador.js')}}"></script>

@@ -1,0 +1,41 @@
+{{extend 'layout.html'}}
+</script>
+
+<body id="fondo-preguntas">
+	
+	<div id="scores" >Puntuacion | 0 <br>
+		<label id="LblnomJugador"></label>
+	</div>
+    
+	<center>
+	 <img id="titulo" class="animated flip img-responsive" src="{{=URL('static/images','logo-brain.png')}}">
+	</center>
+	
+	
+    <div class="modal fade" id="mostrarmodal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+           <div class="modal-header">
+              <h3>Ingrese Nombre</h3>
+           </div>
+           <div class="modal-body">
+              <input type="text" class="form-control" id="nomJugador">  
+              
+            </div>
+           <div class="modal-footer">
+            <button href="#" data-dismiss="modal" class="btn btn-info" id="btn-nom">Aceptar</button>
+           </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+	<div class="col-md-6 col-md-offset-5 " id="preguntas">
+        <ul>
+           <!-- {{for preguntas in preguntas:}}
+            {{=LI(preguntas.Id_Pregunta)}}
+            {{=LI(preguntas.Descripcion)}}
+            {{pass}}-->
+        </ul>
+	</div>
+</body>

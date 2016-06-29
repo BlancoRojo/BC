@@ -1,0 +1,4 @@
+# -*- coding: utf-8 -*-
+def seleccionarPregunta():
+                         query= "SELECT * FROM PREGUNTAS WHERE IdPreguntas=2"
+                         return query()

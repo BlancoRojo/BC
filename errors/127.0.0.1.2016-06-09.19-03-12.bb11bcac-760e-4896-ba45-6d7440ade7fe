@@ -1,0 +1,21 @@
+(dp1
+S'output'
+p2
+S'<class \'_mysql_exceptions.OperationalError\'> (1054, "Unknown column \'seleccionar_pregunta\' in \'where clause\'")'
+p3
+sS'layer'
+p4
+S'D:\\web2py\\applications\\BrainChaco\\controllers/PreguntasController.py'
+p5
+sS'code'
+p6
+S'# -*- coding: utf-8 -*-\n# intente algo como\ndef index():\n   \tresponse.view=\'PreguntasController/index.html\'\n   \tpreguntas=[]\n   \trespuesta=[]\n   \tsession.puntaje=0\n   \treturn dict(preguntas=preguntas,respuesta=respuesta)\n\t\ndef seleccionar_pregunta():\n\tif session.jugador==\'\':\n\t\tsession.jugador=request.vars.nomJugador\n\tpreguntas = db.executesql(\'SELECT id,descripcion FROM pregunta WHERE idcat=\'+request.args(0)+\' ORDER BY RAND() LIMIT 1\')\n \tfor pregunta in preguntas:\n \t\tidPreg=str(pregunta[0])\n \trespuesta=db.executesql(\'SELECT descripcion FROM RESPUESTAPREGUNTA WHERE idPreg=\'+idPreg)\n \tresponse.view=\'PreguntasController/index.html\'\n \treturn dict(preguntas=preguntas,respuesta=respuesta)\n\n\ndef verificar_respuesta():\n\tidPreg=request.vars.idPreg\n\n\tresp_usuario=request.vars.respuesta\n\tpreguntas=[]\n   \trespuesta=[]\n\topcion=db.executesql(\'SELECT descripcion from respuestapregunta WHERE opcion="V" AND idPreg=\'+idPreg)\n\tfor resp in opcion:\n\t\tif str(resp[0])==resp_usuario:\n\t\t\tresponse.flash="RESPUESTA CORRECTA"\n\t\t\tsession.puntaje= session.puntaje + 10\n\t\telse:\n\t\t\tresponse.flash="RESPUESTA INCORRECTA"\n \tresponse.view=\'PreguntasController/index.html\'\n \treturn dict(preguntas=preguntas,respuesta=respuesta)\n \t\n\t\nresponse._vars=response._caller(seleccionar_pregunta)\n'
+p7
+sS'snapshot'
+p8
+(dp9
+sS'traceback'
+p10
+S'Traceback (most recent call last):\n  File "D:\\web2py\\gluon\\restricted.py", line 227, in restricted\n    exec ccode in environment\n  File "D:\\web2py\\applications\\BrainChaco\\controllers/PreguntasController.py", line 38, in <module>\n  File "D:\\web2py\\gluon\\globals.py", line 417, in <lambda>\n    self._caller = lambda f: f()\n  File "D:\\web2py\\applications\\BrainChaco\\controllers/PreguntasController.py", line 13, in seleccionar_pregunta\n    preguntas = db.executesql(\'SELECT id,descripcion FROM pregunta WHERE idcat=\'+request.args(0)+\' ORDER BY RAND() LIMIT 1\')\n  File "D:\\web2py\\gluon\\packages\\dal\\pydal\\base.py", line 1019, in executesql\n    adapter.execute(query)\n  File "D:\\web2py\\gluon\\packages\\dal\\pydal\\adapters\\base.py", line 1388, in execute\n    return self.log_execute(*a, **b)\n  File "D:\\web2py\\gluon\\packages\\dal\\pydal\\adapters\\base.py", line 1382, in log_execute\n    ret = self.get_cursor().execute(command, *a[1:], **b)\n  File "MySQLdb/cursors.py", line 205, in execute\n  File "MySQLdb/connections.py", line 36, in defaulterrorhandler\nOperationalError: (1054, "Unknown column \'seleccionar_pregunta\' in \'where clause\'")\n'
+p11
+s.
