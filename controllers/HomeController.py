@@ -5,7 +5,12 @@ def index():
     response.view= 'HomeController/index.html '
     return dict()
 
+
 def hola2():
 	return dict()
+
+ def hola():
+ 	return dict()
+
 
 
