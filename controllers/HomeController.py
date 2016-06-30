@@ -12,5 +12,8 @@ def hola2():
  def hola():
  	return dict()
 
+def holaaa():
+	return()
+
 
 
