@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="{{=URL('static','css/bootstrap.min.css')}}"/>
     <link rel="stylesheet" href="{{=URL('static','css/web2py-bootstrap3.css')}}"/>
     <link rel="stylesheet" type="text/css" href="{{=URL('static/css', 'animate.css')}}">
-    <link rel="shortcut icon" href="{{=URL('static','images/icono.ico')}}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{=URL('static','images/favicon.ico')}}" type="image/x-icon">
   
     
     
@@ -95,17 +95,21 @@
     <!-- Begin page content -->
     
  {{if session.jugador==None:}}
+  <div class="hidden" id='verificador'>menu</div>
   <div class="container-fluid">
      
 
-      <div class="ocultar-menu" id="side-menu" style="right: -314px;">
+      <div class="ocultar-menu" id="side-menu" style="right: -318px;">
         
         <a class="side-menu-tab" id="fake-tab" href="#">
       
         </a>
         
-        <a class="side-menu-tab" id="main-tab">
-          <div class="vertical-text"><span>Menú</span></div>
+        <a class="side-menu-tab" id="main-tab1">
+          <div class="vertical-text"><span id="verificador-menu">Menú</span></div>
+        </a>
+       <a class="side-menu-tab" id="mas-tab">
+          <div class="vertical-text"><span id="verificador-mas">Más</span></div>
         </a>
       
 
@@ -115,7 +119,7 @@
         <br>
         <br>
         <br>
-        <h2 class="jugador">{{=session.invitado}}</h2>
+        <h2>{{=session.invitado}}</h2>
 
           <div id="inner-side-menu">
               
@@ -131,52 +135,96 @@
                     <img class="side-menu-title-line" src="{{=URL('static/images','line-red.png')}}">
                   </div>
                 
-                  <div class="side-menu-button" id="sm-main-menu-button">
+                  <div class="side-menu-button" id="menuB1">
                     <div class="button-default">
-
                       <canvas width="305" height="83" style="width: 100%; height: 100%;"></canvas>
-                      <div class="side-menu-button-text">Menú principal</div>
-
+                      <div class="side-menu-button-text" id="vmenu">Menú principal</div>
                     </div>
 
-                    <div class="button-hover">
-
-                      <canvas  width="305" height="83" style="width: 100%; height: 100%;"></canvas>
+                    <div class="button-hover" id="menuB2">
+                      <canvas width="305" height="83" style="width: 100%; height: 100%;"></canvas>
                       <div class="side-menu-button-text"><a href="{{=URL('HomeController','index')}}">Menú principal</a></div>
                     </div>
                   </div>
 
-                   <div class="side-menu-button" id="sm-how-to-play-button">
+                   <div class="side-menu-button" id="logB1">
                     <div class="button-default">
                       <canvas width="305" height="83" style="width: 100%; height: 100%;"></canvas>
                       <div class="side-menu-button-text">Login</div>
                     </div>
-                    <div class="button-hover">
+                    <div class="button-hover" id="logB2">
                       <canvas width="305" height="83" style="width: 100%; height: 100%;"></canvas>
                       <div class="side-menu-button-text"><a href="{{=URL('JugadorController','login')}}">Login</a></div>
                     </div>
                   </div>
 
-                  <div class="side-menu-button" id="sm-new-game-button">
+                  <div class="side-menu-button" id="regB1">
                     <div class="button-default">
                       <canvas width="305" height="83" style="width: 100%; height: 100%;"></canvas>
                       <div class="side-menu-button-text">Registrar</div>
                     </div>
-                    <div class="button-hover">
+                    <div class="button-hover" id="regB2">
                       <canvas width="305" height="83" style="width: 100%; height: 100%;"></canvas>
                       <div class="side-menu-button-text"><a href="{{=URL('JugadorController','registro')}}">Registrar</a></div>
                     </div>
                   </div>
                                   
 
-                  <div class="side-menu-button" id="sm-scoreboard-button">
+                  <div class="side-menu-button" id="rankingB">
                     <div class="button-default">
                       <canvas width="305" height="83" style="width: 100%; height: 100%;"></canvas>
-                      <div class="side-menu-button-text">
-                        <a href="{{=URL('JugadorController','ranking')}}">Ranking</a></div>
+                      <div class="side-menu-button-text">Ranking</div>
                     </div>
                     
                   </div>
+                
+                <div class="side-menu-button hidden" id="sugB1">
+                    <div class="button-default">
+                      <canvas width="305" height="83" style="width: 100%; height: 100%;"></canvas>
+                      <div class="side-menu-button-text" id="vmenu">Sugerinos!</div>
+                    </div>
+
+                    <div class="button-hover hidden" id="sugB2">
+                      <canvas width="305" height="83" style="width: 100%; height: 100%;"></canvas>
+                      <div class="side-menu-button-text"><a href="{{=URL('HomeController','index')}}">Sugerinos!</a></div>
+                    </div>
+                  </div>               
+                <div class="side-menu-button hidden" id="valorB1">
+                    <div class="button-default">
+                      <canvas width="305" height="83" style="width: 100%; height: 100%;"></canvas>
+                      <div class="side-menu-button-text" id="vmenu">Votaciones</div>
+                    </div>
+
+                    <div class="button-hover hidden" id="valorB2">
+                      <canvas width="305" height="83" style="width: 100%; height: 100%;"></canvas>
+                      <div class="side-menu-button-text"><a href="{{=URL('HomeController','index')}}">Votaciones</a></div>
+                    </div>
+                  </div>
+                
+                  <div class="side-menu-button hidden" id="recomend1">
+                    <div class="button-default">
+                      <canvas width="305" height="83" style="width: 100%; height: 100%;"></canvas>
+                      <div class="side-menu-button-text" id="vmenu">Recomendados</div>
+                    </div>
+
+                    <div class="button-hover hidden" id="recomend2">
+                      <canvas width="305" height="83" style="width: 100%; height: 100%;"></canvas>
+                      <div class="side-menu-button-text"><a href="{{=URL('HomeController','index')}}">Recomendados</a></div>
+                    </div>
+                  </div>
+
+                  <div class="side-menu-button hidden" id="nosotrosB1">
+                    <div class="button-default">
+                      <canvas width="305" height="83" style="width: 100%; height: 100%;"></canvas>
+                      <div class="side-menu-button-text" id="vmenu">Acerca de...</div>
+                    </div>
+
+                    <div class="button-hover hidden" id="nosotrosB2">
+                      <canvas width="305" height="83" style="width: 100%; height: 100%;"></canvas>
+                      <div class="side-menu-button-text"><a href="{{=URL('HomeController','index')}}">Acerca de...</a></div>
+                    </div>
+                  </div>
+
 
               </div>
           </div>
@@ -201,7 +249,7 @@
         <br>
         <br>
         <br>
-        <h2 class="jugador">{{=session.jugador}}</h2>
+        <h2>{{=session.jugador}}</h2>
         
 
           <div id="inner-side-menu">
@@ -239,7 +287,7 @@
                     </div>
                     <div class="button-hover">
                       <canvas width="305" height="83" style="width: 100%; height: 100%;"></canvas>
-                      <div class="side-menu-button-text"><a href="{{=URL('JugadorController','perfil')}}">Perfil</a></div>
+                      <div class="side-menu-button-text"><a href="#">Perfil</a></div>
                     </div>
                   </div>
 
@@ -250,7 +298,7 @@
                     </div>
                     <div class="button-hover">
                       <canvas width="305" height="83" style="width: 100%; height: 100%;"></canvas>
-                      <div class="side-menu-button-text"><a href="{{=URL('JugadorController','ranking')}}">Ranking</a></div>
+                      <div class="side-menu-button-text"><a href="#">Ranking</a></div>
                     </div>
                   </div>
                                   
