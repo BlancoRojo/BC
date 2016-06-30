@@ -6,15 +6,3 @@ def index():
     return dict()
 
 
-def hola2():
-	return dict()
-
- def hola():
- 	return dict()
-
-def holaaa():
-	return()
-
-
-def hola3():
-	return asd

@@ -420,3 +420,52 @@ CREATE TABLE usuarios(
     PRIMARY KEY (id)
 ) ENGINE=InnoDB CHARACTER SET utf8;
 success!
+timestamp: 2016-06-29T16:53:04.633000
+CREATE TABLE puntajes(
+    id INT AUTO_INCREMENT NOT NULL,
+    idUser INT  , INDEX idUser__idx (idUser), FOREIGN KEY (idUser) REFERENCES usuarios (id) ON DELETE CASCADE,
+    juego VARCHAR(512),
+    tiempo TIME,
+    fecha DATETIME,
+    PRIMARY KEY (id)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2016-06-29T21:55:19.320000
+CREATE TABLE puntaje(
+    id INT AUTO_INCREMENT NOT NULL,
+    idUser INT  , INDEX idUser__idx (idUser), FOREIGN KEY (idUser) REFERENCES usuarios (id) ON DELETE CASCADE,
+    descJuego VARCHAR(512),
+    puntaje INT,
+    tiempo TIME,
+    fecha DATETIME,
+    PRIMARY KEY (id)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2016-06-30T10:11:42.323000
+ALTER TABLE puntaje ADD fecha__tmp DATE;
+success!
+UPDATE puntaje SET fecha__tmp=fecha;
+success!
+ALTER TABLE puntaje DROP COLUMN fecha;
+success!
+ALTER TABLE puntaje ADD fecha DATE;
+success!
+UPDATE puntaje SET fecha=fecha__tmp;
+success!
+ALTER TABLE puntaje DROP COLUMN fecha__tmp;
+success!
+success!
+timestamp: 2016-06-30T10:13:45.735000
+ALTER TABLE puntaje ADD fecha__tmp VARCHAR(512);
+success!
+UPDATE puntaje SET fecha__tmp=fecha;
+success!
+ALTER TABLE puntaje DROP COLUMN fecha;
+success!
+ALTER TABLE puntaje ADD fecha VARCHAR(512);
+success!
+UPDATE puntaje SET fecha=fecha__tmp;
+success!
+ALTER TABLE puntaje DROP COLUMN fecha__tmp;
+success!
+success!

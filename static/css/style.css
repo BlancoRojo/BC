@@ -12,6 +12,22 @@ body{
 
 }
 
+#minutos, #segundos{
+
+  color: white;
+  font-size: 40px;
+}
+
+#dospuntos{
+color: white;
+  font-size: 40px;
+}
+
+#titTiempo{
+  font-size: 15px;
+}
+path { cursor: pointer; } 
+
 #perdiste{
    font-size: 75px;
   color: white;
@@ -137,6 +153,7 @@ opacity: 0.9;
     background-attachment: unset;/* La imagen de fondo está fija en el viewport, de modo que no se mueva cuando la altura del contenido supere la altura de la imagen. */
 
     background-size: cover;/* La imagen de fondo se reescala cuando se cambia el ancho de ventana del navegador */
+
 }
 
 #puntaje{

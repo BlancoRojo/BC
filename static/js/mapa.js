@@ -14,8 +14,10 @@ $(document).ready(function () {
     $("#empezar").click(function(){
       intentos=2;
       puntos=0;
+      $("#vidas").removeClass("hidden");//muestro las vidas
       $("#segunda-pantalla-mapa").addClass("hidden");
       $("#tercer-pantalla-mapa").removeClass("hidden");
+      $("#jugar").removeClass("hidden");//muestro el div donde se muestra el mapa
       siguiente();
     });
   });
@@ -25,9 +27,12 @@ var sel = new Array(25);
 var adi=0;
 var ale=0;
 var prueba;
+var correctas=0//contador para mostrar despues cuantos aciertos tuvo
 
-
-
+  //atributo de tipo pointer 
+  var pointer={
+    cursor:'pointer'
+  };
 
   var fondo = {
             fill: '#89be53',
@@ -175,12 +180,14 @@ var prueba;
          staMariaOro.node.title = 'Santa María de Oro'
        
              $('path').click(function(){
+             
               if (($(this).attr('fill')=='#00577a')){
                 if ($(this).attr('id')== dept[sel[adi]].node.id){
                    puntos=puntos+5;
                    dept[sel[adi]].attr(correcto);
                    alert($(this).attr('id') + ' CORRECTO!');
                  $('#numPuntos').text(puntos);
+                 correctas= correctas +1;
 
                 }
                 else{
@@ -189,9 +196,16 @@ var prueba;
                   dept[sel[adi]].attr(correcto);
                   $(this).attr(incorrecto);
                   alert($(this).attr('id') + ' INCORRECTO');
-                  if (intentos<0){
-                    alert('Acumulaste '+puntos.toString()+' Puntos');
-                    window.location= "/BrainChaco/MapaController/index";
+                  $("#vidas").addClass("hidden");
+                  if (intentos==0){
+
+                    $("#jugar").addClass("hidden"); 
+                    $("#looser-pantalla").removeClass("hidden");
+                    $("#resp_correctas").text(correctas);
+                    $("#puntajetotal").text(puntos);
+                    $("#tercer-pantalla-mapa").addClass("hidden");
+                    //alert('Acumulaste '+puntos.toString()+' Puntos');
+                    //window.location= "/BrainChaco/MapaController/index";
                   }
                   else{
                     $('#intentos').text(intentos);
@@ -208,6 +222,7 @@ var prueba;
 
             });
             $('path').mouseover(function(){
+              $(this).attr(pointer);//atributo pointer
              if (($(this).attr('fill')=='#d4730a') ){
               $(this).attr(marcado);
                }
@@ -226,10 +241,7 @@ var prueba;
             
               
                 for (var i = 0; i < 4+j; i++) {
-               
-                       
-                 
-
+                                
                       (function(i){
                        
                       setTimeout(function(){
@@ -252,11 +264,6 @@ var prueba;
                         for (var x = 0; x < 3+j; x++) {
                         (dept[sel[x]].attr(comenzar));
                           }
-                          
-
-
-
-
 
                        }
                   }, 1000 * (i+1));
@@ -266,14 +273,7 @@ var prueba;
                
                        
               }
-                      
-                      
-                       
-              
-              
-              
-
-              
+                                                      
 
               j=j+1;
             
@@ -285,7 +285,14 @@ var prueba;
 
 
 
-          
+          $("#reintentar-mapa").click(function(){
+              var puntos=0;
+              var intentos=2;
+              $("#segunda-pantalla-mapa").removeClass("hidden");
+              $("#looser-pantalla").addClass("hidden");
+            
+
+          });
           
 
 });

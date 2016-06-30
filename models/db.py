@@ -147,3 +147,10 @@ db.define_table('usuarios',
     Field('nombre'),
     Field('correo'),
     Field('password'))
+
+db.define_table('puntaje',           
+               Field('idUser', db.usuarios),
+               Field('descJuego'),
+               Field('puntaje','integer'),
+               Field('tiempo','time',default=0),
+               Field('fecha'))

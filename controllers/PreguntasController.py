@@ -29,13 +29,6 @@ def seleccionar_pregunta():
  	resultado.append(respuesta)
  	return response.json(resultado)
 
-'''def seleccionar_categoria():
-	categoria=[]
-	resul = db.executesql('SELECT id,descripcion FROM categoria ORDER BY RAND() LIMIT 1')
- 	for row in resul:
- 		resultado = {'idCat': row[0], 'descCat': row[1]}
- 	categoria.append(resultado)
- 	return response.json(categoria) '''
 
 def verificar_respuesta():
 	idPreg= request.vars.idPreg
@@ -49,3 +42,18 @@ def verificar_respuesta():
 			respuesta='F'
 
  	return (respuesta)
+
+def registrarPuntaje():
+	pass
+
+
+	
+
+
+
+
+
+
+
+
+

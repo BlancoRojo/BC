@@ -59,16 +59,24 @@
       <div id="tercer-pantalla" class="container hidden">
         <div class="row">
        
-            <div class="col-md-4">
+            <div class="col-md-4 ">
               <center>
-                      <div class="head"><h1>Intentos Restante: <p id="intentos">2</p></h2>
+              <br>
+                      <div class="row">
+                          <div id="vidas" class="col-md-6 col-xs-2">
+                            <img src="{{=URL('static/images','vidas.png')}}" alt="numeros de intentos">
+                          </div>
+                          <div class="col-md-6 col-xs-2">
+                              <img src="{{=URL('static/images','vidas.png')}}" alt="numeros de intentos">
+                          </div>
+                          <!--<h1>Intentos Restante: <p id="intentos">2</p></h2>-->
                      </div>
               </center>
              
              </div>
         
 
-            <div class="col-md-4 puntos">
+            <div class="col-md-4 puntos ">
               <div class="boxIndicador">
                 <div class="points">
                   <div class="boxArrow">
@@ -81,12 +89,13 @@
             </div>
 
 
-          <div class="col-md-4">
+          <div class="col-md-4 ">
               <center>
                   <div class="boxIndicador" id="cajaTiempo">
                     <div id="numTiempo" class="numIndicador">
-                        <span id="minutos">00</span> :
-                        <span id="segundos">00</span>
+                        <span id="minutos">00</span>
+                        <span id="dospuntos">:</span>
+                        <span id="segundos">:00</span>
                     </div>
                     <div id="titTiempo" class="titIndicador">Tiempo</div>
                   </div>
@@ -109,6 +118,7 @@
                     
                     <div class="wrap">
                       <form class="formulario">
+                        
                         <div class="radio">
                           <input type="radio" name="respuestas" id="respuesta1">    
                           <label id="lblrespuesta1"></label>
@@ -123,6 +133,7 @@
                           <input type="radio" name="respuestas" id="respuesta3">
                           <label id="lblrespuesta3"></label>
                         </div>
+
                       </form>
                     </div>
                     

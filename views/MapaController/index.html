@@ -58,8 +58,16 @@
        
         <div class="col-md-4">
           <center>
-                  <div class="head"><h1>Intentos Restante: <p id="intentos">2</p></h2>
-                 </div>
+                  <br>
+                      <div class="row">
+                          <div id="vidas" class="col-md-6">
+                            <img src="{{=URL('static/images','vidas.png')}}" alt="numeros de intentos">
+                          </div>
+                          <div class="col-md-6">
+                              <img src="{{=URL('static/images','vidas.png')}}" alt="numeros de intentos">
+                          </div>
+                          <!--<h1>Intentos Restante: <p id="intentos">2</p></h2>-->
+                     </div>
           </center>
          
         </div>
@@ -77,18 +85,7 @@
             </div>
           </div>
 
-
-        <div class="col-md-4">
-            <center>
-                <div class="boxIndicador" id="cajaTiempo">
-                  <div id="numTiempo" class="numIndicador">
-                      <span id="minutos">00</span> :
-                      <span id="segundos">00</span>
-                  </div>
-                  <div id="titTiempo" class="titIndicador">Tiempo</div>
-                </div>
-            </center>
-        </div> 
+ 
 
 
       </div>
@@ -114,7 +111,38 @@
 		    </div>
 	</div>
 					
-	
+	  <div id="looser-pantalla" class="hidden">
+         <br>
+         <br>
+         <br>
+          <center><h1 id="perdiste">PERDISTE!!!</h1></center><br>
+            <div class="col-md-5 col-md-offset-3 panel panel-body">
+
+              <div class="row">
+
+                <div class="col-md-6">
+                  <h5>RESPUESTAS CORRECTAS:</h5>
+                </div>
+                <div class="col-md-6">
+                 <h5 id="resp_correctas"></h5>
+                </div>
+                
+              </div>  
+                       
+              <div class="row">
+                <div class="col-md-6">
+                  <h5> PUNTAJE TOTAL:</h5>
+                </div>
+                <div class="col-md-6">
+                 <h5 id="puntajetotal"></h5>
+                </div>
+              </div>
+             
+              
+              <button class="btn btn-primary" id="reintentar-mapa">REINTENTAR</button>
+            
+          </div>
+      </div>
 </div>
 
     

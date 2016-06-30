@@ -28,7 +28,7 @@ if not request.env.web2py_runtime_gae:
     # ---------------------------------------------------------------------
     # if NOT running on Google App Engine use SQLite or other DB
     # ---------------------------------------------------------------------
-    db = DAL( 'mysql://root:@localhost/BrainChaco')
+    db = DAL( 'mysql://root:@localhost/brainchaco',pool_size=0)
 else:
     # ---------------------------------------------------------------------
     # connect to Google BigTable (optional 'google:datastore://namespace')
@@ -127,9 +127,29 @@ auth.settings.reset_password_requires_verification = True
 # after defining tables, uncomment below to enable auditing
 # -------------------------------------------------------------------------
 # auth.enable_record_versioning(db)
-db.define_table("categorias",
-               Field("descripcion"))
 
-db.define_table("pregunta",
-               Field("descripcion"),
-               Field('id',db.categoria))
+db.define_table('categoria',
+    Field('descripcion'))
+
+db.define_table('pregunta',
+               Field('descripcion'),
+               Field('idCat', db.categoria))
+
+db.define_table('respuestapregunta',
+    Field('id','integer'),
+    Field('idPreg',db.pregunta),
+    Field('descripcion'),
+    Field('opcion'),
+    primarykey=['id', 'idPreg'])
+
+db.define_table('usuarios',
+    Field('id','integer'),
+    Field('nombre'),
+    Field('correo'),
+    Field('password'))
+
+db.define_table('puntajes',           
+               Field('idUser', db.usuarios),
+               Field('juego'),
+               Field('tiempo',time,default=0),
+               Field('fecha',datetime))

@@ -46,6 +46,7 @@ $(document).ready(function(){
    		resp_correctas=0
    		$("#numPuntos").text(puntaje);
 		$("#intentos").text(vidas);
+		$("#vidas").removeClass("hidden");
 		$("#segunda-pantalla").removeClass("hidden");
 		$("#tercer-pantalla").addClass("hidden");		
 
@@ -75,7 +76,7 @@ $(document).ready(function(){
 	   			}
 			);
 	   	}else{
-	   			
+	   			registrarPuntaje();
 	   			$("#tercer-pantalla").addClass("hidden");	
 	   			$("#looser-pantalla").removeClass("hidden");
 	   			$("#resp_correctas").text(resp_correctas);
@@ -131,7 +132,9 @@ $(document).ready(function(){
   						//thissound.Play();
 			        	resp_incorrectas=resp_incorrectas+1
 			        	vidas= vidas -1;
-			        	$("#intentos").text(vidas);
+			        	$("#vidas").addClass("hidden");
+
+			        	//$("#intentos").text(vidas);
 			        	limpiarRB();
 			        	elegir_preguntas();			   
 			        }
@@ -171,19 +174,34 @@ $(document).ready(function(){
 	        	},1000);
    		}
 
+   		function registrarPuntaje(){
+   			var f = new Date();
+			var fecha_actual=(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
+   			$.ajax({
+			    // la URL para la petición
+			    url : '/BrainChaco/JugadorController/registrarPuntaje',
+ 				
+			    // la información a enviar
+			    // (también es posible utilizar una cadena de datos)
+			    data : { puntaje : puntaje,juego:'preguntas',fecha:fecha_actual },
+ 
+			    // especifica si será una petición POST o GET
+			    type : 'post',
+ 
+			    // el tipo de información que se espera de respuesta
+			    //dataType : 'json',
+ 
+			    // código a ejecutar si la petición es satisfactoria;
+			    // la respuesta es pasada como argumento a la función
+			    success : function(data) {
+			      alert(data)
+			    },
+ 
+			});
+
+
+   		}
+
 
 });//fin document
 
-//$.ajax({
-          //url:'http://127.0.0.1:8000/BrainChaco/PreguntasController/seleccionar_categoria',//action del formulario, ej:
-          //http://localhost/mi_proyecto/mi_controlador/mi_funcion
-          //type: 'POST',//el método post o get del formulario
-          //data: ,obtenemos todos los datos del formulario
-          //error: function(){
-          //si hay un error mostramos un mensaje
-          //},
-          //success:function(descripcion){
-          //hacemos algo cuando finalice todo correctamente
-          //$("#tercer-presentacion h1").text('LA CATEGORIA SELECCIONADA ES: ' + descripcion);
-          //}
-      //});
