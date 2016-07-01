@@ -10,17 +10,20 @@ $(document).ready(function () {
   }
   var puntos=0;
   var intentos=2;
-  $(function(){
+
     $("#empezar").click(function(){
       intentos=2;
       puntos=0;
+      j=0;
+
       $("#vidas").removeClass("hidden");//muestro las vidas
       $("#segunda-pantalla-mapa").addClass("hidden");
       $("#tercer-pantalla-mapa").removeClass("hidden");
       $("#jugar").removeClass("hidden");//muestro el div donde se muestra el mapa
+      reiniciar();
       siguiente();
     });
-  });
+ 
 
 var j=0;
 var sel = new Array(25);
@@ -178,9 +181,15 @@ var correctas=0//contador para mostrar despues cuantos aciertos tuvo
          fontana.node.title = 'Fontana'
          dosAbril.node.title = 'Dos de Abril'
          staMariaOro.node.title = 'Santa María de Oro'
+
+
+         function reiniciar(){
+          for (var y = 0; y < 25; y++) {
+                        (dept[y].attr(fondo));
+                          }
+         }
        
              $('path').click(function(){
-             
               if (($(this).attr('fill')=='#00577a')){
                 if ($(this).attr('id')== dept[sel[adi]].node.id){
                    puntos=puntos+5;
@@ -214,9 +223,7 @@ var correctas=0//contador para mostrar despues cuantos aciertos tuvo
                 }
                $('#localidad').text('');
                
-               for (var y = 0; y < 25; y++) {
-                        (dept[y].attr(fondo));
-                          }
+                reiniciar();
                 siguiente();
                }  
 
@@ -286,12 +293,7 @@ var correctas=0//contador para mostrar despues cuantos aciertos tuvo
 
 
           $("#reintentar-mapa").click(function(){
-              var puntos=0;
-              var intentos=2;
-              $("#segunda-pantalla-mapa").removeClass("hidden");
-              $("#looser-pantalla").addClass("hidden");
-            
-
+              location.reload();
           });
           
 
