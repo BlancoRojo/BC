@@ -29,6 +29,8 @@ var j=0;
 var sel = new Array(25);
 var adi=0;
 var ale=0;
+var toc=25;
+var dep=25;
 var prueba;
 var correctas=0//contador para mostrar despues cuantos aciertos tuvo
 
@@ -41,7 +43,18 @@ var correctas=0//contador para mostrar despues cuantos aciertos tuvo
             fill: '#89be53',
             stroke: '#764931',
             'stroke-width': 1,
+
+
+
         };
+
+
+         var fondo2 = {
+            fill: '#89be54',
+            stroke: '#764931',
+            'stroke-width': 1,
+
+          };
          var selector = {
             fill: '#ce6b00',
             stroke: '#764931',
@@ -75,6 +88,10 @@ var correctas=0//contador para mostrar despues cuantos aciertos tuvo
     
     rp.setViewBox(0, 0, 550, 400, true);
     
+    var nulo = rp.text(0,0,"").
+        attr({"font-size": "32px", "font-weight": "800", fill: "yellow", stroke:"brown", "stroke-width": "3px"});
+        nulo.hide();
+
     var GralGuemes= rp.path('m 138.00904,24.057839 0.0784,0.03503 0.19819,0.404107 0.30003,0.358497 0.51399,-0.09764 -0.14429,-0.422322 -0.0472,-0.160949 -0.0811,-0.27646 0.43795,0.07406 0.25918,0.392314 0.25228,0.372025 0.41527,0.259115 0.4494,0.208298 0.23105,0.245241 0.0833,0.08845 0.37098,0.298658 0.47861,0.17309 0.2688,-0.30178 0.003,-0.450936 -0.12868,-0.432032 -0.13467,-0.426484 -0.18911,-0.46117 0.30654,0.0028 0.2973,0.359882 0.20255,0.403935 0.21544,0.399427 0.22089,0.398212 0.18005,0.413651 0.13703,0.42596 0.15898,0.427351 0.45465,0.483022 0.49713,0.136497 0.45048,0.201012 0.46792,0.159912 0.48752,0.119496 0.47933,0.144128 0.45629,0.18523 0.42197,0.245066 0.42618,0.253739 0.28823,0.348437 0.0467,0.177773 0.0679,0.257383 -0.0693,0.440877 -0.19931,0.388498 0.18606,0.418679 0.23267,0.390409 0.15865,0.421453 0.0325,0.442612 0.26552,0.348084 0.34287,0.318261 0.26172,0.379828 0.21234,0.401162 0.32742,0.336469 0.3846,0.289291 0.33524,0.326929 0.32197,0.341153 0.28678,0.240555 0.079,0.06661 0.4356,0.224946 0.48333,0.03972 0.34485,-0.319297 0.43741,-0.225816 0.361,0.01526 0.12403,0.0052 0.10338,0.428045 0.18329,0.35364 0.77066,0.05619 0.46645,0.147942 0.43378,0.190261 0.51365,0.0288 0.58805,-0.355547 0.24684,-0.412263 0.38478,0.06365 0.31399,0.347741 0.33217,0.331615 0.39385,0.276805 0.44828,0.203095 0.35936,0.31236 0.30677,0.35468 0.18692,0.406017 0.0326,0.444001 0.0981,0.433767 0.0126,0.417635 0.16154,0.439492 0.26681,0.378093 0.32306,0.34202 0.3521,0.318951 0.4465,0.197545 0.46828,0.168234 0.46644,0.177947 0.34846,0.31392 0.2414,0.390928 0.0636,0.43533 0.34121,0.28513 0.50821,-0.163031 0.35574,0.155921 0.11259,0.440532 0.0799,0.437755 0.32123,0.334387 0.41563,0.255821 0.38478,0.235701 0.21781,0.308024 0.32307,0.166153 0.45374,-0.245935 0.38842,0.169971 0.34302,0.347741 0.16697,0.39457 0.19602,0.385554 0.27225,0.354852 0.16517,0.402027 0.15607,0.407578 0.11803,0.4107 -0.0564,0.418157 0.25045,0.371677 0.36483,0.296058 0.37207,-0.176039 0.32306,-0.327622 0.43379,-0.157655 0.48642,-0.08411 0.47007,0.09434 0.30857,0.0829 0.16154,0.04301 0.47372,0.100594 0.47914,0.0744 0.38116,0.262065 0.38295,0.260848 0.48099,-0.0099 0.47552,-0.09765 0.48458,-0.06313 0.39932,0.14083 0.32489,0.320861 0.41019,0.236221 0.36119,0.298658 0.46281,0.05238 0.4937,0.0079 0.46098,0.172571 0.46101,-0.04647 0.46828,-0.103539 0.4864,0.08221 0.48462,0.04007 0.45554,0.157653 0.18694,0.343928 -0.26496,0.376705 -0.007,0.415211 0.43015,-0.04059 0.21781,-0.371504 0.12152,-0.419719 0.34668,-0.281488 0.47914,-0.106669 0.49189,0.0028 0.48461,0.03747 0.4864,0.03972 0.49005,0.01252 0.35032,-0.304557 0.35754,-0.316697 0.42471,-0.03537 0.49187,0.15193 0.31942,0.214887 0.17425,0.3885 0.46828,0.115677 0.47006,0.126601 0.47736,0.07111 0.49002,0.0039 0.48461,0.05255 0.39205,0.222867 -0.0618,0.430643 -0.27406,0.350865 0.15246,0.401335 0.48641,0.0023 0.48096,0.01079 0.27046,0.36283 0.2922,0.339936 0.41017,0.236397 -0.14518,0.387112 0.10352,0.413994 -0.0509,0.434288 0.36119,0.218529 0.01,0.386073 -0.15244,0.394745 0.1942,0.386417 0.42471,-0.169966 0.25774,0.259114 0.1833,0.41677 0.41746,0.201709 0.37385,-0.236571 -0.089,-0.421279 0.13977,-0.356934 0.30672,-0.339763 0.37934,0.09678 0.47009,0.100594 -0.1688,0.384684 -0.0654,0.427179 0.0618,0.42145 0.11259,0.274204 0.12696,0.333001 0.0308,0.429952 0.25229,0.335427 0.48278,-0.07805 0.48096,-0.03157 -0.25589,0.357279 -0.37751,0.297099 0.16698,0.344622 0.0381,0.422491 0.25228,0.333001 0.31579,0.363353 0.14883,0.403068 0.0163,0.426309 0.007,0.426654 0.06,0.424057 -0.0272,0.27802 -0.0163,0.165633 0.33579,0.234313 0.51364,-0.03937 0.0654,0.334562 0.029,0.425267 0.25953,0.362486 0.0582,0.426135 0.36844,0.257033 0.41564,0.231886 0.34303,0.315656 0.32308,0.137017 0.3013,-0.359189 0.36117,-0.281315 0.36661,0.21662 0.24867,0.372025 0.15791,0.377226 -0.0272,0.419369 0.22504,0.394919 0.41929,-0.09399 0.38293,0.284263 0.22325,0.369944 -0.0709,0.434982 0.28316,0.329008 0.22506,0.156791 0.38294,0.224425 0.43196,0.202748 0.44468,0.183322 0.40293,0.182806 0.14158,0.417811 0.1197,0.431512 0.36301,0.254086 0.48098,0.106149 0.48094,-0.101286 0.40659,0.07961 0.18151,0.393357 0.49909,0.02741 0.44105,0.175171 0.48097,0.163381 -0.0981,0.344619 -0.12333,0.413648 -0.46827,0.123484 0.28678,0.299006 0.47915,0.09625 0.50822,-0.02185 0.30852,0.290333 0.0417,0.42579 0.19603,0.365085 0.48461,0.113078 0.31763,0.298312 0.33215,0.287385 0.45918,0.156093 0.30673,0.337336 0.44831,0.161299 0.47916,0.116902 0.46646,0.132331 0.33396,0.299177 0.28858,0.353986 0.32306,0.317914 0.42108,0.218531 0.4483,0.19078 0.44103,0.186447 0.18334,0.396649 -0.36846,0.236915 -0.45921,0.195639 -0.36843,0.318257 0.33939,0.200494 0.51183,0.103192 0.49006,-0.05186 0.47916,0.08255 0.42653,0.210554 0.29583,0.344619 0.01,0.422324 -0.0181,0.431164 0.0145,0.444867 0.30852,0.235353 0.35032,0.292416 0.47189,0.0699 0.412,-0.270213 0.27769,0.207083 0.43741,0.146553 0.4973,0.05724 0.48463,0.07215 0.46282,0.188351 -0.22507,0.323288 0.21963,0.268828 0.3775,0.271255 0.43378,0.197199 0.43016,0.207606 0.28133,0.02706 0.45919,0.04232 0.36482,0.217662 0.26678,0.356069 0.36664,0.286517 0.13421,0.402722 0.15973,0.353813 0.43376,0.230323 0.43197,0.190782 0.46465,0.117941 0.28314,0.19581 0.0999,0.0692 0.49006,0.0017 0.0981,-1.73e-4 0.36663,-8.66e-4 0.46826,0.142045 0.46827,0.119846 0.4737,-0.148807 0.12877,0.0047 0.33578,0.01172 0.44286,0.216106 0.0745,0.391793 0.32852,0.206391 0.46462,-0.130252 0.10533,0.206214 0.0872,0.167715 0.0709,0.425963 0.20145,0.388153 0.45195,0.160776 0.43741,0.203616 0.41381,0.257031 0.31036,0.298661 -0.2069,0.376708 -0.0981,0.308373 0.46098,0.129905 0.48281,0.08221 0.37751,0.296576 0.42109,0.138403 0.4973,-0.104231 0.47006,0.06573 0.4574,0.176731 0.48097,0.07927 0.48642,-0.05255 0.47916,-0.07683 0.47735,0.09573 0.50275,0.100766 0.23596,0.2442 -0.2051,0.419891 -0.54995,0.424749 -0.2069,0.363352 0.0453,0.465853 0.30308,0.07736 0.20694,-0.17569 0.21598,-0.382257 0.50818,-0.07058 0.13784,0.297099 -0.38298,0.437756 0.26864,0.313227 0.50275,-0.0092 0.45011,-0.159562 0.0799,0.09678 0.11971,0.142394 0.13602,0.392311 0.45741,0.160086 0.46644,0.147594 0.46101,0.14777 0.43923,0.210899 0.41381,0.199281 0.36845,-0.301956 0.17608,-0.1998 0.10882,0.06678 0.15971,0.09626 0.20327,0.201711 0.38117,-0.113425 0.41744,-0.254087 0.42832,-0.15939 0.27409,0.38035 -0.27409,0.30629 0.0963,0.363698 0.44284,0.210553 0.37935,0.0017 0.15426,5.2e-4 0.0926,0.14031 0.0781,0.11621 -0.007,0.46967 0.38841,0.136147 0.48462,-0.138751 0.36117,-0.269348 0.25955,-0.367512 0.23956,-0.382779 0.23052,-0.379305 0.47009,-0.142912 0.17243,0.187486 0.10519,0.114982 0.22508,0.40411 0.0526,0.07024 0.2178,0.294498 0.41562,0.191474 0.47372,0.136494 0.41746,0.251486 0.42649,0.137191 0.47736,-0.153667 0.0509,0.01335 0.4211,0.112212 -0.0308,0.292587 -0.71514,0.326585 0.13617,0.350344 0.2323,0.375318 0.32672,0.36231 0.0854,0.329878 -0.25047,0.130598 0.0381,0.39145 0.21235,0.40601 0.37934,0.26276 0.4501,0.16876 0.0781,0.4244 0.41381,0.24437 -0.10882,0.34878 -0.44466,0.3859 0.43198,0.27386 0.41381,0.24368 0.42468,0.21402 0.45195,0.22009 0.44466,0.15298 0.55179,-0.14569 0.32306,0.3748 0.23776,0.35745 0.15245,0.41538 0.12696,0.415043 0.0981,0.41885 0.14157,0.40897 0.16881,0.40236 0.22686,0.38174 0.4701,-0.11222 0.33576,-0.31062 0.16335,-0.40376 0.35213,-0.12573 0.0908,0.42491 -0.29221,0.35849 -0.25592,0.36544 -0.20146,0.38884 -0.15792,0.44001 0.24505,0.23779 0.48641,-0.11968 0.50458,-0.0519 0.029,0.37428 0.29767,0.25287 0.43015,0.21298 0.42106,0.22547 0.42472,0.21593 0.44468,0.16668 0.48823,-0.0468 0.3031,-0.014 0.20512,-0.01 0.35207,0.21783 -0.16879,0.36578 -0.26317,0.36699 0.45738,0.12558 0.31946,0.28548 0.47551,0.20396 -0.0654,0.44348 0.10896,0.42388 0.16337,0.40394 0.15607,0.34514 0.0236,0.0517 0.17968,0.41399 0.32671,-0.21732 0.21414,-0.39751 0.37931,-0.14708 0.18334,0.38347 0.10896,0.026 0.45191,0.10805 -0.1706,0.29485 -0.26682,0.12557 -0.25589,0.32832 0.004,0.43533 -0.21054,0.38208 -0.39746,0.23813 -0.43742,0.19824 -0.30128,0.25026 0.40837,0.2612 0.43922,0.19495 0.078,0.0885 0.21964,0.2494 0.33576,0.30508 0.49186,-0.0503 0.41928,-0.22426 0.34848,-0.31461 0.39747,-0.1998 0.5064,0.0401 0.19237,0.36214 -0.21962,0.39387 0.0272,0.40602 0.0854,0.46238 0.19057,0.27802 0.52272,-0.14672 0.40477,0.009 -0.0181,0.46897 -0.27408,0.35416 -0.4501,0.18957 -0.31582,0.3212 -0.0236,0.44366 0.23234,0.33647 0.51182,0.10215 0.40655,-0.19356 0.20508,-0.24281 0.11259,-0.13494 0.27405,0.27161 -0.18877,0.397 -0.18329,0.42891 0.22324,0.32051 0.42291,-0.10042 0.37388,-0.30508 0.47008,-0.13319 0.48821,-0.0475 0.4592,0.14568 0.45738,0.16824 0.46282,0.1443 0.47918,0.15227 0.23957,0.2945 -0.3521,0.28617 -0.44288,0.2253 -0.0799,0.37445 0.46285,-0.0356 0.41924,0.17829 0.0326,0.36508 0.33213,0.33369 0.28675,0.37324 -0.14883,0.32467 -0.49003,0.066 -0.21053,0.33577 0.35209,0.32139 0.0417,0.38884 -0.28132,0.36994 -0.20143,0.35364 0.26858,0.37792 0.28315,0.34653 0.39023,0.26051 0.29587,0.34583 0.18329,0.38537 0.0199,0.42371 -0.0112,0.42995 0,0.42995 0.0472,0.42926 0.16517,0.39648 0.21779,0.0785 0.22871,0.0822 0.30852,-0.33855 0.25049,0.11881 0.36662,0.15054 0.43196,-0.22928 -0.14156,0.37532 -0.0763,0.20292 -0.1017,0.25773 -0.0582,0.1469 0.0509,0.40012 0.5681,-0.38122 0.15608,0.29416 -0.18695,0.40428 0.10352,0.35623 0.52813,-0.14689 -0.10352,0.41711 -0.14884,0.40603 -0.26319,0.36681 -0.12514,0.22599 -0.0854,0.15176 -0.0163,0.45249 0.31221,0.26224 0.48457,0.17293 0.29767,0.34739 0.41381,0.0554 0.17605,-0.40826 0.37207,-0.22946 0.4828,-0.0191 -0.0944,-0.42787 0.42467,0.16251 0.41564,0.27108 0.39569,0.24507 0.47733,0.11863 0.46646,0.1417 0.47735,0.10944 0.49728,0.0344 0.68789,-0.0401 -0.0491,36.28139 -10e-4,0.0393 -31.85675,-0.0317 -16.10261,-0.0472 -6.78805,-0.026 -0.0636,-6.8e-4 -32.10543,-0.17154 -5.32335,-0.0361 0.21417,-41.58111 -14.30761,-0.15488 0.0218,-6.94686 0,-0.0135 0,-0.0584 -14.58347,0.0721 -8.63718,0.035 -40.45294,0.0836 -0.35537,-49.251716 -3.23668,-0.03122 -22.88071,-0.243851 -15.823654,-0.192519 0.957591,-1.072883 2.679112,-3.001509 1.253797,-1.405882 2.682739,-3.008274 1.247626,-1.400503 1.797751,-2.018989 0.886625,-0.997611 1.239278,-1.395826 2.685101,-3.02388 1.232926,-1.38958 2.688726,-3.031686 1.225122,-1.382989 2.692907,-3.039665 1.218223,-1.376229 1.62442,-1.836354 1.07665,-1.20695 1.21696,-1.365819 2.51467,-2.822695 0.19838,-0.222867 0.42961,-0.482676 0.0221,-1.110694 0.077,-3.870083 0.0176,-0.939857 -0.006,-0.774051 -0.0294,-3.880196 -0.0134,-1.703467 -0.0301,-3.889698 -0.0131,-1.694762 -0.0143,-1.839617 -3.7e-4,-0.03491 0.002,-1.1333437 0.002,-0.890341 9.1e-4,-0.250356 0.28368,-0.09657 0.40511,-0.263452 0.44377,-0.210917 0.48787,-0.09711 0.43215,-0.189394 0.39258,-0.290438 0.45429,-0.174565 0.28768,0.331317 -0.34031,0.297636 -0.31091,0.348957 -0.43324,0.247391 0.0119,0.347464 0.77337,-0.06741 0.51636,0.01495 0.46864,0.09914 0.11362,0.445977 0.28495,0.355443 0.39222,0.206997 0.12869,0.409313 0.4837,0.104652 0.50965,0.01745 0.47879,-0.1448897 0.24194,0.3574197 0.48152,0.132905 0.49767,0.05711 0.48242,-0.134917 0.48279,-0.12517 0.65794,-0.0064 0.2521,0.40005 0.31127,0.333382 0.48224,0.12543 0.50457,0.04355 0.49822,-0.0048 0.41636,0.248797 0.4924,0.102433 0.47063,0.161227 0.4336,0.399114 -0.37751,0.284108 -0.34104,0.314997 0.16135,0.377365 0.50838,-0.03065 0.42452,-0.25138 0.50748,-0.08129 0.38079,0.339261 -0.18858,0.430072 0.11924,0.422322 0.0269,0.379168 -0.31273,0.363229 -0.008,0.441781 -0.1011,0.433195 -0.0174,0.401177 0.49059,0.1652 0.35356,-0.287421 0.25646,-0.381441 0.2002,-0.40697 0.32089,-0.342159 0.39294,-0.266416 0.36482,-0.07329 0.12887,-0.02591 0.0664,0.391813 -0.2982,0.36852 0.29875,0.198378 0.39076,0.272244 0.10871,0.43231 0.25338,0.357248 0.49912,0.03186 0.44177,-0.224031 0.42162,-0.243089 0.42888,-0.231435 0.43742,-0.225001 0.40619,-0.25568 0.31618,-0.347378 0.36499,-0.2903 0.20727,0.238338 0.17787,0.204256 -0.3953,0.496657 -0.35556,0.278192 -0.33033,0.290821 -0.0777,0.361808 0.42525,0.250686 0.48842,0.111937 0.45284,0.190643 0.45393,0.191994 0.49422,0.07753 0.50566,0.02557 0.49985,-0.03888 0.49948,-0.06577 0.45121,-0.03403 0.0521,-0.0039 0.50385,0.0091 0.40783,0.245708 0.13376,0.423223 0.0258,0.460095 0.40274,0.189619 0.46409,-0.170038 0.35756,-0.312256 0.40964,-0.268552 0.45702,0.147371 0.46137,0.178658 0.4993,0.03772 0.48733,0.116532 0.50293,0.01665 0.41146,-0.241459 0.34485,-0.307124 0.50801,-0.04984 0.30873,0.247668 -0.0126,0.459644 0.14775,0.401473 0.37078,0.301937 0.41765,0.24975 0.45774,0.183115 0.47388,0.154065 0.47372,0.152989 0.46319,0.176281 0.47771,0.137155 0.49603,0.08537 0.50202,0.101582 0.4278,0.197372 0.20655,0.414203 0.10889,0.428285 0.34358,0.327105 0.39874,0.272468 0.48226,0.13719 0.45193,0.182804 0.33813,0.330397 0.14665,0.421974 0.0401,0.404283 0.34902,0.608245 0.48097,0.118285 0.21381,-0.331092 0.0703,-0.446428 0.44612,0.05637 0.36535,0.321378 0.43415,0.21888 0.49005,0.111519 0.5111,0.03573 0.35683,0.159564');
    	GralGuemes.attr(fondo).data('title', 'General Güemes');
 
@@ -126,61 +143,143 @@ var correctas=0//contador para mostrar despues cuantos aciertos tuvo
           dosAbril.attr(fondo).data('title', 'Dos de Abril');
           var staMariaOro = rp.path('m 159.43302,284.78663 -0.0727,4.36713 25.67853,0.30356 0.0308,-2.33796 0.0272,-2.02922 10.26743,0.14569 0.0817,-6.55072 7.49954,0.0988 0.004,1.50715 0.004,2.72995 -0.0707,4.23186 -0.0527,3.08544 -0.004,0.19771 -0.0308,1.76387 8.96786,0.43358 -0.19057,16.64133 -0.31579,0 -5.63557,-0.004 -0.95468,-10e-4 -6.59205,-10e-4 -6.59025,-0.009 -1.50279,-0.001 -2.82778,-0.004 -2.25969,-0.005 -3.02375,-0.005 -3.56465,-0.005 -6.59206,-0.0139 -1.46471,-0.0208 -5.27256,-0.0746 -6.49222,-0.0173 -0.0981,0 -6.58988,0.0832 -4.25813,-0.34516 0.0158,-3.58669 0.0227,-5.58989 0.0211,-4.89092 0.003,-0.69894 0.0243,-5.58991 0.0156,-3.63178 11.79255,-0.17517');
           staMariaOro.attr(fondo).data('title', 'Santa María de Oro');
+
+
+        var GralGuemesT = rp.text(200,22,"General Güemes").
+        attr({"font-size": "32px", "font-weight": "800", fill: "yellow", stroke:"brown", "stroke-width": "3px"});
+        GralGuemesT.hide();
+        var AlmiranteBrowT = rp.text(160,50,"Almirante Brown").
+        attr({"font-size": "32px", "font-weight": "800", fill: "yellow", stroke:"brown", "stroke-width": "3px"});
+        AlmiranteBrowT.hide();
+        var SanMartinT = rp.text(330,70,"San Martín").
+        attr({"font-size": "32px", "font-weight": "800", fill: "yellow", stroke:"brown", "stroke-width": "3px"});
+        SanMartinT.hide();
+        var IndependeciaT = rp.text(240,90,"Independencia").
+        attr({"font-size": "32px", "font-weight": "800", fill: "yellow", stroke:"brown", "stroke-width": "3px"});
+        IndependeciaT.hide();
+        var mayoT = rp.text(300,85,"Veinticinco de Mayo").
+        attr({"font-size": "32px", "font-weight": "800", fill: "yellow", stroke:"brown", "stroke-width": "3px"});
+        mayoT.hide();
+        var quitilipiT = rp.text(280,85,"Quitilipi").
+        attr({"font-size": "32px", "font-weight": "800", fill: "yellow", stroke:"brown", "stroke-width": "3px"});
+        quitilipiT.hide();
+        var cmdFernandezT = rp.text(270,95,"Comandante Fernández").
+        attr({"font-size": "32px", "font-weight": "800", fill: "yellow", stroke:"brown", "stroke-width": "3px"});
+        cmdFernandezT.hide();
+        var sarmientoCabralT = rp.text(320,95,"Sargento Cabral").
+        attr({"font-size": "32px", "font-weight": "800", fill: "yellow", stroke:"brown", "stroke-width": "3px"});
+        sarmientoCabralT.hide();
+        var BermejoT = rp.text(400,98,"Bermejo").
+        attr({"font-size": "32px", "font-weight": "800", fill: "yellow", stroke:"brown", "stroke-width": "3px"});
+        BermejoT.hide();
+        var nuevedeJulioT = rp.text(170,100,"Nueve de Julio").
+        attr({"font-size": "32px", "font-weight": "800", fill: "yellow", stroke:"brown", "stroke-width": "3px"});
+        nuevedeJulioT.hide();
+        var belgranoT = rp.text(200,100,"General Belgrano").
+        attr({"font-size": "32px", "font-weight": "800", fill: "yellow", stroke:"brown", "stroke-width": "3px"});
+        belgranoT.hide();
+        var presidenciaPlazaT = rp.text(320,101,"Presidencia de la Plaza").
+        attr({"font-size": "32px", "font-weight": "800", fill: "yellow", stroke:"brown", "stroke-width": "3px"});
+        presidenciaPlazaT.hide();
+        var chacabucoT = rp.text(170,105,"Chacabuco").
+        attr({"font-size": "32px", "font-weight": "800", fill: "yellow", stroke:"brown", "stroke-width": "3px"});
+        chacabucoT.hide();
+        var primeroDeMayoT = rp.text(380,105,"Primero de Mayo").
+        attr({"font-size": "32px", "font-weight": "800", fill: "yellow", stroke:"brown", "stroke-width": "3px"});
+        primeroDeMayoT.hide();
+        var gralDonovanT = rp.text(370,110,"General Donovan").
+        attr({"font-size": "32px", "font-weight": "800", fill: "yellow", stroke:"brown", "stroke-width": "3px"});
+        gralDonovanT.hide();
+        var doceOctubreT = rp.text(170,111,"Doce de Octubre").
+        attr({"font-size": "32px", "font-weight": "800", fill: "yellow", stroke:"brown", "stroke-width": "3px"});
+        doceOctubreT.hide();
+        var ohigginsT = rp.text(240,111,"O'Higginsn").
+        attr({"font-size": "32px", "font-weight": "800", fill: "yellow", stroke:"brown", "stroke-width": "3px"});
+        ohigginsT.hide();
+        var maipuT = rp.text(250,78,"Maipú").
+        attr({"font-size": "32px", "font-weight": "800", fill: "yellow", stroke:"brown", "stroke-width": "3px"});
+        maipuT.hide();
+        var sanLorenzoT = rp.text(250,115,"San Lorenzo").
+        attr({"font-size": "32px", "font-weight": "800", fill: "yellow", stroke:"brown", "stroke-width": "3px"});
+        sanLorenzoT.hide();
+        var libertadT = rp.text(360,120,"Libertad").
+        attr({"font-size": "32px", "font-weight": "800", fill: "yellow", stroke:"brown", "stroke-width": "3px"});
+        libertadT.hide();
+        var tapenagaT = rp.text(300,123,"Tapenagá").
+        attr({"font-size": "32px", "font-weight": "800", fill: "yellow", stroke:"brown", "stroke-width": "3px"});
+        tapenagaT.hide();
+        var sanFernandoT = rp.text(380,130,"San Fernando").
+        attr({"font-size": "32px", "font-weight": "800", fill: "yellow", stroke:"brown", "stroke-width": "3px"});
+        sanFernandoT.hide();
+        var fontanaT = rp.text(240,130,"Fontana").
+        attr({"font-size": "32px", "font-weight": "800", fill: "yellow", stroke:"brown", "stroke-width": "3px"});
+        fontanaT.hide();
+        var dosAbrilT = rp.text(180,132,"Dos de Abril").
+        attr({"font-size": "32px", "font-weight": "800", fill: "yellow", stroke:"brown", "stroke-width": "3px"});
+        dosAbrilT.hide();
+        var staMariaOroT = rp.text(180,137,"Santa María de Oro").
+        attr({"font-size": "32px", "font-weight": "800", fill: "yellow", stroke:"brown", "stroke-width": "3px"});
+        staMariaOroT.hide();
+
         
 
-        dept=[GralGuemes,AlmiranteBrow,SanMartin,Independecia,mayo,quitilipi,cmdFernandez,sarmientoCabral,Bermejo,nuevedeJulio,belgrano,presidenciaPlaza,chacabuco,primeroDeMayo,gralDonovan,doceOctubre,ohiggins,maipu,sanLorenzo,libertad,tapenaga,sanFernando,fontana,dosAbril,staMariaOro]
+        dept=[GralGuemes,AlmiranteBrow,SanMartin,Independecia,mayo,quitilipi,cmdFernandez,sarmientoCabral,Bermejo,nuevedeJulio,belgrano,presidenciaPlaza,chacabuco,primeroDeMayo,gralDonovan,doceOctubre,ohiggins,maipu,sanLorenzo,libertad,tapenaga,sanFernando,fontana,dosAbril,staMariaOro,nulo]
+        titulos=[GralGuemesT,AlmiranteBrowT,SanMartinT,IndependeciaT,mayoT,quitilipiT,cmdFernandezT,sarmientoCabralT,BermejoT,nuevedeJulioT,belgranoT,presidenciaPlazaT,chacabucoT,primeroDeMayoT,gralDonovanT,doceOctubreT,ohigginsT,maipuT,sanLorenzoT,libertadT,tapenagaT,sanFernandoT,fontanaT,dosAbrilT,staMariaOroT,nulo]
           
-         GralGuemes.node.id= 'GralGuemes'
-         AlmiranteBrow.node.id = 'AlmiranteBrow'
-         SanMartin.node.id = 'SanMartin'
-         Independecia.node.id = 'Independecia'
-         mayo.node.id = 'mayo'
-         quitilipi.node.id = 'quitilipi'
-         cmdFernandez.node.id = 'cmdFernandez'
-         sarmientoCabral.node.id = 'sarmientoCabral'
-         Bermejo.node.id = 'Bermejo'
-         nuevedeJulio.node.id = 'nuevedeJulio'
-         belgrano.node.id = 'belgrano'
-         presidenciaPlaza.node.id = 'presidenciaPlaza'
-         chacabuco.node.id = 'chacabuco'
-         primeroDeMayo.node.id = 'primeroDeMayo'
-         gralDonovan.node.id = 'gralDonovan'
-         doceOctubre.node.id = 'doceOctubre'
-         ohiggins.node.id = 'ohiggins'
-         maipu.node.id = 'maipu'
-         sanLorenzo.node.id = 'sanLorenzo'
-         libertad.node.id = 'libertad'
-         tapenaga.node.id = 'tapenaga'
-         sanFernando.node.id = 'sanFernando'
-         fontana.node.id = 'fontana'
-         dosAbril.node.id = 'dosAbril'
-         staMariaOro.node.id = 'staMariaOro'
+         GralGuemes.node.id= 'GralGuemes';
+         AlmiranteBrow.node.id = 'AlmiranteBrow';
+         SanMartin.node.id = 'SanMartin';
+         Independecia.node.id = 'Independecia';
+         mayo.node.id = 'mayo';
+         quitilipi.node.id = 'quitilipi';
+         cmdFernandez.node.id = 'cmdFernandez';
+         sarmientoCabral.node.id = 'sarmientoCabral';
+         Bermejo.node.id = 'Bermejo';
+         nuevedeJulio.node.id = 'nuevedeJulio';
+         belgrano.node.id = 'belgrano';
+         presidenciaPlaza.node.id = 'presidenciaPlaza';
+         chacabuco.node.id = 'chacabuco';
+         primeroDeMayo.node.id = 'primeroDeMayo';
+         gralDonovan.node.id = 'gralDonovan';
+         doceOctubre.node.id = 'doceOctubre';
+         ohiggins.node.id = 'ohiggins';
+         maipu.node.id = 'maipu';
+         sanLorenzo.node.id = 'sanLorenzo';
+         libertad.node.id = 'libertad';
+         tapenaga.node.id = 'tapenaga';
+         sanFernando.node.id = 'sanFernando';
+         fontana.node.id = 'fontana';
+         dosAbril.node.id = 'dosAbril';
+         staMariaOro.node.id = 'staMariaOro';
 
-         GralGuemes.node.title= 'General Güemes'
-         AlmiranteBrow.node.title = 'Almirante Brown'
-         SanMartin.node.title = 'San Martín'
-         maipu.node.title = 'Maipú'
-         mayo.node.title = 'Veinticinco de Mayo'
-         quitilipi.node.title = 'Quitilipi'
-         Independecia.node.title = 'Independencia'
-         sarmientoCabral.node.title = 'Sargento Cabral'
-         cmdFernandez.node.title = 'Comandante Fernández'
-         Bermejo.node.title = 'Bermejo'
-         nuevedeJulio.node.title = 'Nueve de Julio'
-         belgrano.node.title = 'General Belgrano'
-         presidenciaPlaza.node.title = 'Presidencia de la Plaza'
-         chacabuco.node.title = 'Chacabuco'
-         primeroDeMayo.node.title = 'Primero de Mayo'
-         gralDonovan.node.title = 'General Donovan'
-         doceOctubre.node.title = 'Doce de Octubre'
-         ohiggins.node.title = "O'Higginsn"
-         sanLorenzo.node.title = 'San Lorenzo'
-         libertad.node.title = 'Libertad'
-         tapenaga.node.title = 'Tapenagá'
-         sanFernando.node.title = 'San Fernando'
-         fontana.node.title = 'Fontana'
-         dosAbril.node.title = 'Dos de Abril'
-         staMariaOro.node.title = 'Santa María de Oro'
+
+
+         GralGuemes.node.title= 'General Güemes';
+         AlmiranteBrow.node.title = 'Almirante Brown';
+         SanMartin.node.title = 'San Martín';
+         Independecia.node.title = 'Independencia';
+         mayo.node.title = 'Veinticinco de Mayo';
+         quitilipi.node.title = 'Quitilipi';
+         cmdFernandez.node.title = 'Comandante Fernández';
+         sarmientoCabral.node.title = 'Sargento Cabral';
+         Bermejo.node.title = 'Bermejo';
+         nuevedeJulio.node.title = 'Nueve de Julio';
+         belgrano.node.title = 'General Belgrano';
+         presidenciaPlaza.node.title = 'Presidencia de la Plaza';
+         chacabuco.node.title = 'Chacabuco';
+         primeroDeMayo.node.title = 'Primero de Mayo';
+         gralDonovan.node.title = 'General Donovan';
+         doceOctubre.node.title = 'Doce de Octubre';
+         ohiggins.node.title = "O'Higginsn";
+         maipu.node.title = 'Maipú';
+         sanLorenzo.node.title = 'San Lorenzo';
+         libertad.node.title = 'Libertad';
+         tapenaga.node.title = 'Tapenagá';
+         sanFernando.node.title = 'San Fernando';
+         fontana.node.title = 'Fontana';
+         dosAbril.node.title = 'Dos de Abril';
+         staMariaOro.node.title = 'Santa María de Oro';
+
 
 
          function reiniciar(){
@@ -245,7 +344,8 @@ var correctas=0//contador para mostrar despues cuantos aciertos tuvo
            
            
             function siguiente(){ 
-            
+                toc=25;
+                dep=25;
               
                 for (var i = 0; i < 4+j; i++) {
                                 
@@ -253,19 +353,24 @@ var correctas=0//contador para mostrar despues cuantos aciertos tuvo
                        
                       setTimeout(function(){
                           if (i<2+j){
-                        do {                         
+                        do {                
+                        //random         
                         ale = Math.floor(Math.random() * dept.length);
-                        }while (dept[ale].attr('fill')=='#ce6b00');
+                        }while ((dept[ale].attr('fill')=='#ce6b00') || (dept[ale].attr('fill')=='#89be54'));
                         
+                        //seleccionando deptos
                        (dept[ale].attr(selector));
-                      
+                        (dept[dep].attr(fondo2));
                         sel[i]=ale;
-
-                       prueba=dept[ale].data('title');
-                       $('#localidad').text(prueba);
+                        dep=ale;
+                          //tratando titulo del seleccionado
+                       titulos[ale].show();
+                       titulos[toc].hide();
+                       toc=ale;
                        }else{
-
-                        adi= Math.floor(Math.random() * 2+j);
+                        (dept[dep].attr(fondo2));
+                        titulos[toc].hide();
+                        adi= Math.floor(Math.random() * 1+j);
                           prueba='Adivina donde esta: '+(dept[sel[adi]].node.title).toUpperCase();
                           $('#localidad').text(prueba);
                         for (var x = 0; x < 3+j; x++) {
@@ -273,7 +378,7 @@ var correctas=0//contador para mostrar despues cuantos aciertos tuvo
                           }
 
                        }
-                  }, 1000 * (i+1));
+                  }, 1200 * (i+1));
                        
                 }(i)); 
                       
