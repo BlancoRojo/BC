@@ -95,11 +95,12 @@
     <!-- Begin page content -->
     
  {{if session.jugador==None:}}
-  <div class="hidden" id='verificador'>menu</div>
+
+ 
   <div class="container-fluid">
      
 
-      <div class="ocultar-menu" id="side-menu" style="right: -318px;">
+      <div class="ocultar-menu hidden-xs" id="side-menu" style="right: -318px;">
         
         <a class="side-menu-tab" id="fake-tab" href="#">
       
@@ -229,6 +230,8 @@
               </div>
           </div>
       </div>
+  
+
       {{else:}}
 
       <div class="container-fluid">
@@ -240,9 +243,15 @@
       
         </a>
         
-        <a class="side-menu-tab" id="main-tab">
-          <div class="vertical-text"><span>Menú</span></div>
+          <a class="side-menu-tab" id="main-tab1">
+          <div class="vertical-text"><span id="verificador-menu">Menú</span></div>
         </a>
+       <a class="side-menu-tab" id="mas-tab">
+          <div class="vertical-text"><span id="verificador-mas">Más</span></div>
+        </a>
+      
+          
+
         <br>
         <br>
         <br>
