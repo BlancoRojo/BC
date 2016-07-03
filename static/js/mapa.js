@@ -305,7 +305,7 @@ var correctas=0//contador para mostrar despues cuantos aciertos tuvo
                    //respuesta correcta
                    win.show();
                    win.animate({transform: 's1.2' }, 1000, "elastic");
-                   setTimeout(function(){win.hide();},1000);
+                   setTimeout(function(){win.hide();win.animate({transform: 's1' }, 1, "elastic");},1000);
                  $('#numPuntos').text(puntos);
                  correctas= correctas +1;
 
@@ -318,12 +318,13 @@ var correctas=0//contador para mostrar despues cuantos aciertos tuvo
                   //respuesta incorrecta
                   lost.show();
                   lost.animate({transform: 's1.2' }, 1000, "elastic");
-                   setTimeout(function(){lost.hide();},1000);
+
+                   setTimeout(function(){lost.hide();  lost.animate({transform: 's1' }, 1, "elastic");},1000);
                   $("#vidas").addClass("hidden");
                   if (intentos==0){
                     //fin
                     setTimeout(function(){
-
+                    registrarPuntaje();  
                     $("#jugar").addClass("hidden"); 
                     $("#looser-pantalla").removeClass("hidden");
                     $("#resp_correctas").text(correctas);
@@ -419,5 +420,34 @@ var correctas=0//contador para mostrar despues cuantos aciertos tuvo
               location.reload();
           });
           
+
+      function registrarPuntaje(){
+        var f = new Date();
+      var fecha_actual=(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
+        $.ajax({
+          // la URL para la petición
+          url : '/BrainChaco/JugadorController/registrarPuntaje',
+        
+          // la información a enviar
+          // (también es posible utilizar una cadena de datos)
+          data : { puntaje : puntos,juego:'memoria',fecha:fecha_actual },
+ 
+          // especifica si será una petición POST o GET
+          type : 'post',
+ 
+          // el tipo de información que se espera de respuesta
+          //dataType : 'json',
+ 
+          // código a ejecutar si la petición es satisfactoria;
+          // la respuesta es pasada como argumento a la función
+          success : function(data) {
+            alert(data)
+          },
+ 
+      });
+
+
+      }
+
 
 });
