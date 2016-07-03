@@ -10,6 +10,7 @@ $(document).ready(function () {
   }
   var puntos=0;
   var intentos=2;
+  var sig=0;
 
     $("#empezar").click(function(){
       intentos=2;
@@ -221,7 +222,13 @@ var correctas=0//contador para mostrar despues cuantos aciertos tuvo
         attr({"font-size": "32px", "font-weight": "800", fill: "yellow", stroke:"brown", "stroke-width": "3px"});
         staMariaOroT.hide();
 
-        
+        var win = rp.text(300,100,"Correcto").
+        attr({"font-size": "50px", "font-weight": "800", fill: "#00ff00", stroke:"brown", "stroke-width": "3px"});
+        win.hide();
+
+        var lost = rp.text(290,100,"Incorrecto").
+        attr({"font-size": "50px", "font-weight": "800", fill: "#ff0000", stroke:"brown", "stroke-width": "3px"});
+        lost.hide();
 
         dept=[GralGuemes,AlmiranteBrow,SanMartin,Independecia,mayo,quitilipi,cmdFernandez,sarmientoCabral,Bermejo,nuevedeJulio,belgrano,presidenciaPlaza,chacabuco,primeroDeMayo,gralDonovan,doceOctubre,ohiggins,maipu,sanLorenzo,libertad,tapenaga,sanFernando,fontana,dosAbril,staMariaOro,nulo]
         titulos=[GralGuemesT,AlmiranteBrowT,SanMartinT,IndependeciaT,mayoT,quitilipiT,cmdFernandezT,sarmientoCabralT,BermejoT,nuevedeJulioT,belgranoT,presidenciaPlazaT,chacabucoT,primeroDeMayoT,gralDonovanT,doceOctubreT,ohigginsT,maipuT,sanLorenzoT,libertadT,tapenagaT,sanFernandoT,fontanaT,dosAbrilT,staMariaOroT,nulo]
@@ -289,11 +296,16 @@ var correctas=0//contador para mostrar despues cuantos aciertos tuvo
          }
        
              $('path').click(function(){
+
               if (($(this).attr('fill')=='#00577a')){
+                sig=1000;
                 if ($(this).attr('id')== dept[sel[adi]].node.id){
                    puntos=puntos+5;
                    dept[sel[adi]].attr(correcto);
-                   alert($(this).attr('id') + ' CORRECTO!');
+                   //respuesta correcta
+                   win.show();
+                   win.animate({transform: 's1.2' }, 1000, "elastic");
+                   setTimeout(function(){win.hide();},1000);
                  $('#numPuntos').text(puntos);
                  correctas= correctas +1;
 
@@ -303,9 +315,14 @@ var correctas=0//contador para mostrar despues cuantos aciertos tuvo
                   
                   dept[sel[adi]].attr(correcto);
                   $(this).attr(incorrecto);
-                  alert($(this).attr('id') + ' INCORRECTO');
+                  //respuesta incorrecta
+                  lost.show();
+                  lost.animate({transform: 's1.2' }, 1000, "elastic");
+                   setTimeout(function(){lost.hide();},1000);
                   $("#vidas").addClass("hidden");
                   if (intentos==0){
+                    //fin
+                    setTimeout(function(){
 
                     $("#jugar").addClass("hidden"); 
                     $("#looser-pantalla").removeClass("hidden");
@@ -314,6 +331,7 @@ var correctas=0//contador para mostrar despues cuantos aciertos tuvo
                     $("#tercer-pantalla-mapa").addClass("hidden");
                     //alert('Acumulaste '+puntos.toString()+' Puntos');
                     //window.location= "/BrainChaco/MapaController/index";
+                    },1000);
                   }
                   else{
                     $('#intentos').text(intentos);
@@ -378,7 +396,7 @@ var correctas=0//contador para mostrar despues cuantos aciertos tuvo
                           }
 
                        }
-                  }, 1200 * (i+1));
+                  }, (1200 * (i+1) )+ sig);
                        
                 }(i)); 
                       
