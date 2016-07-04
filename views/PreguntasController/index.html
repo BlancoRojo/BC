@@ -93,9 +93,7 @@
               <center>
                   <div class="boxIndicador" id="cajaTiempo">
                     <div id="numTiempo" class="numIndicador">
-                        <span id="minutos">00</span>
-                        <span id="dospuntos">:</span>
-                        <span id="segundos">:00</span>
+                        <h1 id="crono">00:00:00</h1>
                     </div>
                     <div id="titTiempo" class="titIndicador">Tiempo</div>
                   </div>
@@ -169,26 +167,20 @@
                        
               <div class="row">
                 <div class="col-md-6">
-                  <h5> PUNTAJE TOTAL:</h5>
+                  <h5> TIEMPO:</h5>
                 </div>
                 <div class="col-md-6">
-                 <h5 id="puntajetotal"></h5>
+                 <h5 id="tiempo"></h5>
                 </div>
               </div>
+
               <div class="row">
                 <div class="col-md-6">
-                  <h5>TIEMPO: </h5>
-              </div>
-              <div class="col-md-6">
-                <div class="row">
-                   <div class="col-md-6">
-                     <h5 id="total-minutos"></h5>
-                   </div>
-                   <div class="col-md-6">
-                  <h5 id="total-segundos"></h5>
-                   </div>
+                  <h5>PUNTAJE TOTAL: </h5>
                 </div>
-              </div>
+                <div class="col-md-6">                                  
+                    <h5 id="total"></h5>                    
+                </div>
             </div>
              
               <audio id="looser" src="{{=URL('static/sonidos','risa_Nelson.mp3')}}"> </audio>

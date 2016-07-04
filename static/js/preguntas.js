@@ -1,19 +1,18 @@
 $(document).ready(function(){
    	var nombreJug;
   	var nomSesion=$('.jugador').text();
- 
+	var timeout=0;
+ 	var inicio;
+   	var result;
+  
    	vidas=2;
    	puntaje=0;
    	resp_correctas=0;
    	resp_incorrectas=0
-   	contador_s =0;
-    contador_m =0;
-    s = document.getElementById("segundos");
-    m = document.getElementById("minutos");
-
-
+	
+	
    	setTimeout(mostrarPrimPantalla,3000);
-
+	
    	//funcion que luego de un delay elimina la presentacion y carga la segunda pantalla del juego
    	function mostrarPrimPantalla(){
 
@@ -28,7 +27,10 @@ $(document).ready(function(){
    		
    	 	$('#segunda-pantalla').addClass("hidden");//ocultar
    	 	$("#tercer-pantalla").removeClass("hidden");//mostrar
-   	 	cronometro();
+
+ 		inicio=new Date().getTime();
+   	 	 	
+   	 	timeout=setInterval(funcionando,1000);
    	 	elegir_preguntas();		
    	 });
 
@@ -37,7 +39,7 @@ $(document).ready(function(){
    	//le da la posibilidad para que vuelva a intentar, aca tambien se reincicia las vidas, el puntaje,
    	//y el cronometro y luego se muestra en la vista
    	$("#reintentar").click(function(){
-   		clearInterval(cronometro);
+   		
    		$("#tercer-pantalla").removeClass("hidden");
    		$("#looser-pantalla").addClass("hidden");
    		vidas=2;
@@ -48,7 +50,10 @@ $(document).ready(function(){
 		$("#intentos").text(vidas);
 		$("#vidas").removeClass("hidden");
 		$("#segunda-pantalla").removeClass("hidden");
-		$("#tercer-pantalla").addClass("hidden");		
+		$("#tercer-pantalla").addClass("hidden");
+
+		var timeout=0;
+
 
    	});
 
@@ -81,9 +86,8 @@ $(document).ready(function(){
 	   			$("#looser-pantalla").removeClass("hidden");
 	   			$("#resp_correctas").text(resp_correctas);
 	   			$("#resp_incorrectas").text(resp_incorrectas);
-	   			$("#puntajetotal").text(puntaje);
-	   			$("#total-minutos").text(contador_m);
-	    		$("#total-segundos").text(contador_s);	   			
+	   			$("#tiempo").text(result);		   			
+	   			$("#total").text(puntaje);	   			   			  	
 	   			document.getElementById('looser').play();
 	   					
 	   	}
@@ -152,38 +156,49 @@ $(document).ready(function(){
 
    		}
 
-   		function cronometro(){
-
-	   		cronometro = setInterval(
-
-	       		function(){
-
-	        	 	if(contador_s==60)
-					{
-		                contador_s=0;
-		                contador_m++;
-		                m.innerHTML = contador_m;
-	                	if(contador_m==60)
-	                	{
-	                  		contador_m=0;
-	                	}
-	             	}
-	             s.innerHTML = contador_s ;
-	             contador_s++;
+   		function funcionando()
+		{
+			// obteneos la fecha actual
+			var actual = new Date().getTime();
+	 		
+			// obtenemos la diferencia entre la fecha actual y la de inicio
+			var diff=new Date(actual-inicio);
 	 
-	        	},1000);
-   		}
+			// mostramos la diferencia entre la fecha actual y la inicial
+			result=LeadingZero(diff.getUTCHours())+":"+LeadingZero(diff.getUTCMinutes())+":"+LeadingZero(diff.getUTCSeconds());
+			
+			//$("#crono").addClass("animated pulse");
+			
+			//setTimeout("eliminar()",1000);
+			
+			document.getElementById('crono').innerHTML = result;
+			setInterval(anamiacionCrono,1000);
+	 
+			// Indicamos que se ejecute esta función nuevamente dentro de 1 segundo
+			
+		}
+
+		function anamiacionCrono(){
+			$("#crono").addClass("animated bounceIn");	
+
+		}
+ 	
+		/* Funcion que pone un 0 delante de un valor si es necesario */
+		function LeadingZero(Time) {
+			return (Time < 10) ? "0" + Time : + Time;
+		}
 
    		function registrarPuntaje(){
    			var f = new Date();
 			var fecha_actual=(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
+			alert(typeof(result));
    			$.ajax({
 			    // la URL para la petición
 			    url : '/BrainChaco/JugadorController/registrarPuntaje',
  				
 			    // la información a enviar
 			    // (también es posible utilizar una cadena de datos)
-			    data : { puntaje : puntaje,juego:'preguntas',fecha:fecha_actual },
+			    data : { puntaje : puntaje,juego:'preguntas',tiempo :result,fecha:fecha_actual},
  
 			    // especifica si será una petición POST o GET
 			    type : 'post',
@@ -193,8 +208,8 @@ $(document).ready(function(){
  
 			    // código a ejecutar si la petición es satisfactoria;
 			    // la respuesta es pasada como argumento a la función
-			    success : function(data) {
-			      alert(data)
+			    success : function(puntaje) {
+			      alert(puntaje);
 			    },
  
 			});

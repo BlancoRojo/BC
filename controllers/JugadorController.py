@@ -81,10 +81,11 @@ def registrarPuntaje():
 	puntaje= request.vars.puntaje
 	descJuego=request.vars.juego
 	fecha_actual=request.vars.fecha
+	totaltiempo=request.vars.tiempo
 	if session.id!=None:
-		row=db.puntaje.insert(idUser=session.id,descJuego=descJuego,puntaje=puntaje,tiempo=0,fecha=fecha_actual)
+		row=db.puntaje.insert(idUser=session.id,descJuego=descJuego,puntaje=puntaje,tiempo=totaltiempo,fecha=fecha_actual)
 	
-	return(fecha_actual)
+	return(totaltiempo)
 
 def ranking():
 
@@ -97,5 +98,6 @@ def perfil():
 
 def cerrar():
 	session.jugador=None
+	session.id=None
 	redirect(URL('HomeController','index'))
 	return dict()

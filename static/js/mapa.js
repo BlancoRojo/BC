@@ -441,7 +441,7 @@ var correctas=0//contador para mostrar despues cuantos aciertos tuvo
           // código a ejecutar si la petición es satisfactoria;
           // la respuesta es pasada como argumento a la función
           success : function(data) {
-            alert(data)
+            
           },
  
       });
