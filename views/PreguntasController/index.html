@@ -17,52 +17,35 @@
       </div>
 
    <div id="segunda-pantalla" class="container hidden">
-    
+     
+     <img class="img-responsive" id="inicio-mapa" height="6" src="{{=URL('static/images','2pantalla-pregunta.png')}}" alt="">
+         
 
     <div class="row">
 
-      
-      <div class="col-md-12">
-          <center>
-          <br>
-            <img class="img-responsive" id="inicio-mapa" height="6" src="{{=URL('static/images','2pantalla-pregunta.png')}}" alt="">
-          </center>
-        </div>
-
-        
-      
+          
       <div class="col-md-12" id="titulo-memoria">
-        
         
         <center>
           <img class="img-responsive animated flash" src="{{=URL('static/images','titulo-pregunta.png')}}" alt="juego preguntas">
         </center>
 
-
       </div>
-      
-    
-      
-        
+
+     
         <div class="row">
-
-          <div class="col-md-12">
-            
-            <center>
-              
+          <div class="col-md-6 col-md-offset-5 col-xs-6 ">
+            <center>          
+              <a>
                 <img class="img-responsive" id="jugar-preguntas" src="{{=URL('static/images','bc-boton-jugar.png')}}" alt="jugar">
-                   
-            </center>
-         
-          </div>
-
+              </a>
+            </center>              
+          </div> 
         </div>
-    
-
-
-    </div>
+      
+  
   </div>
-
+ </div>
 
 
       <div id="tercer-pantalla" class="container hidden">
@@ -117,36 +100,26 @@
           <div class="row">
 
               <center><h1 id="categoria"></h1></center>   
-              <div class="col-md-6 col-md-offset-3 panel panel-body">
+              <div class="col-md-6 col-md-offset-3">
                   
                   <center><h2 id="pregunta"></h2><input class="hidden" id="idPregunta"></label></center>
                   
                   <center>
-                    
-                    <div class="wrap">
-                      <form class="formulario">
-                        
-                        <div class="radio">
-                          <input type="radio" name="respuestas" id="respuesta1">    
-                          <label id="lblrespuesta1"></label>
-                        </div>
-
-                        <div class="radio">
-                          <input type="radio" name="respuestas" id="respuesta2">
-                          <label id="lblrespuesta2"></label>
-                        </div>
-                        
-                        <div class="radio">
-                          <input type="radio" name="respuestas" id="respuesta3">
-                          <label id="lblrespuesta3"></label>
-                        </div>
-
-                      </form>
-                    </div>
+                                                        
+                         <div class="btn-group-vertical row" role="group">      
+                                
+                            <button  id="respuesta1" class="col-md-6 respuesta"></button>
+                               <br>                                             
+                            <button  id="respuesta2" class="col-md-6 respuesta"></button>
+                              <br>                                                  
+                            <button id="respuesta3" class="col-md-6 respuesta"></button>
+                                         
+                           </div>
+                  
                     
                   </center>
 
-              </div>
+               </div>
               
           </div>
      
@@ -193,7 +166,7 @@
             </div>
              
               <audio id="looser" src="{{=URL('static/sonidos','risa_Nelson.mp3')}}"> </audio>
-              <button class="btn btn-primary" id="reintentar">REINTENTAR</button>
+              <a id="reintentar">REINTENTAR</a>
             
           </div>
       </div>

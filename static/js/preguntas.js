@@ -59,7 +59,10 @@ $(document).ready(function(){
 
 
    	function elegir_preguntas(){
-   		
+   		$(".respuesta").removeClass("btn btn-success");
+   		$(".respuesta").removeClass("btn btn-danger");
+   		$(".respuesta").addClass("btn btn-info");
+  
    		if (vidas>0){
 	   		 $.getJSON("../PreguntasController/seleccionar_pregunta",
 				function(data){
@@ -70,13 +73,13 @@ $(document).ready(function(){
 			    	$("#tercer-pantalla h2").text(data[1].descPreg);
 			    	$("#idPregunta").text(data[1].idPreg);
 			    	
-			    	$("#respuesta1").val(data[2].descResp0);//valores a los radiobutton
-			    	$("#respuesta2").val(data[2].descResp1);//valores a los radiobutton
-			    	$("#respuesta3").val(data[2].descResp2);//valores a los radiobutton
+			    	//$("#respuesta1").val(data[2].descResp0);//valores a los radiobutton
+			    	//$("#respuesta2").val(data[2].descResp1);//valores a los radiobutton
+			    	//$("#respuesta3").val(data[2].descResp2);//valores a los radiobutton
 			    	
-			    	$("#lblrespuesta1").text(data[2].descResp0);//valores de los label
-			    	$("#lblrespuesta2").text(data[2].descResp1);//valores de los label
-			    	$("#lblrespuesta3").text(data[2].descResp2);//valores de los label
+			    	$("#respuesta1").text(data[2].descResp0);//valores de los label
+			    	$("#respuesta2").text(data[2].descResp1);//valores de los label
+			    	$("#respuesta3").text(data[2].descResp2);//valores de los label
 					
 	   			}
 			);
@@ -93,10 +96,12 @@ $(document).ready(function(){
 	   	}
    	}
 
-   	$( "input" ).on( "click", function() {
+   	$( "button" ).on( "click", function() {
+   		event.preventDefault();
    		var idPregunta=$('#idPregunta').text();
-   		var respuesta=( $( "input:checked" ).val() );
-
+   		var respuesta=( $( this ).text() );
+   		var idButton=($(this).attr("id"));//obtengo el id del button seleccionado
+   		
 		//idRadioB=$('input[name=pk_inicial]:checked')
 		//idRadioButton=($("input:checked").attr("id"));
 
@@ -119,28 +124,23 @@ $(document).ready(function(){
 			    // la respuesta es pasada como argumento a la función
 			    success : function(respuesta) {
 			        if (respuesta=='V'){
-			        	//$("radio input:checked").attr("id").addClass("alert alert-info");
-			        	//$("label").addClass("alert alert-danger");
-						document.getElementById('correcto').play()
-						alert('CORRECTO');
-						resp_correctas=resp_correctas+1;
-						limpiarRB();
-						elegir_preguntas();
-						puntaje=puntaje + 5;
-						$("#numPuntos").text(puntaje);
+			        	
+						document.getElementById('correcto').play()//sonido
+						
+						resp_correctas=resp_correctas+1;//contador de aciertos
+						correcto(idButton);//llama a una funcion que agrega estilos a la respuesta elegida						
+						puntaje=puntaje + 5;//acumulador de puntajes
+						$("#numPuntos").text(puntaje);//muestro puntaje
+						setTimeout(elegir_preguntas,2000);//seleccion de la proxima pregunta
+						
 			        }else{
-			        	//$("radio input:checked").attr("id").addClass("alert alert-danger");
-			        	document.getElementById('incorrecto').play()
-			        	alert('INCORRECTO');
-			        	//var thissound=document.getElementById("incorrecto");			
-  						//thissound.Play();
-			        	resp_incorrectas=resp_incorrectas+1
-			        	vidas= vidas -1;
-			        	$("#vidas").addClass("hidden");
-
-			        	//$("#intentos").text(vidas);
-			        	limpiarRB();
-			        	elegir_preguntas();			   
+			        	
+			        	document.getElementById('incorrecto').play()//sonido
+			        	incorrecto(idButton);	//llama a una funcion que agrega estilos a la respuesta elegida		        	
+			        	resp_incorrectas=resp_incorrectas+1;//contador de preg incorrectas
+			        	vidas= vidas -1; //vidas
+			        	$("#vidas").addClass("hidden");//quito el img de vidas			        
+			        	setTimeout(elegir_preguntas,2000);//seleccion de la proxima pregunta			   
 			        }
 			    },
  
@@ -148,12 +148,18 @@ $(document).ready(function(){
   		
 		});
 
-   		function limpiarRB(){
-			
-			$("#respuesta1").prop('checked', false);
-			$("#respuesta2").prop('checked', false);
-			$("#respuesta3").prop('checked', false); 
+   		function correcto(id){
+  		
+			$("#"+id).removeClass("btn btn-info");
+			$("#"+id).addClass("btn btn-success");
 
+   		}
+
+
+   		function incorrecto(id){
+		  			
+			$("#"+id).removeClass("btn btn-info");	
+			$("#"+id).addClass("btn btn-danger");
    		}
 
    		function funcionando()
@@ -191,8 +197,7 @@ $(document).ready(function(){
    		function registrarPuntaje(){
    			var f = new Date();
 			var fecha_actual=(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
-			alert(typeof(result));
-			alert(result);
+			
    			$.ajax({
 			    // la URL para la petición
 			    url : '/BC/JugadorController/registrarPuntaje',

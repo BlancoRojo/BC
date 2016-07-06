@@ -12,6 +12,10 @@ body{
 
 }
 
+.respuesta{
+ font-size: 30px;
+}
+
 #crono{
 
   color: white;
@@ -48,9 +52,7 @@ path { cursor: pointer; }
   color: #383B6C;
 }
 
-#jugar-preguntas{
-  margin-top: 350px;
-}
+
 
 .contentInfo {
     background-color: #66932F;
@@ -67,6 +69,8 @@ path { cursor: pointer; }
     line-height: 46px;
     font-family: Arial,Helvetica,sans-serif;
 } 
+
+
 
 #tercer-pantalla, #looser-pantalla{
     background-image: url("../images/bc-memoria-fondo.png");
@@ -194,4 +198,26 @@ opacity: 0.9;
   border-radius:15px;
   background-color: #7cb139;
 }
+
+
+/*Reglas aplicadas a cualquier ancho de ventana de navegador 
+que sea inferior al valor definido en la consulta.
+@media screen and (max-width:1000px) {
+  #jugar-preguntas {
+    margin-top: 90px;
+   
+  }
+  
+}
+
+/*Reglas aplicadas a cualquier ancho de ventana de 
+navegador que supere el valor definido en la consulta. 
+@media screen and (min-width: 1240px) {
+  #jugar-preguntas {
+    margin-top: 350px;
+   
+  }
+}
+*/
+
 
