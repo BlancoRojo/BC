@@ -82,10 +82,12 @@ def registrarPuntaje():
 	descJuego=request.vars.juego
 	fecha_actual=request.vars.fecha
 	totaltiempo=request.vars.tiempo
+
 	if session.id!=None:
 		row=db.puntaje.insert(idUser=session.id,descJuego=descJuego,puntaje=puntaje,tiempo=totaltiempo,fecha=fecha_actual)
 	
-	return(totaltiempo)
+	return ()
+
 
 def ranking():
 

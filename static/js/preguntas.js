@@ -192,24 +192,25 @@ $(document).ready(function(){
    			var f = new Date();
 			var fecha_actual=(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 			alert(typeof(result));
+			alert(result);
    			$.ajax({
 			    // la URL para la petición
-			    url : '/BrainChaco/JugadorController/registrarPuntaje',
+			    url : '/BC/JugadorController/registrarPuntaje',
  				
 			    // la información a enviar
 			    // (también es posible utilizar una cadena de datos)
-			    data : { puntaje : puntaje,juego:'preguntas',tiempo :result,fecha:fecha_actual},
+			    data : { puntaje : puntaje,juego:'preguntas',fecha:fecha_actual,tiempo :result},
  
 			    // especifica si será una petición POST o GET
 			    type : 'post',
  
 			    // el tipo de información que se espera de respuesta
 			    //dataType : 'json',
- 
+ 					
 			    // código a ejecutar si la petición es satisfactoria;
 			    // la respuesta es pasada como argumento a la función
-			    success : function(puntaje) {
-			      alert(puntaje);
+			    success : function(data) {
+			     
 			    },
  
 			});

@@ -12,16 +12,12 @@ body{
 
 }
 
-#minutos, #segundos{
+#crono{
 
   color: white;
   font-size: 40px;
 }
 
-#dospuntos{
-color: white;
-  font-size: 40px;
-}
 
 #titTiempo{
   font-size: 15px;
