@@ -146,7 +146,7 @@ var correctas=0//contador para mostrar despues cuantos aciertos tuvo
           staMariaOro.attr(fondo).data('title', 'Santa María de Oro');
 
 
-        var GralGuemesT = rp.text(200,22,"General Güemes").
+        var GralGuemesT = rp.text(200,30,"General Güemes").
         attr({"font-size": "32px", "font-weight": "800", fill: "yellow", stroke:"brown", "stroke-width": "3px"});
         GralGuemesT.hide();
         var AlmiranteBrowT = rp.text(160,50,"Almirante Brown").
@@ -230,9 +230,14 @@ var correctas=0//contador para mostrar despues cuantos aciertos tuvo
         attr({"font-size": "50px", "font-weight": "800", fill: "#ff0000", stroke:"brown", "stroke-width": "3px"});
         lost.hide();
 
+        var adivi = rp.text(350,25,"Adivina donde esta\n ???").attr({"font-size": "25px", "font-weight": "800", fill: "yellow", stroke:"brown", "stroke-width": "3px"});
+        
+
         dept=[GralGuemes,AlmiranteBrow,SanMartin,Independecia,mayo,quitilipi,cmdFernandez,sarmientoCabral,Bermejo,nuevedeJulio,belgrano,presidenciaPlaza,chacabuco,primeroDeMayo,gralDonovan,doceOctubre,ohiggins,maipu,sanLorenzo,libertad,tapenaga,sanFernando,fontana,dosAbril,staMariaOro,nulo]
         titulos=[GralGuemesT,AlmiranteBrowT,SanMartinT,IndependeciaT,mayoT,quitilipiT,cmdFernandezT,sarmientoCabralT,BermejoT,nuevedeJulioT,belgranoT,presidenciaPlazaT,chacabucoT,primeroDeMayoT,gralDonovanT,doceOctubreT,ohigginsT,maipuT,sanLorenzoT,libertadT,tapenagaT,sanFernandoT,fontanaT,dosAbrilT,staMariaOroT,nulo]
           
+        
+
          GralGuemes.node.id= 'GralGuemes';
          AlmiranteBrow.node.id = 'AlmiranteBrow';
          SanMartin.node.id = 'SanMartin';
@@ -299,6 +304,7 @@ var correctas=0//contador para mostrar despues cuantos aciertos tuvo
 
               if (($(this).attr('fill')=='#00577a')){
                 sig=1000;
+                adivi.attr({'text': "Adivina donde esta\n ???"});
                 if ($(this).attr('id')== dept[sel[adi]].node.id){
                    puntos=puntos+5;
                    dept[sel[adi]].attr(correcto);
@@ -390,8 +396,10 @@ var correctas=0//contador para mostrar despues cuantos aciertos tuvo
                         (dept[dep].attr(fondo2));
                         titulos[toc].hide();
                         adi= Math.floor(Math.random() * 1+j);
-                          prueba='Adivina donde esta: '+(dept[sel[adi]].node.title).toUpperCase();
-                          $('#localidad').text(prueba);
+                          //encuentra
+                          prueba="Adivina donde esta\n" + (dept[sel[adi]].node.title).toUpperCase();
+                          adivi.attr({'text': prueba});
+                       
                         for (var x = 0; x < 3+j; x++) {
                         (dept[sel[x]].attr(comenzar));
                           }
@@ -426,7 +434,7 @@ var correctas=0//contador para mostrar despues cuantos aciertos tuvo
       var fecha_actual=(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
         $.ajax({
           // la URL para la petición
-          url : '/BrainChaco/JugadorController/registrarPuntaje',
+          url : '/BCF/JugadorController/registrarPuntaje',
         
           // la información a enviar
           // (también es posible utilizar una cadena de datos)
