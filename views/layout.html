@@ -25,7 +25,9 @@
    
     <link rel="stylesheet" href="{{=URL('static','css/bootstrap.min.css')}}"/>
     <link rel="stylesheet" href="{{=URL('static','css/web2py-bootstrap3.css')}}"/>
+   
     <link rel="stylesheet" type="text/css" href="{{=URL('static/css', 'animate.css')}}">
+      <link rel="stylesheet" href="{{=URL('static','css/menuxs.css')}}"/>
     <link rel="shortcut icon" href="{{=URL('static','images/favicon.ico')}}" type="image/x-icon">
   
     
@@ -95,6 +97,33 @@
     <!-- Begin page content -->
     
  {{if session.jugador==None:}}
+
+<div id="custom-bootstrap-menu" class="navbar navbar-default navbar-fixed-top visible-xs" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header"><a class="navbar-brand" href="#"></a>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="row">
+        <div class="col-xs-6"></div>
+        <div class="col-xs-6">
+        <div id="nose" align="right" class="collapse navbar-collapse navbar-menubuilder">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/">Home</a>
+                </li>
+                <li><a href="/products">Products</a>
+                </li>
+                <li><a href="/about-us">About Us</a>
+                </li>
+                <li><a href="/contact">Contact Us</a>
+                </li>
+            </ul>
+        </div>
+        </div>
+        </div>
+    </div>
+</div>
+
 
  
   <div class="container-fluid">
@@ -307,7 +336,7 @@
                     </div>
                     <div class="button-hover" id="regB2">
                       <canvas width="305" height="83" style="width: 100%; height: 100%;"></canvas>
-                      <div class="side-menu-button-text"><a href="{{=URL('JugadorController','ranking')}}">Ranking</a></div>
+                      <div class="side-menu-button-text"><a href="#">Ranking</a></div>
                     </div>
                   </div>
                                   

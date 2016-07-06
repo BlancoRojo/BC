@@ -6,6 +6,50 @@ body, html{
     width:100%;
 }
 
+@media screen and (max-width: 330px){
+    #empezar {
+        margin-top: 100px;
+    }
+}
+
+
+@media screen and (min-width: 330px) and (max-width: 400px){
+    #empezar {
+        margin-top: 120px;
+    }
+}
+
+@media screen and (min-width: 400px) and (max-width: 450px){
+    #empezar {
+        margin-top: 140px;
+    }
+}
+
+@media screen and (min-width: 450px) and (max-width: 500px){
+    #empezar {
+        margin-top: 150px;
+    }
+}
+
+@media screen and (min-width: 500px) and (max-width: 600px){
+    #empezar {
+        margin-top: 180px;
+    }
+}
+
+
+@media screen and (min-width: 600px) and (max-width: 700px){
+    #empezar {
+        margin-top: 200px;
+    }
+}
+
+@media screen and (min-width: 700px) and (max-width: 993px){
+    #empezar {
+        margin-top: 250px;
+    }
+}
+
 #tercer-pantalla-mapa{
 
     background-image: url("../images/bc-memoria-fondo.png");
@@ -32,11 +76,12 @@ body, html{
 	padding-left: 100px;
 
 }
-
+@media screen and (min-width: 993px){
 #empezar {
 
 	margin-top: 380px;
 
+}
 }
 
 #titulo-memoria{
