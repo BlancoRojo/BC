@@ -341,6 +341,8 @@ var correctas=0//contador para mostrar despues cuantos aciertos tuvo
                     },1000);
                   }
                   else{
+
+                    
                     $('#intentos').text(intentos);
                   }
                   

@@ -221,3 +221,11 @@ navegador que supere el valor definido en la consulta.
 */
 
 
+#myCarousel{
+  background-image: url("../images/bc-memoria-fondo.png");
+
+  background-repeat: no-repeat;
+  background-size: contain;
+  min-height:600px;
+  max-height: 600px;
+}

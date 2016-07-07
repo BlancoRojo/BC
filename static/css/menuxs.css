@@ -1,0 +1,13 @@
+#custom-bootstrap-menu {
+ /* Full height */
+ 	background-color: transparent;
+ 	border-color: transparent;
+	position: fixed;
+     /* Make it stick, even on scroll */
+     /* Enable scrolling if the sidenav has too much content */
+}
+
+#nose{
+	background-color: green;
+	border-color: transparent;
+}

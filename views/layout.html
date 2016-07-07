@@ -109,13 +109,16 @@
         <div class="col-xs-6">
         <div id="nose" align="right" class="collapse navbar-collapse navbar-menubuilder">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/">Home</a>
+                <li><a href="" >{{=session.invitado}}</a>
                 </li>
-                <li><a href="/products">Products</a>
+                <br>
+                <li><a href="{{=URL('HomeController','index')}}">Menu Principal</a>
                 </li>
-                <li><a href="/about-us">About Us</a>
+                <li><a href="{{=URL('JugadorController','login')}}">Acceder</a>
                 </li>
-                <li><a href="/contact">Contact Us</a>
+                <li><a href="{{=URL('JugadorController','registro')}}">Registro</a>
+                </li>
+                <li><a href="#">Ranking</a>
                 </li>
             </ul>
         </div>
@@ -216,7 +219,7 @@
 
                     <div class="button-hover hidden" id="sugB2">
                       <canvas width="305" height="83" style="width: 100%; height: 100%;"></canvas>
-                      <div class="side-menu-button-text"><a href="{{=URL('HomeController','index')}}">Sugerinos!</a></div>
+                      <div class="side-menu-button-text"><a href="#">Sugerinos!</a></div>
                     </div>
                   </div>               
                 <div class="side-menu-button hidden" id="valorB1">
@@ -227,7 +230,7 @@
 
                     <div class="button-hover hidden" id="valorB2">
                       <canvas width="305" height="83" style="width: 100%; height: 100%;"></canvas>
-                      <div class="side-menu-button-text"><a href="{{=URL('HomeController','index')}}">Votaciones</a></div>
+                      <div class="side-menu-button-text"><a href="#">Votaciones</a></div>
                     </div>
                   </div>
                 
@@ -239,7 +242,7 @@
 
                     <div class="button-hover hidden" id="recomend2">
                       <canvas width="305" height="83" style="width: 100%; height: 100%;"></canvas>
-                      <div class="side-menu-button-text"><a href="{{=URL('HomeController','index')}}">Recomendados</a></div>
+                      <div class="side-menu-button-text"><a href="{{=URL('RecomendadoController','index')}}">Recomendados</a></div>
                     </div>
                   </div>
 
@@ -251,7 +254,7 @@
 
                     <div class="button-hover hidden" id="nosotrosB2">
                       <canvas width="305" height="83" style="width: 100%; height: 100%;"></canvas>
-                      <div class="side-menu-button-text"><a href="{{=URL('HomeController','index')}}">Acerca de...</a></div>
+                      <div class="side-menu-button-text"><a href="{{=URL('ContactoController','index')}}">Acerca de...</a></div>
                     </div>
                   </div>
 
@@ -263,10 +266,40 @@
 
       {{else:}}
 
+      <div id="custom-bootstrap-menu" class="navbar navbar-default navbar-fixed-top visible-xs" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header"><a class="navbar-brand" href="#"></a>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="row">
+        <div class="col-xs-6"></div>
+        <div class="col-xs-6">
+        <div id="nose" align="right" class="collapse navbar-collapse navbar-menubuilder">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="" >{{=session.jugador}}</a>
+                </li>
+                <br>
+                <li><a href="{{=URL('HomeController','index')}}">Menu Principal</a>
+                </li>
+                <li><a href="#">Perfil</a>
+                </li>
+                <li><a href="#">Ranking</a>
+                </li>
+                <li><a href="{{=URL('JugadorController','cerrar')}}">Salir</a>
+                </li>
+            </ul>
+        </div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
       <div class="container-fluid">
      
 
-      <div class="ocultar-menu" id="side-menu" style="right: -314px;">
+      <div class="ocultar-menu hidden-xs" id="side-menu" style="right: -314px;">
         
         <a class="side-menu-tab" id="fake-tab" href="#">
       
@@ -356,7 +389,7 @@
 
                     <div class="button-hover hidden" id="sugB2">
                       <canvas width="305" height="83" style="width: 100%; height: 100%;"></canvas>
-                      <div class="side-menu-button-text"><a href="{{=URL('HomeController','index')}}">Sugerinos!</a></div>
+                      <div class="side-menu-button-text"><a href="#">Sugerinos!</a></div>
                     </div>
                   </div>               
                 <div class="side-menu-button hidden" id="valorB1">
@@ -367,7 +400,7 @@
 
                     <div class="button-hover hidden" id="valorB2">
                       <canvas width="305" height="83" style="width: 100%; height: 100%;"></canvas>
-                      <div class="side-menu-button-text"><a href="{{=URL('HomeController','index')}}">Votaciones</a></div>
+                      <div class="side-menu-button-text"><a href="#}">Votaciones</a></div>
                     </div>
                   </div>
                 
@@ -379,7 +412,7 @@
 
                     <div class="button-hover hidden" id="recomend2">
                       <canvas width="305" height="83" style="width: 100%; height: 100%;"></canvas>
-                      <div class="side-menu-button-text"><a href="{{=URL('HomeController','index')}}">Recomendados</a></div>
+                      <div class="side-menu-button-text"><a href="{{=URL('RecomendadoController','index')}}">Recomendados</a></div>
                     </div>
                   </div>
 
@@ -391,7 +424,7 @@
 
                     <div class="button-hover hidden" id="nosotrosB2">
                       <canvas width="305" height="83" style="width: 100%; height: 100%;"></canvas>
-                      <div class="side-menu-button-text"><a href="{{=URL('HomeController','index')}}">Acerca de...</a></div>
+                      <div class="side-menu-button-text"><a href="{{=URL('ContactoController','index')}}">Acerca de...</a></div>
                     </div>
                     </div>
                   
