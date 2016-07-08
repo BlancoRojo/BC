@@ -185,8 +185,9 @@ $(document).ready(function(){
 		}
 
 		function anamiacionCrono(){
-			$("#crono").addClass("animated bounceIn");	
-
+			$("#crono").addClass("animated bounceIn");
+			setTimeout(function(){$("#crono").removeClass("animated bounceIn");},500);	
+				
 		}
  	
 		/* Funcion que pone un 0 delante de un valor si es necesario */

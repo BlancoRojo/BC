@@ -18,13 +18,16 @@
 
    <div id="segunda-pantalla" class="container hidden">
      
-     <img class="img-responsive" id="inicio-mapa" height="6" src="{{=URL('static/images','2pantalla-pregunta.png')}}" alt="">
-         
 
     <div class="row">
-
+      
+      <div class="col-md-12 col-xs-12">
+        <center>
+         <img class="img-responsive" id="inicio-mapa" src="{{=URL('static/images','2pantalla-pregunta.png')}}" alt="">
+        </center>
+      </div>
           
-      <div class="col-md-12" id="titulo-memoria">
+      <div class="col-md-12 col-xs-12" id="titulo-memoria">
         
         <center>
           <img class="img-responsive animated flash" src="{{=URL('static/images','titulo-pregunta.png')}}" alt="juego preguntas">
@@ -33,18 +36,19 @@
       </div>
 
      
-        <div class="row">
-          <div class="col-md-6 col-md-offset-5 col-xs-6 ">
+      
+          <div class="col-md-4 col-xs-6 col-xs-offset-6  ">
             <center>          
               <a>
                 <img class="img-responsive" id="jugar-preguntas" src="{{=URL('static/images','bc-boton-jugar.png')}}" alt="jugar">
               </a>
             </center>              
           </div> 
-        </div>
+       
       
   
   </div>
+
  </div>
 
 
@@ -85,8 +89,9 @@
               <center>
                   <div class="boxIndicador" id="cajaTiempo">
                     <div id="numTiempo" class="numIndicador">
-                        <h1 id="crono">00:00:00</h1>
+                        <h3 id="crono">00:00:00</h3>
                     </div>
+
                     <div id="titTiempo" class="titIndicador">Tiempo</div>
                   </div>
               </center>
@@ -94,9 +99,7 @@
 
 
         </div>
-    <br>
-    <br>
-    <br>  
+
           <div class="row">
 
               <center><h1 id="categoria"></h1></center>   

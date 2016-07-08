@@ -12,21 +12,77 @@ body{
 
 }
 
-.respuesta{
- font-size: 30px;
+@media screen and (max-width: 330px){
+    #jugar-preguntas {
+        margin-top: 80px;
+    }
 }
+
+@media screen and (min-width: 993px){
+  #jugar-preguntas {
+
+  margin-top: 365px;
+
+  }
+}
+
+@media screen and (min-width: 330px) and (max-width: 400px){
+    #jugar-preguntas {
+        margin-top: 100px;
+    }
+}
+
+@media screen and (min-width: 400px) and (max-width: 450px){
+    #jugar-preguntas {
+        margin-top: 120px;
+    }
+}
+
+@media screen and (min-width: 450px) and (max-width: 500px){
+    #jugar-preguntas {
+        margin-top: 130px;
+    }
+}
+
+@media screen and (min-width: 500px) and (max-width: 600px){
+    #jugar-preguntas {
+        margin-top: 160px;
+    }
+}
+
+
+@media screen and (min-width: 600px) and (max-width: 700px){
+    #jugar-preguntas {
+        margin-top: 180px;
+    }
+}
+
+@media screen and (min-width: 700px) and (max-width: 993px){
+    #jugar-preguntas {
+        margin-top: 230px;
+    }
+}
+
+.respuesta{
+ font-size: 20px;
+
+}
+
 
 #crono{
 
   color: white;
-  font-size: 40px;
+}
+
+.btn-danger:hover{
+  background-color:red;
+}
+
+.btn-success:hover{
+  background-color:green;
 }
 
 
-#titTiempo{
-  font-size: 15px;
-}
-path { cursor: pointer; } 
 
 #perdiste{
    font-size: 75px;
