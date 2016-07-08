@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-06-2016 a las 06:10:44
+-- Tiempo de generación: 08-07-2016 a las 19:47:59
 -- Versión del servidor: 10.1.13-MariaDB
 -- Versión de PHP: 7.0.5
 
@@ -86,7 +86,35 @@ INSERT INTO `pregunta` (`id`, `descripcion`, `idcat`) VALUES
 (27, '¿En qué año fue declarada, Capital Nacional de las Escultura, la ciudad de Resistencia?', 3),
 (28, '¿Entre que calles, se encuentra la Casa de las Culturas?', 3),
 (29, '¿Quien fue el ganador en la Bienal  2014 con la escultura SEMILLAS CUBICAS?', 4),
-(30, '¿ Que obra fue ganadora en la Bienal 2014? ', 4);
+(30, '¿ Que obra fue ganadora en la Bienal 2014? ', 4),
+(31, '¿Cuantos habitantes tiene aproximadamente el departamento Almirante Brown?', 1),
+(32, '¿Cuantos habitantes tiene aproximadamente el departamento San Fernando?', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `puntaje`
+--
+
+CREATE TABLE `puntaje` (
+  `id` int(11) NOT NULL,
+  `idUser` int(11) DEFAULT NULL,
+  `descJuego` varchar(512) DEFAULT NULL,
+  `puntaje` int(11) DEFAULT NULL,
+  `tiempo` time DEFAULT NULL,
+  `fecha` varchar(512) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `puntaje`
+--
+
+INSERT INTO `puntaje` (`id`, `idUser`, `descJuego`, `puntaje`, `tiempo`, `fecha`) VALUES
+(93, 4, 'preguntas', 0, '00:00:04', '4/7/2016'),
+(94, 4, 'preguntas', 30, '00:00:35', '4/7/2016'),
+(95, 4, 'preguntas', 5, '00:00:14', '6/7/2016'),
+(96, 4, 'memoria', 5, '00:00:00', '6/7/2016'),
+(97, 4, 'preguntas', 5, '00:00:12', '6/7/2016');
 
 -- --------------------------------------------------------
 
@@ -135,6 +163,8 @@ INSERT INTO `respuestapregunta` (`id`, `idPreg`, `descripcion`, `opcion`) VALUES
 (1, 28, 'Marcelo T.de Alvear y Mitre', 'V'),
 (1, 29, 'Ezequiel Vasquez', 'F'),
 (1, 30, 'Semillas Cubicas', 'V'),
+(1, 31, '32000', 'F'),
+(1, 32, '390.000', 'V'),
 (2, 1, '45.314km', 'V'),
 (2, 2, '5.000 ha', 'F'),
 (2, 3, 'Tres Isleta', 'F'),
@@ -164,6 +194,8 @@ INSERT INTO `respuestapregunta` (`id`, `idPreg`, `descripcion`, `opcion`) VALUES
 (2, 28, '9 de Julio y Pellegrini', 'F'),
 (2, 29, 'Thierry Ferreira.', 'V'),
 (2, 30, 'Espejos del cielo', 'F'),
+(2, 31, '34000', 'V'),
+(2, 32, '350.000', 'F'),
 (3, 1, '80.000 km.', 'F'),
 (3, 2, '80.000 ha', 'F'),
 (3, 3, 'Taco Pozo', 'V'),
@@ -192,7 +224,9 @@ INSERT INTO `respuestapregunta` (`id`, `idPreg`, `descripcion`, `opcion`) VALUES
 (3, 27, 'agosto del 1999', 'v'),
 (3, 28, 'Av Sarmiento y Juan B. Justo', 'F'),
 (3, 29, 'Dennis Arches', 'F'),
-(3, 30, 'Sexto sol', 'F');
+(3, 30, 'Sexto sol', 'F'),
+(3, 31, '30000', 'F'),
+(3, 32, '280.000', 'F');
 
 -- --------------------------------------------------------
 
@@ -213,7 +247,19 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`id`, `nombre`, `correo`, `password`) VALUES
 (4, 'facundo', 'facundomierez@gmail.com', '123'),
-(5, 'prueba', 'prueba@gmail.com', '123');
+(5, 'prueba', 'prueba@gmail.com', '123'),
+(6, 'alejandro', 'ale@gmail.com', '123'),
+(7, 'ruben', 'ruben@hotmail.com', '123'),
+(8, 'sandro', 'sandro@gmail.com', '123'),
+(9, 'maria', 'maria@gmail.com', '123'),
+(10, 'antonella', 'anto@hotmail.com', '123'),
+(11, 'juan', 'juan@hotmail.com', '123'),
+(12, 'edu', 'edu@gmail.com', '123'),
+(13, 'fer', 'fer@hotmail.com', '123'),
+(14, 'ana', 'ana@gmail.com', '123'),
+(15, 'laura', 'laura@gmail.com', '123'),
+(16, 'fernando', 'fer@google.com', '123'),
+(17, 'Cel', 'cel@hotmail.com', '123');
 
 --
 -- Índices para tablas volcadas
@@ -231,6 +277,13 @@ ALTER TABLE `categoria`
 ALTER TABLE `pregunta`
   ADD PRIMARY KEY (`id`),
   ADD KEY `idCat__idx` (`idcat`);
+
+--
+-- Indices de la tabla `puntaje`
+--
+ALTER TABLE `puntaje`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idUser__idx` (`idUser`);
 
 --
 -- Indices de la tabla `respuestapregunta`
@@ -258,12 +311,17 @@ ALTER TABLE `categoria`
 -- AUTO_INCREMENT de la tabla `pregunta`
 --
 ALTER TABLE `pregunta`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+--
+-- AUTO_INCREMENT de la tabla `puntaje`
+--
+ALTER TABLE `puntaje`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- Restricciones para tablas volcadas
 --
@@ -273,6 +331,12 @@ ALTER TABLE `usuarios`
 --
 ALTER TABLE `pregunta`
   ADD CONSTRAINT `pregunta_ibfk_1` FOREIGN KEY (`idcat`) REFERENCES `categoria` (`id`) ON DELETE CASCADE;
+
+--
+-- Filtros para la tabla `puntaje`
+--
+ALTER TABLE `puntaje`
+  ADD CONSTRAINT `puntaje_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE;
 
 --
 -- Filtros para la tabla `respuestapregunta`
