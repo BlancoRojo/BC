@@ -108,7 +108,7 @@ $(document).ready(function(){
 
    		$.ajax({
 			    // la URL para la petición
-			    url : '/BrainChaco/PreguntasController/verificar_respuesta',
+			    url : '/BC/PreguntasController/verificar_respuesta',
  				
 			    // la información a enviar
 			    // (también es posible utilizar una cadena de datos)

@@ -1,0 +1,63 @@
+{{extend 'layout.html'}}
+
+
+<div class="container">
+  <h2>RANKING GLOBAL</h2>
+  
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#home">RANKING PREGUNTAS</a></li>
+    <li><a data-toggle="tab" href="#menu1">RANKING MEMORIA</a></li>
+    
+  </ul>
+
+<div class="row">
+	<div class="col-md-6 col-offset-3">
+	  <div class="tab-content">
+		    <table class="table table-hover">
+			    <thead>
+			      <tr>
+			        <th>Nombre</th>
+			        <th>Puntaje</th>
+			        <th>tiempo</th>
+			      </tr>
+			    </thead>
+			    <div id="home" class="tab-pane fade in active">
+				 {{for preg in preguntas:}}
+				 <tbody>
+		     		<tr>
+				     	<td>{{=preg[0]}}</td>
+				     	<td>{{=preg[1]}}</td>
+				     	<td>{{=preg[2]}}</td>
+			     		{{pass}}
+			    </tbody>
+	  		</table>
+	    </div>
+	    
+	    <div id="menu1" class="tab-pane fade">
+	     <table class="table table-hover">
+			    <thead>
+			      <tr>
+			        <th>Nombre</th>
+			        <th>Puntaje</th>
+			        
+			      </tr>
+			    </thead>
+			    <div id="home" class="tab-pane fade in active">
+				 {{for memoria in memorias:}}
+				 <tbody>
+		     		<tr>
+				     	<td>{{=memoria[0]}}</td>
+				     	<td>{{=memoria[1]}}</td>
+				     	
+			     		{{pass}}
+			    </tbody>
+	  		</table>
+	    </div>
+	    
+	    
+	  </div>
+  	</div>
+ </div>
+
+
+</div>
