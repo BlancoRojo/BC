@@ -285,3 +285,55 @@ navegador que supere el valor definido en la consulta.
   min-height:600px;
   max-height: 600px;
 }
+
+
+@media screen and (max-width: 330px){
+    #jugar-preguntas {
+        margin-top: 65px;
+    }
+}
+
+
+@media screen and (min-width: 330px) and (max-width: 400px){
+    #jugar-preguntas {
+        margin-top: 80px;
+    }
+}
+
+@media screen and (min-width: 400px) and (max-width: 450px){
+    #jugar-preguntas {
+        margin-top: 95px;
+    }
+}
+
+@media screen and (min-width: 450px) and (max-width: 500px){
+    #jugar-preguntas {
+        margin-top: 110px;
+    }
+}
+
+@media screen and (min-width: 500px) and (max-width: 600px){
+    #jugar-preguntas {
+        margin-top: 115px;
+    }
+}
+
+
+@media screen and (min-width: 600px) and (max-width: 700px){
+    #jugar-preguntas {
+        margin-top: 140px;
+    }
+}
+
+@media screen and (min-width: 700px) and (max-width: 993px){
+    #jugar-preguntas {
+        margin-top: 170px;
+    }
+}
+
+@media screen and (min-width: 993px){
+#jugar-preguntas {
+
+  margin-top: 330px;
+
+}
