@@ -5,4 +5,3 @@ def index():
     response.view= 'HomeController/index.html '
     return dict()
 
-

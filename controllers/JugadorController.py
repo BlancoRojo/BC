@@ -82,7 +82,6 @@ def registrarPuntaje():
 	descJuego=request.vars.juego
 	fecha_actual=request.vars.fecha
 	totaltiempo=request.vars.tiempo
-
 	if session.id!=None:
 		row=db.puntaje.insert(idUser=session.id,descJuego=descJuego,puntaje=puntaje,tiempo=totaltiempo,fecha=fecha_actual)
 	
@@ -91,8 +90,10 @@ def registrarPuntaje():
 
 def ranking():
 
-	row=db.executesql("SELECT usuarios.nombre,SUM(puntaje) AS 'puntaje',tiempo FROM puntaje INNER JOIN usuarios ON puntaje.idUser=usuarios.id GROUP BY idUser ORDER by puntaje DESC LIMIT 10")
-	return dict(ranking=row)
+	row_preg=db.executesql("SELECT usuarios.nombre,SUM(puntaje) as 'puntaje', SEC_TO_TIME(SUM(TIME_TO_SEC(tiempo))) FROM puntaje INNER JOIN usuarios ON puntaje.idUser=usuarios.id WHERE descJuego='preguntas' GROUP BY idUser ORDER by puntaje DESC")
+	row_memoria=db.executesql("SELECT usuarios.nombre,SUM(puntaje) as 'puntaje' FROM puntaje INNER JOIN usuarios ON puntaje.idUser=usuarios.id WHERE descJuego='memoria' GROUP BY idUser ORDER by puntaje DESC")
+	
+	return dict(preguntas=row_preg, memorias=row_memoria)
 
 def perfil():
 	row=db.executesql("SELECT nombre,correo FROM USUARIOS WHERE id="+str(session.id))

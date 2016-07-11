@@ -8,25 +8,33 @@ def index():
 def seleccionar_pregunta():
 	respuesta={}
 	resultado=[] #lista que almacenara el diccionario de categoria,pregunta y respuesta
-	
+	imagen={}
 	resul_categoria = db.executesql('SELECT id,descripcion FROM categoria ORDER BY RAND() LIMIT 1')
 	for row in resul_categoria:
  		categoria = {'idCat': row[0], 'descCat': row[1]}
- 	
-	resul_pregunta = db.executesql('SELECT id,descripcion FROM pregunta WHERE idcat='+ str(categoria['idCat']) +' ORDER BY RAND() LIMIT 1')
- 	for row in resul_pregunta:
- 		pregunta = {'idPreg': row[0], 'descPreg': row[1]}
+ 
+	resul_pregunta = db.executesql('SELECT id,descripcion,idEsc FROM pregunta WHERE idcat='+ str(categoria['idCat']) +' ORDER BY RAND() LIMIT 1')
+	for row in resul_pregunta:
+	 	pregunta = {'idPreg': row[0], 'descPreg': row[1], 'idEsc':row[2]}
 
- 	resul_respuesta=db.executesql('SELECT id,descripcion FROM RESPUESTAPREGUNTA WHERE idPreg='+str(pregunta['idPreg']))
- 	x=0
+	if categoria['idCat']==4:
+		prueba = int(pregunta['idEsc'])
+		bimg = db(db.escultura.id == prueba).select()
+		imagen={'idImg':bimg[0].id,'imagen':bimg[0].imagen}
+	else:
+ 		imagen={'imagen':""}
+
+	resul_respuesta=db.executesql('SELECT id,descripcion FROM RESPUESTAPREGUNTA WHERE idPreg='+str(pregunta['idPreg']))
+	x=0
 	for row in resul_respuesta:
- 		respuesta['idResp'+str(x)] = row[0] 
- 		respuesta['descResp'+str(x)] = row[1]
- 		x=x+1
+	 	respuesta['idResp'+str(x)] = row[0] 
+	 	respuesta['descResp'+str(x)] = row[1]
+	 	x=x+1
 
  	resultado.append(categoria)
  	resultado.append(pregunta)
  	resultado.append(respuesta)
+ 	resultado.append(imagen)
  	return response.json(resultado)
 
 

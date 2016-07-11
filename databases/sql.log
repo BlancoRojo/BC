@@ -469,3 +469,22 @@ success!
 ALTER TABLE puntaje DROP COLUMN fecha__tmp;
 success!
 success!
+timestamp: 2016-07-10T18:46:09.752000
+CREATE TABLE escultura(
+    id INT AUTO_INCREMENT NOT NULL,
+    nombre LONGTEXT,
+    fecha LONGTEXT,
+    escultor LONGTEXT,
+    pais LONGTEXT,
+    material LONGTEXT,
+    imagen LONGTEXT,
+    direccion LONGTEXT,
+    lat FLOAT,
+    lng FLOAT,
+    premio LONGTEXT,
+    PRIMARY KEY (id)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2016-07-10T18:46:09.907000
+ALTER TABLE pregunta ADD idesc INT  , ADD INDEX idEsc__idx (idEsc), ADD FOREIGN KEY (idEsc) REFERENCES escultura (id) ON DELETE CASCADE;
+success!

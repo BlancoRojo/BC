@@ -62,14 +62,24 @@ $(document).ready(function(){
    		$(".respuesta").removeClass("btn btn-success");
    		$(".respuesta").removeClass("btn btn-danger");
    		$(".respuesta").addClass("btn btn-info");
+   		$("#imagen-escultura").addClass("hidden");
+   		$("#categoria").removeClass("hidden");
   
    		if (vidas>0){
 	   		 $.getJSON("../PreguntasController/seleccionar_pregunta",
 				function(data){
 
 					$("#categoria").text(data[0].descCat);
-			    	$('#categoria').addClass("animated zoomInLeft");
-
+			    	$('#categoria').addClass("animated zoomInLeft");	
+			    	//Tratado de imagenes
+			    	var dirImg= ("../static/images/" + data[3].imagen);
+			    	
+			    	if (data[0].idCat == 4){
+			    		$("#imagen-escultura").attr("src", dirImg);
+			    		$("#imagen-escultura").removeClass("hidden");
+			    		$("#categoria").addClass("hidden");
+			    	}
+			    	//  -- fer edito -- 
 			    	$("#tercer-pantalla h2").text(data[1].descPreg);
 			    	$("#idPregunta").text(data[1].idPreg);
 			    	
@@ -80,6 +90,7 @@ $(document).ready(function(){
 			    	$("#respuesta1").text(data[2].descResp0);//valores de los label
 			    	$("#respuesta2").text(data[2].descResp1);//valores de los label
 			    	$("#respuesta3").text(data[2].descResp2);//valores de los label
+			    	
 					
 	   			}
 			);
@@ -101,7 +112,6 @@ $(document).ready(function(){
    		var idPregunta=$('#idPregunta').text();
    		var respuesta=( $( this ).text() );
    		var idButton=($(this).attr("id"));//obtengo el id del button seleccionado
-   		
 		//idRadioB=$('input[name=pk_inicial]:checked')
 		//idRadioButton=($("input:checked").attr("id"));
 

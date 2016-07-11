@@ -1,63 +1,144 @@
 {{extend 'layout.html'}}
 
+{{
+cont_preg=0
+cont_mem=0
+
+}}
+<br><br><br>
 
 <div class="container">
-  <h2>RANKING GLOBAL</h2>
-  
-  <ul class="nav nav-tabs">
-    <li class="active"><a data-toggle="tab" href="#home">RANKING PREGUNTAS</a></li>
-    <li><a data-toggle="tab" href="#menu1">RANKING MEMORIA</a></li>
-    
-  </ul>
+		  
+	<div class="row">
+		<div class="col-md-12">
+			
+			<!--imagen de fondo-->
+			<div class="row">
+				<div class="col-md-9 col-md-offset-1">
+					<img class="img-responsive" id="inicio-mapa" height="6" src="{{=URL('static/images','bc-memoria-fondo.png')}}" alt="">		
+				</div>
+			</div>
+			<!--imagen de fondo-->
+			
+			<center>
+				<div class="row">
+					<div class="col-md-12">
+						<h1>RANKING GLOBAL</h1>
+					</div>
+				</div>
+			</center>
+			<br><br>
+			
 
-<div class="row">
-	<div class="col-md-6 col-offset-3">
-	  <div class="tab-content">
-		    <table class="table table-hover">
-			    <thead>
-			      <tr>
-			        <th>Nombre</th>
-			        <th>Puntaje</th>
-			        <th>tiempo</th>
-			      </tr>
-			    </thead>
-			    <div id="home" class="tab-pane fade in active">
-				 {{for preg in preguntas:}}
-				 <tbody>
-		     		<tr>
-				     	<td>{{=preg[0]}}</td>
-				     	<td>{{=preg[1]}}</td>
-				     	<td>{{=preg[2]}}</td>
-			     		{{pass}}
-			    </tbody>
-	  		</table>
-	    </div>
-	    
-	    <div id="menu1" class="tab-pane fade">
-	     <table class="table table-hover">
-			    <thead>
-			      <tr>
-			        <th>Nombre</th>
-			        <th>Puntaje</th>
-			        
-			      </tr>
-			    </thead>
-			    <div id="home" class="tab-pane fade in active">
-				 {{for memoria in memorias:}}
-				 <tbody>
-		     		<tr>
-				     	<td>{{=memoria[0]}}</td>
-				     	<td>{{=memoria[1]}}</td>
-				     	
-			     		{{pass}}
-			    </tbody>
-	  		</table>
-	    </div>
-	    
-	    
-	  </div>
-  	</div>
- </div>
+			<div class="row">
+			
+
+				<div class="col-md-2 col-md-offset-2">
+					<img class="img-responsive" id="inicio-mapa" height="6" src="{{=URL('static/images','img-ranking.png')}}" alt="">	
+				</div>
+			
 
 
+				<div class="col-md-7">
+					
+							<!--SOLAPA DE OPCIONES-->
+							<div class="row">
+								<div class="col-md-6 col-md-offset-4">
+									<ul class="nav nav-pills">
+							    		<li class="active"><a data-toggle="pill" href="#preg">Ranking Preguntas</a></li>
+							   		 	<li><a data-toggle="pill" href="#memo">Ranking Memoria</a></li>
+						 			</ul>
+								</div>
+							</div>
+							<!--SOLAPA DE OPCIONES-->
+
+							<br><br>
+
+							<!-- contenidos de la solapas-->
+							<div class="tab-content">
+								<div class="row">
+									<div class="col-md-6">
+										
+									</div>
+								</div>
+								<div id="preg" class="tab-pane fade in active">
+									<div class="row">
+											<div class="col-md-6 col-md-offset-3">
+												
+													<table id="ranking-pregunta" class="table table-striped table-hover "> 
+														
+														<thead>
+														  <tr>
+														    <th>POSICION</th>
+														    <th>NOMBRE</th>
+														    <th>PUNTAJE</th>
+														    <th>TIEMPO</th>
+														  </tr>
+														</thead>
+
+														<tbody>
+															{{}}
+															{{for preg in preguntas:
+																cont_preg= cont_preg + 1
+															}}
+															<tr>
+																<td>{{= cont_preg}}</td>
+														     	<td>{{=preg[0]}}</td>
+														     	<td>{{=preg[1]}}</td>
+														     	<td>{{=preg[2]}}</td>
+														   		{{pass}}
+														   	</tr>
+														</tbody>
+												  	
+													</table>
+											   
+											</div>
+									</div>
+								</div>
+
+								<div id="memo" class="tab-pane fade">
+						   			<div class="row">
+											<div class="col-md-6 col-md-offset-3">
+												
+													<table id="ranking-memoria" class="table table-striped table-hover "> 
+														
+														<thead>
+														  <tr>
+														    <th>POSICION</th>
+														    <th>NOMBRE</th>
+														    <th>PUNTAJE</th>								    
+														  </tr>
+														</thead>
+
+														<tbody>
+															{{for memoria in memorias:
+																cont_mem= cont_mem + 1
+															}}
+															<tr>
+																<td>{{= cont_mem}}</td>
+														     	<td>{{=memoria[0]}}</td>
+														     	<td>{{=memoria[1]}}</td>								     	
+														   		{{pass}}
+														   	</tr>
+														</tbody>
+												  	
+													</table>
+											   
+											</div>
+									</div>
+						  		</div>
+
+							</div>
+							<!-- contenidos de la solapas-->				
+
+				</div>
+			
+
+			</div>
+
+
+
+		
+		</div>
+	</div>	  
 </div>

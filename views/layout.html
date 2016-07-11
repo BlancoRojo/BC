@@ -108,7 +108,7 @@
         <div class="col-xs-6"></div>
         <div class="col-xs-6">
         <div id="nose" align="right" class="collapse navbar-collapse navbar-menubuilder">
-            <ul class="nav navbar-nav navbar-right">
+            <ul id="nosemenu" class="nav navbar-nav navbar-right">
                 <li><a href="" >{{=session.invitado}}</a>
                 </li>
                 <br>
@@ -118,7 +118,7 @@
                 </li>
                 <li><a href="{{=URL('JugadorController','registro')}}">Registro</a>
                 </li>
-                <li><a href="#">Ranking</a>
+                <li><a href="{{=URL('JugadorController','ranking')}}">Ranking</a>
                 </li>
             </ul>
         </div>
@@ -206,7 +206,7 @@
                   <div class="side-menu-button" id="rankingB">
                     <div class="button-default">
                       <canvas width="305" height="83" style="width: 100%; height: 100%;"></canvas>
-                      <div class="side-menu-button-text">Ranking</div>
+                      <div class="side-menu-button-text"><a href="{{=URL('JugadorController','ranking')}}">Ranking</a></div>
                     </div>
                     
                   </div>
@@ -284,7 +284,7 @@
                 </li>
                 <li><a href="#">Perfil</a>
                 </li>
-                <li><a href="#">Ranking</a>
+                <li><a href="{{=URL('JugadorController','registro')}}">Ranking</a>
                 </li>
                 <li><a href="{{=URL('JugadorController','cerrar')}}">Salir</a>
                 </li>
@@ -369,7 +369,7 @@
                     </div>
                     <div class="button-hover" id="regB2">
                       <canvas width="305" height="83" style="width: 100%; height: 100%;"></canvas>
-                      <div class="side-menu-button-text"><a href="#">Ranking</a></div>
+                      <div class="side-menu-button-text"><a href="{{=URL('JugadorController','ranking')}}">Ranking</a></div>
                     </div>
                   </div>
                                   
@@ -477,7 +477,7 @@
     <script src="{{=URL('static','js/bootstrap.min.js')}}"></script>
     <script src="{{=URL('static','js/web2py-bootstrap3.js')}}"></script>
     <script src="{{=URL('static','js/raphael-min.js')}}"></script>
-     
+     <script src="{{=URL('static','js/jquery.dataTables.js')}}"></script>
     <script src="{{=URL('static','js/jugador.js')}}"></script>
     <script src="{{=URL('static','js/functions.js')}}"></script>
     <script src="{{=URL('static','js/mapa.js')}}">

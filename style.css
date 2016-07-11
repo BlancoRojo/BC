@@ -1,0 +1,351 @@
+body{
+    background-image: url("../images/fondo-img.png");
+
+    background-position: center center; /* imagen de fondo este centrada vertical y horizontalmente */
+    
+    background-repeat: no-repeat;/* La imagen de fondo no se repite */
+    
+    background-attachment: unset;/* La imagen de fondo está fija en el viewport, de modo que no se mueva cuando la altura del contenido supere la altura de la imagen. */
+
+    background-size: cover;/* La imagen de fondo se reescala cuando se cambia el ancho de ventana del navegador */
+
+
+}
+
+/** sobre escrituras de estilos de bootstrap*/
+.nav-pills>li>a:hover{
+  color: black;
+}
+
+.nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus {
+    color: #333333;
+    background-color: #22b996;
+}
+/** sobre escrituras de estilos de bootstrap*/
+
+
+@media screen and (max-width: 330px){
+    #jugar-preguntas {
+        margin-top: 80px;
+    }
+}
+
+@media screen and (min-width: 993px){
+  #jugar-preguntas {
+
+  margin-top: 365px;
+
+  }
+}
+
+@media screen and (min-width: 330px) and (max-width: 400px){
+    #jugar-preguntas {
+        margin-top: 100px;
+    }
+}
+
+@media screen and (min-width: 400px) and (max-width: 450px){
+    #jugar-preguntas {
+        margin-top: 120px;
+    }
+}
+
+@media screen and (min-width: 450px) and (max-width: 500px){
+    #jugar-preguntas {
+        margin-top: 130px;
+    }
+}
+
+@media screen and (min-width: 500px) and (max-width: 600px){
+    #jugar-preguntas {
+        margin-top: 160px;
+    }
+}
+
+
+@media screen and (min-width: 600px) and (max-width: 700px){
+    #jugar-preguntas {
+        margin-top: 180px;
+    }
+}
+
+@media screen and (min-width: 700px) and (max-width: 993px){
+    #jugar-preguntas {
+        margin-top: 230px;
+    }
+}
+
+.respuesta{
+ font-size: 20px;
+
+}
+
+
+#crono{
+
+  color: white;
+}
+
+.btn-danger:hover{
+  background-color:red;
+}
+
+.btn-success:hover{
+  background-color:green;
+}
+
+
+
+#perdiste{
+   font-size: 75px;
+  color: white;
+  
+}
+
+#categoria{
+  font-size: 50px;
+  color: white;
+  
+
+}
+#pregunta{
+  font-size: 30px;  
+  color: black;
+  font-family: "Arial Black";
+}
+
+.radio > label{
+  font-family: "Arial Black";
+  font-size: 20px;
+  color: #383B6C;
+}
+
+
+
+.contentInfo {
+    background-color: #66932F;
+    background-color: rgba(0,0,0,.1);
+    box-shadow: inset 0 3px 9px rgba(0,0,0,.1), 0 1px rgba(255,255,255,.18);
+    padding: 8px 0 7px;
+    border-radius: 2px;
+}
+
+.datoInfo {
+    display: block;
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 46px;
+    font-family: Arial,Helvetica,sans-serif;
+} 
+
+
+
+#tercer-pantalla, #looser-pantalla{
+    background-image: url("../images/bc-memoria-fondo.png");
+
+    background-position: center center; /* imagen de fondo este centrada vertical y horizontalmente */
+    
+    background-repeat: no-repeat;/* La imagen de fondo no se repite */
+    
+    background-attachment: unset;/* La imagen de fondo está fija en el viewport, de modo que no se mueva cuando la altura del contenido supere la altura de la imagen. */
+
+    background-size: cover;/* La imagen de fondo se reescala cuando se cambia el ancho de ventana del navegador */
+    height: 650px;
+}
+
+
+#numTiempo{
+  font-size: 20px;
+}
+
+.puntos .boxIndicador
+{
+  width:100%;
+  min-height:5px
+}
+.boxIndicador{
+  padding:10px 0 8px
+}
+.puntos .numIndicador{font-size:40px;line-height:34px;padding-top:3px;letter-spacing:-1px}
+.puntos .titIndicador{text-shadow:#fff 1px 1px}
+.puntos .numIndicador{font-size:36px;line-height:34px;padding-top:0}
+.puntos .titIndicador{padding-bottom:0}
+.bgArrow{height:18px}
+.puntos .numIndicador:after, .puntos .numIndicador:before{display:block;content:" ";width:20%;height:1px;background-color:rgba(0,0,0,.13);border-bottom:1px solid #fff;position:absolute;top:45%}
+.puntos .numIndicador:after{left:5%}
+.puntos .numIndicador:before{right:5%}
+.points{text-align:center;width:100%;position:absolute;top:-4px;color:#333}
+.boxArrow{padding:4px 0 0;background-color:#F5F5F5;border-radius:3px 3px 0 0;border-top:1px solid #fff;position:relative;box-shadow:rgba(0,0,0,.3) 2px 0 6px}
+.titIndicador{font-size:9px;text-transform:uppercase;line-height:15px;padding-bottom:3px;opacity:.65}
+.bgArrow{height:21px;position:relative;width:100%;margin-top:-2px;z-index:9;background-image:url(../images/bgarrow.png);background-position:center 0;background-size:100% 100%;background-repeat:no-repeat}
+
+#globo{
+    width: 500px;
+    height: 200px;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px #555;
+    background-color: #666;
+    position: relative;
+    color: #FFF;
+}
+#globo:before{
+    content: "";
+    width: 0;
+    position: absolute;
+    border-style: solid;
+    border-width: 5px 10px 5px 0;
+    border-color: transparent #666;
+    top: 20px;
+    left: -10px;
+}
+
+#preguntas{
+-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+height: 200px;
+background-color: #DED4EF;
+border-radius: 10px;
+opacity: 0.9;
+}
+
+
+#fondo-preguntas{
+    background-image: url("../images/fondo-preguntas.png");
+
+    background-position: center center; /* imagen de fondo este centrada vertical y horizontalmente */
+    
+    background-repeat: no-repeat;/* La imagen de fondo no se repite */
+    
+    background-attachment: unset;/* La imagen de fondo está fija en el viewport, de modo que no se mueva cuando la altura del contenido supere la altura de la imagen. */
+
+    background-size: cover;/* La imagen de fondo se reescala cuando se cambia el ancho de ventana del navegador */
+
+}
+
+#puntaje{
+  font-size: 25px; 
+  border-radius: 20px;  
+  width: 230px;
+  height: 100px;
+  text-align: center;
+  color: #fff;
+  
+}
+
+#cuadro-preguntas{
+  box-shadow: 20px 20px 20px 20px #0B3B39;
+  border-top-style: solid;
+  border-right-style: solid;
+  border-bottom-style: solid;
+  border-left-style: solid;
+  height: 500px;
+  border-radius:15px;
+  background-color: #7cb139;
+}
+
+#cuadro-mapa{
+  box-shadow: 20px 20px 20px 20px #0B3B39;
+  border-top-style: solid;
+  border-right-style: solid;
+  border-bottom-style: solid;
+  border-left-style: solid;
+  height: 500px;
+  border-radius:15px;
+  background-color: #7cb139;
+}
+
+#cuadro-mapa{
+   box-shadow: 20px 20px 20px 20px #0B3B39;
+  border-top-style: solid;
+  border-right-style: solid;
+  border-bottom-style: solid;
+  border-left-style: solid;
+  height: 500px;
+  border-radius:15px;
+  background-color: #7cb139;
+}
+
+
+/*Reglas aplicadas a cualquier ancho de ventana de navegador 
+que sea inferior al valor definido en la consulta.
+@media screen and (max-width:1000px) {
+  #jugar-preguntas {
+    margin-top: 90px;
+   
+  }
+  
+}
+
+/*Reglas aplicadas a cualquier ancho de ventana de 
+navegador que supere el valor definido en la consulta. 
+@media screen and (min-width: 1240px) {
+  #jugar-preguntas {
+    margin-top: 350px;
+   
+  }
+}
+*/
+
+
+#myCarousel{
+  background-image: url("../images/bc-memoria-fondo.png");
+
+  background-repeat: no-repeat;
+  background-size: contain;
+  min-height:600px;
+  max-height: 600px;
+}
+
+
+@media screen and (max-width: 330px){
+    #jugar-preguntas {
+        margin-top: 65px;
+    }
+}
+
+
+@media screen and (min-width: 330px) and (max-width: 400px){
+    #jugar-preguntas {
+        margin-top: 80px;
+    }
+}
+
+@media screen and (min-width: 400px) and (max-width: 450px){
+    #jugar-preguntas {
+        margin-top: 95px;
+    }
+}
+
+@media screen and (min-width: 450px) and (max-width: 500px){
+    #jugar-preguntas {
+        margin-top: 110px;
+    }
+}
+
+@media screen and (min-width: 500px) and (max-width: 600px){
+    #jugar-preguntas {
+        margin-top: 115px;
+    }
+}
+
+
+@media screen and (min-width: 600px) and (max-width: 700px){
+    #jugar-preguntas {
+        margin-top: 140px;
+    }
+}
+
+@media screen and (min-width: 700px) and (max-width: 993px){
+    #jugar-preguntas {
+        margin-top: 170px;
+    }
+}
+
+@media screen and (min-width: 993px){
+#jugar-preguntas {
+
+  margin-top: 330px;
+
+}

@@ -11,8 +11,12 @@ $(document).ready(function () {
   var puntos=0;
   var intentos=2;
   var sig=0;
-
+  var prueba;
     $("#empezar").click(function(){
+      if ($('input[name=intereses][value=easy]:checked').length == 1){
+      
+      //MODO FACIL
+      
       intentos=2;
       puntos=0;
       j=0;
@@ -21,18 +25,37 @@ $(document).ready(function () {
       $("#segunda-pantalla-mapa").addClass("hidden");
       $("#tercer-pantalla-mapa").removeClass("hidden");
       $("#jugar").removeClass("hidden");//muestro el div donde se muestra el mapa
+      prueba="Adivina donde esta\n ???";
+      adivi.attr({'text': prueba});
       reiniciar();
-      siguiente();
+      siguienteFacil();
+
+      }
+      else{
+        //MODO DIFICIL
+        intentos=2;
+        puntos=0;
+        j=0;
+
+        $("#vidas").removeClass("hidden");//muestro las vidas
+        $("#segunda-pantalla-mapa").addClass("hidden");
+        $("#tercer-pantalla-mapa").removeClass("hidden");
+        $("#jugar").removeClass("hidden");//muestro el div donde se muestra el mapa
+        prueba="SIGUE LA SECUENCIA!";
+        adivi.attr({'text': prueba});
+        reiniciar();
+        siguienteDificil();
+      }
     });
  
-
+var dificilVer=0;
 var j=0;
 var sel = new Array(25);
 var adi=0;
 var ale=0;
 var toc=25;
 var dep=25;
-var prueba;
+
 var correctas=0//contador para mostrar despues cuantos aciertos tuvo
 
   //atributo de tipo pointer 
@@ -56,12 +79,20 @@ var correctas=0//contador para mostrar despues cuantos aciertos tuvo
             'stroke-width': 1,
 
           };
+
+            var fondoDif = {
+            fill: '#0000ff',
+            stroke: '#764931',
+            'stroke-width': 1,
+
+          };
          var selector = {
             fill: '#ce6b00',
             stroke: '#764931',
            
             'stroke-width': 1,
         };
+
         var correcto = {
             fill: '#009688',
             stroke: '#764931',
@@ -79,8 +110,18 @@ var correctas=0//contador para mostrar despues cuantos aciertos tuvo
             stroke: '#764931',
             'stroke-width': 1,
         };
-        var marcado = {
+                var comenzarDif = {
+            fill: '#d4730b',
+            stroke: '#764931',
+            'stroke-width': 1,
+        };
+        var marcadoFacil = {
             fill: '#00577a',
+            stroke: '#764931',
+            'stroke-width': 1,
+        };
+        var marcadoDificil = {
+            fill: '#00577b',
             stroke: '#764931',
             'stroke-width': 1,
         };
@@ -230,8 +271,8 @@ var correctas=0//contador para mostrar despues cuantos aciertos tuvo
         attr({"font-size": "50px", "font-weight": "800", fill: "#ff0000", stroke:"brown", "stroke-width": "3px"});
         lost.hide();
 
-        var adivi = rp.text(350,25,"Adivina donde esta\n ???").attr({"font-size": "25px", "font-weight": "800", fill: "yellow", stroke:"brown", "stroke-width": "3px"});
-        
+        var adivi = rp.text(350,25,"").attr({"font-size": "25px", "font-weight": "800", fill: "yellow", stroke:"brown", "stroke-width": "3px"});
+        adivi.attr({'text': prueba});
 
         dept=[GralGuemes,AlmiranteBrow,SanMartin,Independecia,mayo,quitilipi,cmdFernandez,sarmientoCabral,Bermejo,nuevedeJulio,belgrano,presidenciaPlaza,chacabuco,primeroDeMayo,gralDonovan,doceOctubre,ohiggins,maipu,sanLorenzo,libertad,tapenaga,sanFernando,fontana,dosAbril,staMariaOro,nulo]
         titulos=[GralGuemesT,AlmiranteBrowT,SanMartinT,IndependeciaT,mayoT,quitilipiT,cmdFernandezT,sarmientoCabralT,BermejoT,nuevedeJulioT,belgranoT,presidenciaPlazaT,chacabucoT,primeroDeMayoT,gralDonovanT,doceOctubreT,ohigginsT,maipuT,sanLorenzoT,libertadT,tapenagaT,sanFernandoT,fontanaT,dosAbrilT,staMariaOroT,nulo]
@@ -301,7 +342,7 @@ var correctas=0//contador para mostrar despues cuantos aciertos tuvo
          }
        
              $('path').click(function(){
-
+              //verificador facil
               if (($(this).attr('fill')=='#00577a')){
                 sig=1000;
                 adivi.attr({'text': "Adivina donde esta\n ???"});
@@ -350,14 +391,75 @@ var correctas=0//contador para mostrar despues cuantos aciertos tuvo
                $('#localidad').text('');
                
                 reiniciar();
-                siguiente();
-               }  
+                siguienteFacil();
+               }
+               //verificador dificil
+               
+               if (($(this).attr('fill')=='#00577b')){
+                sig=1000;
+                
+                if ($(this).attr('id') == dept[sel[dificilVer]].node.id){
+          
+                    
+                   dept[sel[dificilVer]].attr(correcto);
+                   dificilVer=dificilVer+1;
+                   if (dificilVer==(j+2)){
+                      
+                      puntos=puntos+j+4;
+                      dificilVer=0;
+                      correctas= correctas +1;
+                      $('#numPuntos').text(puntos);
+                      win.show();
+                      win.animate({transform: 's1.2' }, 1000, "elastic");
+                      setTimeout(function(){win.hide();win.animate({transform: 's1' }, 1, "elastic");},1000);
+                      reiniciar();
+                      siguienteDificil();
+                    }
+                   //respuesta correcta
+                   
+                 
+                 
+
+                }
+                else{
+                  intentos=intentos-1;
+                  j=j-1;
+                  dificilVer=0;
+                  $(this).attr(incorrecto);
+                  reiniciar();
+                  siguienteDificil();
+                  //respuesta incorrecta
+                  lost.show();
+                  lost.animate({transform: 's1.2' }, 1000, "elastic");
+
+                   setTimeout(function(){lost.hide();  lost.animate({transform: 's1' }, 1, "elastic");},1000);
+                  $("#vidas").addClass("hidden");
+                  if (intentos==0){
+                    //fin
+                    setTimeout(function(){
+                    registrarPuntaje();  
+                    $("#jugar").addClass("hidden"); 
+                    $("#looser-pantalla").removeClass("hidden");
+                    $("#resp_correctas").text(correctas);
+                    $("#puntajetotal").text(puntos);
+                    $("#tercer-pantalla-mapa").addClass("hidden");
+                    //alert('Acumulaste '+puntos.toString()+' Puntos');
+                    //window.location= "/BrainChaco/MapaController/index";
+                    },1000);
+                  }
+                }
+               }
 
             });
+
+
             $('path').mouseover(function(){
               $(this).attr(pointer);//atributo pointer
              if (($(this).attr('fill')=='#d4730a') ){
-              $(this).attr(marcado);
+              $(this).attr(marcadoFacil);
+               }
+               if (($(this).attr('fill')=='#d4730b') ){
+              $(this).attr(marcadoDificil);
                }
             });
 
@@ -365,12 +467,14 @@ var correctas=0//contador para mostrar despues cuantos aciertos tuvo
               if (($(this).attr('fill')=='#00577a')) {
               $(this).attr(comenzar);
               }
-               
+               if (($(this).attr('fill')=='#00577b')) {
+              $(this).attr(comenzarDif);
+              }
             });
             
            
-           
-            function siguiente(){ 
+           //comienzo secuencia facil
+            function siguienteFacil(){ 
                 toc=25;
                 dep=25;
               
@@ -419,6 +523,56 @@ var correctas=0//contador para mostrar despues cuantos aciertos tuvo
               j=j+1;
             
             }
+              //fin secuencia facil ------------------------------------ 
+
+              //comienzo secuencia dificil -------------------------------
+
+              function siguienteDificil(){ 
+                toc=25;
+                dep=25;
+              
+                for (var i = 0; i < 4+j; i++) {
+                                
+                      (function(i){
+                       
+                      setTimeout(function(){
+                          if (i<2+j){
+                        do {                
+                        //random         
+                        ale = Math.floor(Math.random() * dept.length);
+                        }while ((dept[ale].attr('fill')=='#ce6b00') || (dept[ale].attr('fill')=='#0000ff'));
+                        
+                        //seleccionando deptos
+                       (dept[ale].attr(selector));
+                        (dept[dep].attr(fondoDif));
+                        sel[i]=ale;
+                        dep=ale;
+                          //tratando titulo del seleccionado
+                       titulos[ale].show();
+                       titulos[toc].hide();
+                       toc=ale;
+                       }else{
+                        (dept[dep].attr(fondo2));
+                        titulos[toc].hide();
+                        adi= Math.floor(Math.random() * 1+j);
+                          //encuentra
+                          prueba="SIGUE LA SECUENCIA!";
+                          adivi.attr({'text': prueba});
+                       
+                        for (var x = 0; x < 3+j; x++) {
+                        (dept[sel[x]].attr(comenzarDif));
+                          }
+
+                       }
+                  }, (1200 * (i+1) )+ sig);
+                       
+                }(i)); 
+
+              }
+              j=j+1;
+            }
+
+            //fin secuencia dificil
 
          var svg = document.querySelector("svg");
          svg.removeAttribute("width");
@@ -436,7 +590,7 @@ var correctas=0//contador para mostrar despues cuantos aciertos tuvo
       var fecha_actual=(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
         $.ajax({
           // la URL para la petición
-          url : '/BCF/JugadorController/registrarPuntaje',
+          url : '/BC/JugadorController/registrarPuntaje',
         
           // la información a enviar
           // (también es posible utilizar una cadena de datos)

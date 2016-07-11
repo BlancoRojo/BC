@@ -126,7 +126,11 @@ $(document).ready(function(){
     
     
   });
-        
+    
+    
+  $('#ranking-pregunta').DataTable();
+  $('#ranking-memoria').DataTable();
+  
 
 
 

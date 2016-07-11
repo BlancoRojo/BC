@@ -12,6 +12,18 @@ body{
 
 }
 
+
+/** sobre escrituras de estilos de bootstrap*/
+.nav-pills>li>a:hover{
+  color: black;
+}
+
+.nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus {
+    color: #333333;
+    background-color: #22b996;
+}
+/** sobre escrituras de estilos de bootstrap*/
+
 @media screen and (max-width: 330px){
     #jugar-preguntas {
         margin-top: 80px;
@@ -63,10 +75,7 @@ body{
     }
 }
 
-.respuesta{
- font-size: 20px;
 
-}
 
 
 #crono{
@@ -90,17 +99,7 @@ body{
   
 }
 
-#categoria{
-  font-size: 50px;
-  color: white;
-  
 
-}
-#pregunta{
-  font-size: 30px;  
-  color: black;
-  font-family: "Arial Black";
-}
 
 .radio > label{
   font-family: "Arial Black";
@@ -286,6 +285,81 @@ navegador que supere el valor definido en la consulta.
   max-height: 600px;
 }
 
+.carousel-control {
+    position: absolute;
+    top: 40%;
+    left: 15px;
+    width: 40px;
+    height: 40px;
+    margin-top: -20px;
+    font-size: 60px;
+    font-weight: 100;
+    line-height: 30px;
+    color: #ffffff;
+    text-align: center;
+    background: #222222;
+    border: 3px solid #ffffff;
+    -webkit-border-radius: 23px;
+    -moz-border-radius: 23px;
+    border-radius: 23px;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+}
+
+
+@media screen and (max-width: 500px){
+    #categoria {
+        font-size: 25x;
+        
+    }
+}
+
+@media screen and (min-width: 500px){
+    #categoria {
+        font-size: 50px;
+        
+    }
+}
+
+@media screen and (max-width: 500px){
+    #pregunta {
+        font-size: 15x;
+        
+    }
+}
+
+@media screen and (min-width: 500px){
+    #pregunta {
+        font-size: 25px;
+        
+    }
+}
+
+@media screen and (max-width: 500px){
+    .respuesta{
+ font-size: 13px;
+
+}
+}
+
+@media screen and (min-width: 500px){
+   .respuesta{
+ font-size: 20px;
+
+}
+}
+
+#categoria{
+  color:white;
+  text-shadow: 2px 2px 0 brown,-2px -2px brown,-2px 2px brown,2px -2px brown;
+  font-family: "Arial Black";
+}
+
+#pregunta{
+  color: yellow;
+  text-shadow: 2px 2px 0 brown,-2px -2px brown,-2px 2px brown,2px -2px brown;
+  font-family: "Arial Black";
+}
 
 @media screen and (max-width: 330px){
     #jugar-preguntas {
