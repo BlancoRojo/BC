@@ -128,17 +128,6 @@ auth.settings.reset_password_requires_verification = True
 # -------------------------------------------------------------------------
 # auth.enable_record_versioning(db)
 
-db.define_table('escultura',
-    Field('nombre','text'),
-    Field('fecha','text'),
-    Field('escultor','text'),
-    Field('pais', 'text'),
-    Field('material', 'text'),
-    Field('imagen', 'text'),
-    Field('direccion', 'text'),
-    Field('lat', 'float'),
-    Field('lng', 'float'),
-    Field('premio', 'text'))
 
 db.define_table('categoria',
     Field('descripcion'))
@@ -146,7 +135,7 @@ db.define_table('categoria',
 db.define_table('pregunta',
                Field('descripcion'),
                Field('idCat', db.categoria),
-               Field('idEsc',db.escultura))
+               Field('imagen'))
                 
 
 

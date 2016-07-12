@@ -72,7 +72,7 @@ $(document).ready(function(){
 					$("#categoria").text(data[0].descCat);
 			    	$('#categoria').addClass("animated zoomInLeft");	
 			    	//Tratado de imagenes
-			    	var dirImg= ("../static/images/" + data[3].imagen);
+			    	var dirImg= ("../static/images/" + data[0].imagen);
 			    	
 			    	if (data[0].idCat == 4){
 			    		$("#imagen-escultura").attr("src", dirImg);
