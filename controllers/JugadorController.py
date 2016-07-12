@@ -11,7 +11,7 @@ def login():
 def loginCompleto():
 	form = request.post_vars
 	
-	row = db((db.usuarios.nombre == form.LNom) & (db.usuarios.password == form.LPsw)).select()
+	row = db((db.usuario.nombre == form.LNom) & (db.usuario.password == form.LPsw)).select()
 	if len(row)== 0:
 		response.view = "JugadorController/login.html"
 		return dict(LNom=form.LNom,LPsw=form.LPsw,LError='Usuario no registrado / Ingreso mal sus datos')
@@ -27,10 +27,10 @@ def registro():
 
 def registroCompleto():
 	form = request.post_vars
-	nick = db(db.usuarios.nombre == form.Nom).select()
-	corr = db(db.usuarios.correo == form.Eml).select()
+	nick = db(db.usuario.nombre == form.Nom).select()
+	corr = db(db.usuario.correo == form.Eml).select()
 	if (len(nick) == 0) and (len(corr) == 0):
-		db.usuarios.insert(nombre=form.Nom,correo=form.Eml,password=form.Pas)
+		db.usuario.insert(nombre=form.Nom,correo=form.Eml,password=form.Pas)
 		response.view = "JugadorController/registro.html"
    		session.jugador=form.Nom
 		return dict(nombre='',email='',psw='',Error='Registro Exitoso!',EError='')
@@ -52,7 +52,7 @@ def recuperar():
 
 def mensaje():
 	datos = request.post_vars
-	row = db(db.usuarios.correo == datos.rEm).select()
+	row = db(db.usuario.correo == datos.rEm).select()
 	if len(row)==0:
 		response.view= "JugadorController/recuperar.html"
 		return dict(nombre='',Error='Correo Erroneo')
@@ -83,20 +83,19 @@ def registrarPuntaje():
 	fecha_actual=request.vars.fecha
 	totaltiempo=request.vars.tiempo
 	if session.id!=None:
-		row=db.puntaje.insert(idUser=session.id,descJuego=descJuego,puntaje=puntaje,tiempo=totaltiempo,fecha=fecha_actual)
-	
+		row=db.puntos.insert(idUser=session.id,descJuego=descJuego,puntaje=puntaje,tiempo=totaltiempo,fecha=fecha_actual)	
 	return ()
 
 
 def ranking():
 
-	row_preg=db.executesql("SELECT usuarios.nombre,SUM(puntaje) as 'puntaje', SEC_TO_TIME(SUM(TIME_TO_SEC(tiempo))) FROM puntaje INNER JOIN usuarios ON puntaje.idUser=usuarios.id WHERE descJuego='preguntas' GROUP BY idUser ORDER by puntaje DESC")
-	row_memoria=db.executesql("SELECT usuarios.nombre,SUM(puntaje) as 'puntaje' FROM puntaje INNER JOIN usuarios ON puntaje.idUser=usuarios.id WHERE descJuego='memoria' GROUP BY idUser ORDER by puntaje DESC")
+	row_preg=db.executesql("SELECT usuario.nombre,SUM(puntaje) as 'puntaje', SEC_TO_TIME(SUM(TIME_TO_SEC(tiempo))) FROM puntos INNER JOIN usuario ON puntos.idUser=usuario.id WHERE descJuego='preguntas' GROUP BY idUser ORDER by puntaje DESC")
+	row_memoria=db.executesql("SELECT usuario.nombre,SUM(puntaje) as 'puntaje' FROM puntos INNER JOIN usuario ON puntos.idUser=usuario.id WHERE descJuego='memoria' GROUP BY idUser ORDER by puntaje DESC")
 	
 	return dict(preguntas=row_preg, memorias=row_memoria)
 
 def perfil():
-	row=db.executesql("SELECT nombre,correo FROM USUARIOS WHERE id="+str(session.id))
+	row=db.executesql("SELECT nombre,correo FROM USUARIO WHERE id="+str(session.id))
 	return dict(usuario=row)
 
 def cerrar():

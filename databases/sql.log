@@ -488,3 +488,97 @@ success!
 timestamp: 2016-07-10T18:46:09.907000
 ALTER TABLE pregunta ADD idesc INT  , ADD INDEX idEsc__idx (idEsc), ADD FOREIGN KEY (idEsc) REFERENCES escultura (id) ON DELETE CASCADE;
 success!
+timestamp: 2016-07-12T09:52:07.570000
+ALTER TABLE pregunta ADD imagen VARCHAR(512);
+timestamp: 2016-07-12T09:52:15.002000
+ALTER TABLE pregunta ADD imagen VARCHAR(512);
+timestamp: 2016-07-12T09:52:58.180000
+ALTER TABLE pregunta ADD imagen VARCHAR(512);
+timestamp: 2016-07-12T09:53:18.141000
+ALTER TABLE pregunta ADD imagen VARCHAR(512);
+timestamp: 2016-07-12T09:54:07.734000
+ALTER TABLE pregunta ADD imagen VARCHAR(512);
+success!
+timestamp: 2016-07-12T09:54:07.949000
+ALTER TABLE pregunta DROP COLUMN idesc;
+timestamp: 2016-07-12T09:55:31.368000
+ALTER TABLE pregunta DROP COLUMN idesc;
+timestamp: 2016-07-12T09:57:37.251000
+ALTER TABLE pregunta ADD idesc__tmp INT;
+success!
+UPDATE pregunta SET idesc__tmp=idesc;
+timestamp: 2016-07-12T09:58:14.714000
+ALTER TABLE pregunta DROP COLUMN idesc;
+timestamp: 2016-07-12T09:58:58.361000
+ALTER TABLE pregunta DROP COLUMN idesc;
+timestamp: 2016-07-12T10:00:09.334000
+ALTER TABLE pregunta DROP COLUMN idesc;
+timestamp: 2016-07-12T10:03:34.870000
+ALTER TABLE pregunta DROP COLUMN idesc;
+timestamp: 2016-07-12T10:04:30.009000
+ALTER TABLE pregunta DROP COLUMN idesc;
+timestamp: 2016-07-12T10:06:56.356000
+ALTER TABLE pregunta DROP COLUMN idesc;
+timestamp: 2016-07-12T10:11:26.081000
+CREATE TABLE categorias(
+    id INT AUTO_INCREMENT NOT NULL,
+    descripcion VARCHAR(512),
+    PRIMARY KEY (id)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2016-07-12T10:11:49.687000
+CREATE TABLE preguntas(
+    id INT AUTO_INCREMENT NOT NULL,
+    descripcion VARCHAR(512),
+    idCat INT  , INDEX idCat__idx (idCat), FOREIGN KEY (idCat) REFERENCES categorias (id) ON DELETE CASCADE,
+    imagen VARCHAR(512),
+    PRIMARY KEY (id)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2016-07-12T10:11:49.857000
+CREATE TABLE respuestapreguntas(
+    id INT NOT NULL,
+    idPreg INT  NOT NULL , INDEX idPreg__idx (idPreg), FOREIGN KEY (idPreg) REFERENCES preguntas (id) ON DELETE CASCADE,
+    descripcion VARCHAR(512),
+    opcion VARCHAR(512),
+    PRIMARY KEY(id, idPreg))  ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2016-07-12T10:11:50.290000
+ALTER TABLE puntajes ADD fecha__tmp VARCHAR(512);
+timestamp: 2016-07-12T10:11:52.255000
+ALTER TABLE puntajes ADD fecha__tmp VARCHAR(512);
+timestamp: 2016-07-12T10:12:19.343000
+ALTER TABLE puntajes ADD fecha__tmp VARCHAR(512);
+timestamp: 2016-07-12T10:13:41.557000
+ALTER TABLE puntajes ADD fecha__tmp VARCHAR(512);
+timestamp: 2016-07-12T10:14:34.386000
+ALTER TABLE puntajes ADD fecha__tmp VARCHAR(512);
+timestamp: 2016-07-12T10:15:11.771000
+ALTER TABLE puntajes ADD fecha__tmp VARCHAR(512);
+timestamp: 2016-07-12T10:17:06.124000
+CREATE TABLE usuario(
+    id INT AUTO_INCREMENT NOT NULL,
+    nombre VARCHAR(512),
+    correo VARCHAR(512),
+    password VARCHAR(512),
+    PRIMARY KEY (id)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2016-07-12T10:18:13.397000
+ALTER TABLE puntajes ADD fecha__tmp VARCHAR(512);
+timestamp: 2016-07-12T10:18:59.732000
+ALTER TABLE puntajes ADD fecha__tmp VARCHAR(512);
+timestamp: 2016-07-12T10:19:15.223000
+ALTER TABLE puntajes ADD fecha__tmp VARCHAR(512);
+success!
+timestamp: 2016-07-12T10:23:30.007000
+CREATE TABLE puntos(
+    id INT AUTO_INCREMENT NOT NULL,
+    idUser INT  , INDEX idUser__idx (idUser), FOREIGN KEY (idUser) REFERENCES usuario (id) ON DELETE CASCADE,
+    descJuego VARCHAR(512),
+    puntaje INT,
+    tiempo TIME,
+    fecha VARCHAR(512),
+    PRIMARY KEY (id)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!

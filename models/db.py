@@ -127,35 +127,32 @@ auth.settings.reset_password_requires_verification = True
 # after defining tables, uncomment below to enable auditing
 # -------------------------------------------------------------------------
 # auth.enable_record_versioning(db)
-
-
-db.define_table('categoria',
+db.define_table('categorias',
     Field('descripcion'))
 
-db.define_table('pregunta',
+db.define_table('preguntas',
                Field('descripcion'),
-               Field('idCat', db.categoria),
+               Field('idCat', db.categorias),
                Field('imagen'))
                 
 
 
-db.define_table('respuestapregunta',
+db.define_table('respuestapreguntas',
     Field('id','integer'),
-    Field('idPreg',db.pregunta),
+    Field('idPreg',db.preguntas),
     Field('descripcion'),
     Field('opcion'),
     primarykey=['id', 'idPreg'])
 
-db.define_table('usuarios',
+db.define_table('usuario',
     Field('id','integer'),
     Field('nombre'),
     Field('correo'),
     Field('password'))
 
-db.define_table('puntaje',           
-               Field('idUser', db.usuarios),
+db.define_table('puntos',           
+               Field('idUser', db.usuario),
                Field('descJuego'),
                Field('puntaje','integer'),
                Field('tiempo','time',default=0),
                Field('fecha'))
-

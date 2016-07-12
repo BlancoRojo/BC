@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-07-2016 a las 19:47:59
+-- Tiempo de generación: 12-07-2016 a las 17:48:20
 -- Versión del servidor: 10.1.13-MariaDB
 -- Versión de PHP: 7.0.5
 
@@ -23,19 +23,19 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `categoria`
+-- Estructura de tabla para la tabla `categorias`
 --
 
-CREATE TABLE `categoria` (
+CREATE TABLE `categorias` (
   `id` int(11) NOT NULL,
   `descripcion` varchar(512) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `categoria`
+-- Volcado de datos para la tabla `categorias`
 --
 
-INSERT INTO `categoria` (`id`, `descripcion`) VALUES
+INSERT INTO `categorias` (`id`, `descripcion`) VALUES
 (1, 'GEOGRAFIA'),
 (2, 'HISTORIA'),
 (3, 'CULTURA'),
@@ -44,59 +44,61 @@ INSERT INTO `categoria` (`id`, `descripcion`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `pregunta`
+-- Estructura de tabla para la tabla `preguntas`
 --
 
-CREATE TABLE `pregunta` (
+CREATE TABLE `preguntas` (
   `id` int(11) NOT NULL,
   `descripcion` varchar(512) DEFAULT NULL,
-  `idcat` int(11) DEFAULT NULL
+  `idCat` int(11) DEFAULT NULL,
+  `imagen` varchar(512) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `pregunta`
+-- Volcado de datos para la tabla `preguntas`
 --
 
-INSERT INTO `pregunta` (`id`, `descripcion`, `idcat`) VALUES
-(1, '¿Cuánto Kilómetros esta cubiertos de bosques  la provincia del Chaco  ?', 1),
-(2, '¿Cuántas  hectáreas conforman la Isla del Cerrito conjuntamente con otras las otras más pequeñas?', 1),
-(3, '¿En que localidad se alcanza la máxima altura con respecto al nivel del mar?', 1),
-(4, '¿Cuanto metros es la altura con respecto  al nivel del mar en la localidad de Taco Pozo?', 1),
-(5, '¿Cuanto metros es la altura con respecto  al nivel del mar en la ciudad de Resistencia?', 1),
-(6, '¿Cuál es el tipo de suelo en el Este y en el centro de la provincia?', 1),
-(7, '¿Entre que meses, la temperatura  asciende a promedios mayores de 20 grados en Resistencia?', 1),
-(8, '¿En que estacion del año, la temperatura desciende a promedio de 15 grados en Resistencia?', 1),
-(9, '¿Donde esta ubicada la Laguna Argüello?', 1),
-(10, '¿Donde esta ubicada la Laguna Ávalos?', 1),
-(11, '¿En que paraje se instala el Coronel José Avalos en 1872 ?', 2),
-(12, '¿En qué año se decreta la fundación de Resistencia?', 2),
-(13, '¿En qué fecha desembarca el primer grupo de familias italianas?', 2),
-(14, '¿En qué puerto desembarca el primer grupo de familias italianas?', 2),
-(15, '¿De donde provenían el primer grupo de familias?', 2),
-(17, '¿Donde esta ubicada la Laguna Malha?', 1),
-(18, '¿Donde esta ubicada la Laguna Limpia?', 1),
-(19, '¿En que parte de Resistencia se encuentra la Laguna Argüello?', 1),
-(20, '¿En que parte de Resistencia se encuentra la Laguna Brava?', 1),
-(21, '¿Cada cuanto año se realiza la Bienal?', 3),
-(22, '¿Quienes trabajan para hacer de cada Bienal una celebración?', 3),
-(23, '¿Cómo fue distinguida  la Bienal?', 3),
-(24, '¿En qué año se realizo el Primer Concurso de Escultura en Madera?', 3),
-(25, '¿Dónde se realizo el Primer Concurso de Escultura en Madera?', 3),
-(26, '¿Cómo fue declara la ciudad de Resistencia por el Congreso de la Nación, en octubre de 2006?', 3),
-(27, '¿En qué año fue declarada, Capital Nacional de las Escultura, la ciudad de Resistencia?', 3),
-(28, '¿Entre que calles, se encuentra la Casa de las Culturas?', 3),
-(29, '¿Quien fue el ganador en la Bienal  2014 con la escultura SEMILLAS CUBICAS?', 4),
-(30, '¿ Que obra fue ganadora en la Bienal 2014? ', 4),
-(31, '¿Cuantos habitantes tiene aproximadamente el departamento Almirante Brown?', 1),
-(32, '¿Cuantos habitantes tiene aproximadamente el departamento San Fernando?', 1);
+INSERT INTO `preguntas` (`id`, `descripcion`, `idCat`, `imagen`) VALUES
+(1, '¿Cuánto Kilómetros esta cubiertos de bosques  la provincia del Chaco  ?', 1, NULL),
+(2, '¿Cuántas  hectáreas conforman la Isla del Cerrito conjuntamente con otras las otras más pequeñas?', 1, NULL),
+(3, '¿En que localidad se alcanza la máxima altura con respecto al nivel del mar?', 1, NULL),
+(4, '¿Cuanto metros es la altura con respecto  al nivel del mar en la localidad de Taco Pozo?', 1, NULL),
+(5, '¿Cuanto metros es la altura con respecto  al nivel del mar en la ciudad de Resistencia?', 1, NULL),
+(6, '¿Cuál es el tipo de suelo en el Este y en el centro de la provincia?', 1, NULL),
+(7, '¿Entre que meses, la temperatura  asciende a promedios mayores de 20 grados en Resistencia?', 1, NULL),
+(8, '¿En que estacion del año, la temperatura desciende a promedio de 15 grados en Resistencia?', 1, NULL),
+(9, '¿Donde esta ubicada la Laguna Argüello?', 1, NULL),
+(10, '¿Donde esta ubicada la Laguna Ávalos?', 1, NULL),
+(11, '¿En que paraje se instala el Coronel José Avalos en 1872 ?', 2, NULL),
+(12, '¿En qué año se decreta la fundación de Resistencia?', 2, NULL),
+(13, '¿En qué fecha desembarca el primer grupo de familias italianas?', 2, NULL),
+(14, '¿En qué puerto desembarca el primer grupo de familias italianas?', 2, NULL),
+(15, '¿De donde provenían el primer grupo de familias?', 2, NULL),
+(17, '¿Donde esta ubicada la Laguna Malha?', 1, NULL),
+(18, '¿Donde esta ubicada la Laguna Limpia?', 1, NULL),
+(19, '¿En que parte de Resistencia se encuentra la Laguna Argüello?', 1, NULL),
+(20, '¿En que parte de Resistencia se encuentra la Laguna Brava?', 1, NULL),
+(21, '¿Cada cuanto año se realiza la Bienal?', 3, NULL),
+(22, '¿Quienes trabajan para hacer de cada Bienal una celebración?', 3, NULL),
+(23, '¿Cómo fue distinguida  la Bienal?', 3, NULL),
+(24, '¿En qué año se realizo el Primer Concurso de Escultura en Madera?', 3, NULL),
+(25, '¿Dónde se realizo el Primer Concurso de Escultura en Madera?', 3, NULL),
+(26, '¿Cómo fue declara la ciudad de Resistencia por el Congreso de la Nación, en octubre de 2006?', 3, NULL),
+(27, '¿En qué año fue declarada, Capital Nacional de las Escultura, la ciudad de Resistencia?', 3, NULL),
+(28, '¿Entre que calles, se encuentra la Casa de las Culturas?', 3, NULL),
+(29, '¿Quien fue el ganador en la Bienal  2014 con la escultura SEMILLAS CUBICAS?', 3, NULL),
+(30, '¿ Que obra fue ganadora en la Bienal 2014? ', 3, NULL),
+(31, '¿Cuantos habitantes tiene aproximadamente el departamento Almirante Brown?', 1, NULL),
+(32, '¿Cuantos habitantes tiene aproximadamente el departamento San Fernando?', 1, NULL),
+(33, '¿Cual es el nombre de la siguiente escultura?', 4, '161.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `puntaje`
+-- Estructura de tabla para la tabla `puntos`
 --
 
-CREATE TABLE `puntaje` (
+CREATE TABLE `puntos` (
   `id` int(11) NOT NULL,
   `idUser` int(11) DEFAULT NULL,
   `descJuego` varchar(512) DEFAULT NULL,
@@ -106,23 +108,20 @@ CREATE TABLE `puntaje` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `puntaje`
+-- Volcado de datos para la tabla `puntos`
 --
 
-INSERT INTO `puntaje` (`id`, `idUser`, `descJuego`, `puntaje`, `tiempo`, `fecha`) VALUES
-(93, 4, 'preguntas', 0, '00:00:04', '4/7/2016'),
-(94, 4, 'preguntas', 30, '00:00:35', '4/7/2016'),
-(95, 4, 'preguntas', 5, '00:00:14', '6/7/2016'),
-(96, 4, 'memoria', 5, '00:00:00', '6/7/2016'),
-(97, 4, 'preguntas', 5, '00:00:12', '6/7/2016');
+INSERT INTO `puntos` (`id`, `idUser`, `descJuego`, `puntaje`, `tiempo`, `fecha`) VALUES
+(2, 2, 'memoria', 25, NULL, '12/7/2016'),
+(3, 2, 'preguntas', 10, '00:00:34', '12/7/2016');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `respuestapregunta`
+-- Estructura de tabla para la tabla `respuestapreguntas`
 --
 
-CREATE TABLE `respuestapregunta` (
+CREATE TABLE `respuestapreguntas` (
   `id` int(11) NOT NULL,
   `idPreg` int(11) NOT NULL,
   `descripcion` varchar(512) DEFAULT NULL,
@@ -130,10 +129,10 @@ CREATE TABLE `respuestapregunta` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `respuestapregunta`
+-- Volcado de datos para la tabla `respuestapreguntas`
 --
 
-INSERT INTO `respuestapregunta` (`id`, `idPreg`, `descripcion`, `opcion`) VALUES
+INSERT INTO `respuestapreguntas` (`id`, `idPreg`, `descripcion`, `opcion`) VALUES
 (1, 1, '60.000 km.', 'F'),
 (1, 2, '12.000 ha.', 'V'),
 (1, 3, 'Quitilipi', 'F'),
@@ -165,6 +164,7 @@ INSERT INTO `respuestapregunta` (`id`, `idPreg`, `descripcion`, `opcion`) VALUES
 (1, 30, 'Semillas Cubicas', 'V'),
 (1, 31, '32000', 'F'),
 (1, 32, '390.000', 'V'),
+(1, 33, 'Perro Pinyno', 'F'),
 (2, 1, '45.314km', 'V'),
 (2, 2, '5.000 ha', 'F'),
 (2, 3, 'Tres Isleta', 'F'),
@@ -196,6 +196,7 @@ INSERT INTO `respuestapregunta` (`id`, `idPreg`, `descripcion`, `opcion`) VALUES
 (2, 30, 'Espejos del cielo', 'F'),
 (2, 31, '34000', 'V'),
 (2, 32, '350.000', 'F'),
+(2, 33, 'Perro Protector', 'F'),
 (3, 1, '80.000 km.', 'F'),
 (3, 2, '80.000 ha', 'F'),
 (3, 3, 'Taco Pozo', 'V'),
@@ -226,15 +227,16 @@ INSERT INTO `respuestapregunta` (`id`, `idPreg`, `descripcion`, `opcion`) VALUES
 (3, 29, 'Dennis Arches', 'F'),
 (3, 30, 'Sexto sol', 'F'),
 (3, 31, '30000', 'F'),
-(3, 32, '280.000', 'F');
+(3, 32, '280.000', 'F'),
+(3, 33, 'Perro Fernando', 'V');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `usuarios`
+-- Estructura de tabla para la tabla `usuario`
 --
 
-CREATE TABLE `usuarios` (
+CREATE TABLE `usuario` (
   `id` int(11) NOT NULL,
   `nombre` varchar(512) DEFAULT NULL,
   `correo` varchar(512) DEFAULT NULL,
@@ -242,60 +244,48 @@ CREATE TABLE `usuarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `usuarios`
+-- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuarios` (`id`, `nombre`, `correo`, `password`) VALUES
-(4, 'facundo', 'facundomierez@gmail.com', '123'),
-(5, 'prueba', 'prueba@gmail.com', '123'),
-(6, 'alejandro', 'ale@gmail.com', '123'),
-(7, 'ruben', 'ruben@hotmail.com', '123'),
-(8, 'sandro', 'sandro@gmail.com', '123'),
-(9, 'maria', 'maria@gmail.com', '123'),
-(10, 'antonella', 'anto@hotmail.com', '123'),
-(11, 'juan', 'juan@hotmail.com', '123'),
-(12, 'edu', 'edu@gmail.com', '123'),
-(13, 'fer', 'fer@hotmail.com', '123'),
-(14, 'ana', 'ana@gmail.com', '123'),
-(15, 'laura', 'laura@gmail.com', '123'),
-(16, 'fernando', 'fer@google.com', '123'),
-(17, 'Cel', 'cel@hotmail.com', '123');
+INSERT INTO `usuario` (`id`, `nombre`, `correo`, `password`) VALUES
+(1, 'facundo', 'facu@gmail.com', '123'),
+(2, 'rodrigo', 'rodrigo@gmail.com', '123');
 
 --
 -- Índices para tablas volcadas
 --
 
 --
--- Indices de la tabla `categoria`
+-- Indices de la tabla `categorias`
 --
-ALTER TABLE `categoria`
+ALTER TABLE `categorias`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `pregunta`
+-- Indices de la tabla `preguntas`
 --
-ALTER TABLE `pregunta`
+ALTER TABLE `preguntas`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `idCat__idx` (`idcat`);
+  ADD KEY `idCat__idx` (`idCat`);
 
 --
--- Indices de la tabla `puntaje`
+-- Indices de la tabla `puntos`
 --
-ALTER TABLE `puntaje`
+ALTER TABLE `puntos`
   ADD PRIMARY KEY (`id`),
   ADD KEY `idUser__idx` (`idUser`);
 
 --
--- Indices de la tabla `respuestapregunta`
+-- Indices de la tabla `respuestapreguntas`
 --
-ALTER TABLE `respuestapregunta`
+ALTER TABLE `respuestapreguntas`
   ADD PRIMARY KEY (`id`,`idPreg`),
   ADD KEY `idPreg__idx` (`idPreg`);
 
 --
--- Indices de la tabla `usuarios`
+-- Indices de la tabla `usuario`
 --
-ALTER TABLE `usuarios`
+ALTER TABLE `usuario`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -303,46 +293,46 @@ ALTER TABLE `usuarios`
 --
 
 --
--- AUTO_INCREMENT de la tabla `categoria`
+-- AUTO_INCREMENT de la tabla `categorias`
 --
-ALTER TABLE `categoria`
+ALTER TABLE `categorias`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
--- AUTO_INCREMENT de la tabla `pregunta`
+-- AUTO_INCREMENT de la tabla `preguntas`
 --
-ALTER TABLE `pregunta`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+ALTER TABLE `preguntas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 --
--- AUTO_INCREMENT de la tabla `puntaje`
+-- AUTO_INCREMENT de la tabla `puntos`
 --
-ALTER TABLE `puntaje`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
+ALTER TABLE `puntos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
--- AUTO_INCREMENT de la tabla `usuarios`
+-- AUTO_INCREMENT de la tabla `usuario`
 --
-ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+ALTER TABLE `usuario`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- Restricciones para tablas volcadas
 --
 
 --
--- Filtros para la tabla `pregunta`
+-- Filtros para la tabla `preguntas`
 --
-ALTER TABLE `pregunta`
-  ADD CONSTRAINT `pregunta_ibfk_1` FOREIGN KEY (`idcat`) REFERENCES `categoria` (`id`) ON DELETE CASCADE;
+ALTER TABLE `preguntas`
+  ADD CONSTRAINT `preguntas_ibfk_1` FOREIGN KEY (`idCat`) REFERENCES `categorias` (`id`) ON DELETE CASCADE;
 
 --
--- Filtros para la tabla `puntaje`
+-- Filtros para la tabla `puntos`
 --
-ALTER TABLE `puntaje`
-  ADD CONSTRAINT `puntaje_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE;
+ALTER TABLE `puntos`
+  ADD CONSTRAINT `puntos_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `usuario` (`id`) ON DELETE CASCADE;
 
 --
--- Filtros para la tabla `respuestapregunta`
+-- Filtros para la tabla `respuestapreguntas`
 --
-ALTER TABLE `respuestapregunta`
-  ADD CONSTRAINT `respuestapregunta_ibfk_1` FOREIGN KEY (`idPreg`) REFERENCES `pregunta` (`id`) ON DELETE CASCADE;
+ALTER TABLE `respuestapreguntas`
+  ADD CONSTRAINT `respuestapreguntas_ibfk_1` FOREIGN KEY (`idPreg`) REFERENCES `preguntas` (`id`) ON DELETE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
