@@ -44,8 +44,19 @@ def verificar_respuesta():
 
  	return (respuesta)
 
-def registrarPuntaje():
-	pass
+def indexCarga():
+	response.view='PreguntasController/indexCarga.html'
+   	return dict()
+
+def cargarPreg():
+	datos = request.post_vars
+	db.preguntas.insert(descripcion=datos.desc,idCat=datos.cat,imagen=datos.img)
+	idpreg = db.executesql('SELECT max(id) from preguntas')
+	for preg in idpreg:
+		db.respuestapreguntas.insert(id=1,idPreg=preg[0],descripcion=datos.resp1,opcion=datos.opcion1)
+		db.respuestapreguntas.insert(id=2,idPreg=preg[0],descripcion=datos.resp2,opcion=datos.opcion2)
+		db.respuestapreguntas.insert(id=3,idPreg=preg[0],descripcion=datos.resp3,opcion=datos.opcion3)
+	return dict()
 
 
 	
