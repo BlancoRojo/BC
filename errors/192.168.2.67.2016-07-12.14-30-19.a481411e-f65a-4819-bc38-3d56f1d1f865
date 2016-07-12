@@ -1,0 +1,21 @@
+(dp1
+S'output'
+p2
+S'<class \'_mysql_exceptions.ProgrammingError\'> (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near \'\' at line 1")'
+p3
+sS'layer'
+p4
+S'D:\\web2py\\applications\\BC\\controllers/PreguntasController.py'
+p5
+sS'code'
+p6
+S'# -*- coding: utf-8 -*-\n# intente algo como\nfrom gluon.serializers import json\ndef index():\n   \tresponse.view=\'PreguntasController/index.html\'\n   \treturn dict()\n\t\ndef seleccionar_pregunta():\n\trespuesta={}\n\tresultado=[] #lista que almacenara el diccionario de categoria,pregunta y respuesta\n\tresul_categoria = db.executesql(\'SELECT id,descripcion FROM categorias ORDER BY RAND() LIMIT 1\')\n\tfor row in resul_categoria:\n \t\tcategoria = {\'idCat\': row[0], \'descCat\': row[1]}\n \n\tresul_pregunta = db.executesql(\'SELECT id,descripcion,imagen FROM preguntas WHERE idcat=\'+ str(categoria[\'idCat\']) +\' ORDER BY RAND() LIMIT 1\')\n\tfor row in resul_pregunta:\n\t \tpregunta = {\'idPreg\': row[0], \'descPreg\': row[1], \'imagen\':row[2]}\n\n\n\tresul_respuesta=db.executesql(\'SELECT id,descripcion FROM RESPUESTAPREGUNTAS WHERE idPreg=\'+str(pregunta[\'idPreg\']))\n\tx=0\n\tfor row in resul_respuesta:\n\t \trespuesta[\'idResp\'+str(x)] = row[0] \n\t \trespuesta[\'descResp\'+str(x)] = row[1]\n\t \tx=x+1\n\n \tresultado.append(categoria)\n \tresultado.append(pregunta)\n \tresultado.append(respuesta)\n \n \treturn response.json(resultado)\n\n\ndef verificar_respuesta():\n\tidPreg= request.vars.idPreg\n\tresp_usuario= request.vars.resp\n\n\topcion=db.executesql(\'SELECT descripcion from respuestapreguntas WHERE opcion="V" AND idPreg=\'+str(idPreg))\n\tfor resp in opcion:\n\t\tif str(resp[0])==resp_usuario:\n\t\t\trespuesta=\'V\'\n\t\telse:\n\t\t\trespuesta=\'F\'\n\n \treturn (respuesta)\n\ndef indexCarga():\n\tresponse.view=\'PreguntasController/indexCarga.html\'\n   \treturn dict()\n\ndef cargarPreg():\n\tdatos = request.post_vars\n\tdb.preguntas.insert(descripcion=datos.desc,idCat=datos.cat,imagen=datos.img)\n\tidpreg = db.executesql(\'SELECT max(id) from preguntas\')\n\tfor preg in idpreg:\n\t\tdb.respuestapreguntas.insert(id=1,idPreg=preg[0],descripcion=datos.resp1,opcion=datos.opcion1)\n\t\tdb.respuestapreguntas.insert(id=2,idPreg=preg[0],descripcion=datos.resp2,opcion=datos.opcion2)\n\t\tdb.respuestapreguntas.insert(id=3,idPreg=preg[0],descripcion=datos.resp3,opcion=datos.opcion3)\n\treturn dict()\n\n\n\t\n\n\n\n\n\n\n\n\n\n\nresponse._vars=response._caller(verificar_respuesta)\n'
+p7
+sS'snapshot'
+p8
+(dp9
+sS'traceback'
+p10
+S'Traceback (most recent call last):\n  File "D:\\web2py\\gluon\\restricted.py", line 227, in restricted\n    exec ccode in environment\n  File "D:\\web2py\\applications\\BC\\controllers/PreguntasController.py", line 73, in <module>\n  File "D:\\web2py\\gluon\\globals.py", line 417, in <lambda>\n    self._caller = lambda f: f()\n  File "D:\\web2py\\applications\\BC\\controllers/PreguntasController.py", line 38, in verificar_respuesta\n    opcion=db.executesql(\'SELECT descripcion from respuestapreguntas WHERE opcion="V" AND idPreg=\'+str(idPreg))\n  File "D:\\web2py\\gluon\\packages\\dal\\pydal\\base.py", line 1019, in executesql\n    adapter.execute(query)\n  File "D:\\web2py\\gluon\\packages\\dal\\pydal\\adapters\\base.py", line 1388, in execute\n    return self.log_execute(*a, **b)\n  File "D:\\web2py\\gluon\\packages\\dal\\pydal\\adapters\\base.py", line 1382, in log_execute\n    ret = self.get_cursor().execute(command, *a[1:], **b)\n  File "MySQLdb/cursors.py", line 205, in execute\n  File "MySQLdb/connections.py", line 36, in defaulterrorhandler\nProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near \'\' at line 1")\n'
+p11
+s.

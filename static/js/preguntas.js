@@ -64,6 +64,7 @@ $(document).ready(function(){
    		$(".respuesta").addClass("btn btn-info");
    		$("#imagen-escultura").addClass("hidden");
    		$("#categoria").removeClass("hidden");
+   		$(".respuesta").removeClass("disabled");
   
    		if (vidas>0){
 	   		 $.getJSON("../PreguntasController/seleccionar_pregunta",
@@ -108,14 +109,14 @@ $(document).ready(function(){
 	   	}
    	}
 
-   	$( "button" ).on( "click", function() {
+   	$( ".respuesta" ).on( "click", function() {
    		event.preventDefault();
    		var idPregunta=$('#idPregunta').text();
    		var respuesta=( $( this ).text() );
    		var idButton=($(this).attr("id"));//obtengo el id del button seleccionado
 		//idRadioB=$('input[name=pk_inicial]:checked')
 		//idRadioButton=($("input:checked").attr("id"));
-
+		$(".respuesta").addClass("disabled");
 
    		$.ajax({
 			    // la URL para la petición
