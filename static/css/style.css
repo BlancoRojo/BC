@@ -12,6 +12,9 @@ body{
 
 }
 
+#reintentar-mapa:hover{
+  color:black;
+}
 
 /** sobre escrituras de estilos de bootstrap*/
 .nav-pills>li>a:hover{
