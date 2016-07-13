@@ -104,7 +104,6 @@ $(document).ready(function(){
 	   			$("#resp_incorrectas").text(resp_incorrectas);
 	   			$("#tiempo").text(result);		   			
 	   			$("#total").text(puntaje);	   			   			  	
-	   			document.getElementById('looser').play();
 	   					
 	   	}
    	}
@@ -120,7 +119,7 @@ $(document).ready(function(){
 
    		$.ajax({
 			    // la URL para la petición
-			    url : '/BC/PreguntasController/verificar_respuesta',
+			    url : '/BrainChaco/PreguntasController/verificar_respuesta',
  				
 			    // la información a enviar
 			    // (también es posible utilizar una cadena de datos)
@@ -137,7 +136,7 @@ $(document).ready(function(){
 			    success : function(respuesta) {
 			        if (respuesta=='V'){
 			        	
-						document.getElementById('correcto').play()//sonido
+						//document.getElementById('correcto').play()//sonido
 						
 						resp_correctas=resp_correctas+1;//contador de aciertos
 						correcto(idButton);//llama a una funcion que agrega estilos a la respuesta elegida						
@@ -147,7 +146,7 @@ $(document).ready(function(){
 						
 			        }else{
 			        	
-			        	document.getElementById('incorrecto').play()//sonido
+			        	//document.getElementById('incorrecto').play()//sonido
 			        	incorrecto(idButton);	//llama a una funcion que agrega estilos a la respuesta elegida		        	
 			        	resp_incorrectas=resp_incorrectas+1;//contador de preg incorrectas
 			        	vidas= vidas -1; //vidas
@@ -213,7 +212,7 @@ $(document).ready(function(){
 			
    			$.ajax({
 			    // la URL para la petición
-			    url : '/BC/JugadorController/registrarPuntaje',
+			    url : '/BrainChaco/JugadorController/registrarPuntaje',
  				
 			    // la información a enviar
 			    // (también es posible utilizar una cadena de datos)
@@ -228,7 +227,7 @@ $(document).ready(function(){
 			    // código a ejecutar si la petición es satisfactoria;
 			    // la respuesta es pasada como argumento a la función
 			    success : function(data) {
-			     
+			     	
 			    },
  
 			});

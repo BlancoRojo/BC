@@ -590,7 +590,7 @@ var correctas=0//contador para mostrar despues cuantos aciertos tuvo
       var fecha_actual=(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
         $.ajax({
           // la URL para la petición
-          url : '/BC/JugadorController/registrarPuntaje',
+          url : '/BrainChaco/JugadorController/registrarPuntaje',
         
           // la información a enviar
           // (también es posible utilizar una cadena de datos)
