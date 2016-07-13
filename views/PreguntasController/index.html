@@ -117,7 +117,7 @@
               <div class="col-md-6 col-md-offset-3">
                   
                   <center><h2 id="pregunta"></h2><input class="hidden" id="idPregunta"></label></center>
-                  <center><img class="img-responsive hidden img-thumbnail" src="" style=" max-width: 250px; max-height: 250px;" id="imagen-escultura" alt=""><br></center><br>
+                  <center><img class="img-responsive hidden img-thumbnail" src="" style=" max-width: 250px; max-height: 200px;" id="imagen-escultura" alt=""><br></center><br>
                   <center>    
                          <div class="btn-group-vertical row" role="group">      
                             <button  id="respuesta1" class="respuesta col-md-6 respuesta"></button>
@@ -144,41 +144,45 @@
          <br>
          <br>
          <br>
-          <center><h1 id="perdiste">PERDISTE!!!</h1></center><br>
+          
+           <div class="row">
+             <div class="col-md-6">
+                <center><h1 id="perdiste">PERDISTE!!!</h1></center><br>
+             </div>
+           </div>
+            
             <div class="col-md-5 col-md-offset-3 panel panel-body">
 
-              <div class="row">
+                  <div class="row">
 
-                <div class="col-md-6">
-                  <h5>RESPUESTAS CORRECTAS:</h5>
-                </div>
-                <div class="col-md-6">
-                 <h5 id="resp_correctas"></h5>
-                </div>
-                
-              </div>  
+                    <div class="col-md-6 col-xs-6">
+                      <h5>RESPUESTAS CORRECTAS:</h5>
+                    </div>
+                    <div class="col-md-6 col-xs-6">
+                     <h5><span id="resp_correctas" class="label label-success"></span></h5>
+                    </div>
+                    
+                  </div>  
                        
-              <div class="row">
-                <div class="col-md-6">
-                  <h5> TIEMPO:</h5>
-                </div>
-                <div class="col-md-6">
-                 <h5 id="tiempo"></h5>
-                </div>
-              </div>
+                  <div class="row">
+                    <div class="col-md-6 col-xs-6">
+                      <h5> TIEMPO:</h5>
+                    </div>
+                    <div class="col-md-6 col-xs-6">
+                     <h5><span id="tiempo" class="label label-success"></span></h5>
+                    </div>
+                  </div>
 
-              <div class="row">
-                <div class="col-md-6">
-                  <h5>PUNTAJE TOTAL: </h5>
+                <div class="row">
+                  <div class="col-md-6 col-xs-6">
+                    <h5>PUNTAJE TOTAL: </h5>
+                  </div>
+                  <div class="col-md-6 col-xs-6">                                  
+                      <h5><span  id="total" class="label label-success"></span></h5>                    
+                  </div>
                 </div>
-                <div class="col-md-6">                                  
-                    <h5 id="total"></h5>                    
-                </div>
-            </div>
-             
-              <audio id="looser" src="{{=URL('static/sonidos','risa_Nelson.mp3')}}"> </audio>
-              <a id="reintentar">REINTENTAR</a>
-            
+  
+              <center><h1><a id="reintentar">REINTENTAR</a></h1></center>
           </div>
       </div>
     

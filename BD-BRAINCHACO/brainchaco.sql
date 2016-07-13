@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-07-2016 a las 17:48:20
--- Versión del servidor: 10.1.13-MariaDB
--- Versión de PHP: 7.0.5
+-- Tiempo de generación: 13-07-2016 a las 16:08:11
+-- Versión del servidor: 10.1.10-MariaDB
+-- Versión de PHP: 7.0.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -90,7 +90,17 @@ INSERT INTO `preguntas` (`id`, `descripcion`, `idCat`, `imagen`) VALUES
 (30, '¿ Que obra fue ganadora en la Bienal 2014? ', 3, NULL),
 (31, '¿Cuantos habitantes tiene aproximadamente el departamento Almirante Brown?', 1, NULL),
 (32, '¿Cuantos habitantes tiene aproximadamente el departamento San Fernando?', 1, NULL),
-(33, '¿Cual es el nombre de la siguiente escultura?', 4, '161.jpg');
+(33, '¿Cual es el nombre de la siguiente escultura?', 4, '161.jpg'),
+(34, '¿Cual fue el tema de la Bienal 2014?', 3, NULL),
+(35, '¿En qué año fue fundado el Fogón de los Arrieros?', 3, NULL),
+(36, '¿Quiénes fueron los impulsores del Fogón de los Arrieros?', 3, NULL),
+(37, '¿Dónde se encuentra el edificio del Fogón de los Arieros, en la ciudad de Resistencia?', 3, NULL),
+(38, '¿En qué año fue construida la sede del Fogón de los Arrieros, ubicado en calle Almirante Brown 350?', 3, NULL),
+(39, '¿Qué arquitecto construyó la sede del Fogón de los Arrieros, ubicado en calle Almirante Brown 350?', 3, NULL),
+(40, '¿Qué estilo arquitectónico sintetiza  la sede del Fogón de los Arrieros?', 3, NULL),
+(41, '¿Qué material usarán los escultores  en la Bienal 2016?', 3, NULL),
+(42, '¿Cuántos escultores estarán  participando en la Bienal 2016?', 3, NULL),
+(43, '¿Cuántas personas integran el  jurado en la Bienal 2016? ', 3, NULL);
 
 -- --------------------------------------------------------
 
@@ -113,7 +123,9 @@ CREATE TABLE `puntos` (
 
 INSERT INTO `puntos` (`id`, `idUser`, `descJuego`, `puntaje`, `tiempo`, `fecha`) VALUES
 (2, 2, 'memoria', 25, NULL, '12/7/2016'),
-(3, 2, 'preguntas', 10, '00:00:34', '12/7/2016');
+(3, 2, 'preguntas', 10, '00:00:34', '12/7/2016'),
+(4, 1, 'preguntas', 20, '00:00:38', '13/7/2016'),
+(5, 1, 'preguntas', 10, '00:00:30', '13/7/2016');
 
 -- --------------------------------------------------------
 
@@ -153,7 +165,7 @@ INSERT INTO `respuestapreguntas` (`id`, `idPreg`, `descripcion`, `opcion`) VALUE
 (1, 19, 'Noreste', 'V'),
 (1, 20, 'Noreste', 'F'),
 (1, 21, '1', 'F'),
-(1, 22, 'Gobierno de la Provincia del Chaco y Fundacion Urunday', 'V'),
+(1, 22, 'Gob. de la Provincia del Chaco y Fundacion Urunday', 'V'),
 (1, 23, 'Interes turistico\n', 'F'),
 (1, 24, '2009', 'F'),
 (1, 25, 'Plaza Central', 'V'),
@@ -165,6 +177,16 @@ INSERT INTO `respuestapreguntas` (`id`, `idPreg`, `descripcion`, `opcion`) VALUE
 (1, 31, '32000', 'F'),
 (1, 32, '390.000', 'V'),
 (1, 33, 'Perro Pinyno', 'F'),
+(1, 34, 'EQUILIBRIUM', 'F'),
+(1, 35, '1943', 'V'),
+(1, 36, 'Miguel Ángel Rofas', 'F'),
+(1, 37, 'Juan B. Justo 200', 'F'),
+(1, 38, '1870', 'F'),
+(1, 39, 'Humberto Mascheroni ', 'V'),
+(1, 40, 'Neoclásico', 'F'),
+(1, 41, 'Hierro', 'F'),
+(1, 42, '11', 'V'),
+(1, 43, '5', 'F'),
 (2, 1, '45.314km', 'V'),
 (2, 2, '5.000 ha', 'F'),
 (2, 3, 'Tres Isleta', 'F'),
@@ -197,6 +219,16 @@ INSERT INTO `respuestapreguntas` (`id`, `idPreg`, `descripcion`, `opcion`) VALUE
 (2, 31, '34000', 'V'),
 (2, 32, '350.000', 'F'),
 (2, 33, 'Perro Protector', 'F'),
+(2, 34, 'SOL', 'F'),
+(2, 35, '1850', 'F'),
+(2, 36, 'Boglietti, Aldo y Efraín', 'V'),
+(2, 37, 'Juan de Dios Mena al 800', 'F'),
+(2, 38, '1963', 'V'),
+(2, 39, 'Jaime Zapata', 'F'),
+(2, 40, 'Gótico', 'F'),
+(2, 41, 'Mármol', 'V'),
+(2, 42, '20', 'F'),
+(2, 43, '10', 'F'),
 (3, 1, '80.000 km.', 'F'),
 (3, 2, '80.000 ha', 'F'),
 (3, 3, 'Taco Pozo', 'V'),
@@ -217,7 +249,7 @@ INSERT INTO `respuestapreguntas` (`id`, `idPreg`, `descripcion`, `opcion`) VALUE
 (3, 19, 'Norte', 'F'),
 (3, 20, 'Noreste', 'F'),
 (3, 21, '3', 'F'),
-(3, 22, 'Organizacion de los Estados Americanos', 'F'),
+(3, 22, 'Estados Americanos', 'F'),
 (3, 23, 'Alto interes artistico y Cultural', 'V'),
 (3, 24, '1988', 'V'),
 (3, 25, 'Domo ', 'F'),
@@ -228,7 +260,17 @@ INSERT INTO `respuestapreguntas` (`id`, `idPreg`, `descripcion`, `opcion`) VALUE
 (3, 30, 'Sexto sol', 'F'),
 (3, 31, '30000', 'F'),
 (3, 32, '280.000', 'F'),
-(3, 33, 'Perro Fernando', 'V');
+(3, 33, 'Perro Fernando', 'V'),
+(3, 34, 'HOMONOVUS', 'V'),
+(3, 35, '1999', 'F'),
+(3, 36, 'Walter Groupius ', 'F'),
+(3, 37, 'Almirante Brown al 350 ', 'V'),
+(3, 38, '1946', 'F'),
+(3, 39, 'Amancio Willians', 'F'),
+(3, 40, 'Movimiento Moderno', 'V'),
+(3, 41, 'Madera', 'F'),
+(3, 42, '15', 'F'),
+(3, 43, '3', 'V');
 
 -- --------------------------------------------------------
 
@@ -301,12 +343,12 @@ ALTER TABLE `categorias`
 -- AUTO_INCREMENT de la tabla `preguntas`
 --
 ALTER TABLE `preguntas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 --
 -- AUTO_INCREMENT de la tabla `puntos`
 --
 ALTER TABLE `puntos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
