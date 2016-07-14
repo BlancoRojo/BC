@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-07-2016 a las 16:08:11
+-- Tiempo de generación: 14-07-2016 a las 17:36:37
 -- Versión del servidor: 10.1.10-MariaDB
 -- Versión de PHP: 7.0.4
 
@@ -100,7 +100,25 @@ INSERT INTO `preguntas` (`id`, `descripcion`, `idCat`, `imagen`) VALUES
 (40, '¿Qué estilo arquitectónico sintetiza  la sede del Fogón de los Arrieros?', 3, NULL),
 (41, '¿Qué material usarán los escultores  en la Bienal 2016?', 3, NULL),
 (42, '¿Cuántos escultores estarán  participando en la Bienal 2016?', 3, NULL),
-(43, '¿Cuántas personas integran el  jurado en la Bienal 2016? ', 3, NULL);
+(43, '¿Cuántas personas integran el  jurado en la Bienal 2016? ', 3, NULL),
+(68, '¿Como se llama esta escultura?', 4, '141.jpg'),
+(69, '¿Que describe esta escultura?', 4, '147.jpg'),
+(70, '¿Como se llama esta escultura?', 4, '160.jpg'),
+(71, '¿De que material esta hecha esta escultura?', 4, '178.jpg'),
+(72, '¿Como se llama esta escultura?', 4, '194.jpg'),
+(73, '¿Como se llama esta escultura?', 4, '200.jpg'),
+(74, '¿Donde esta ubicada esta escultura?', 4, '211.jpg'),
+(75, '¿De que esta hecha esta escultura?', 4, '213.jpg'),
+(76, '¿Como se llama esta escultura?', 4, '243.jpg'),
+(77, '¿Como se llama esta escultura?', 4, '247.jpg'),
+(78, '¿Que describe esta escultura?', 4, '248.jpg'),
+(79, '¿Como se llama esta escultura?', 4, '250.jpg'),
+(80, '¿De que material esta hecha esta escultura?', 4, '251.jpg'),
+(81, '¿Como se llama esta escultura?', 4, '254.jpg'),
+(82, '¿Como se llama esta escultura?', 4, '256.jpg'),
+(83, '¿Como se llama esta escultura?', 4, '262.jpg'),
+(84, '¿De que material esta hecho esta escultura?', 4, '269.jpg'),
+(85, '¿En que plaza se ubica esta escultura?', 4, '278.jpg');
 
 -- --------------------------------------------------------
 
@@ -125,7 +143,13 @@ INSERT INTO `puntos` (`id`, `idUser`, `descJuego`, `puntaje`, `tiempo`, `fecha`)
 (2, 2, 'memoria', 25, NULL, '12/7/2016'),
 (3, 2, 'preguntas', 10, '00:00:34', '12/7/2016'),
 (4, 1, 'preguntas', 20, '00:00:38', '13/7/2016'),
-(5, 1, 'preguntas', 10, '00:00:30', '13/7/2016');
+(5, 1, 'preguntas', 10, '00:00:30', '13/7/2016'),
+(6, 4, 'preguntas', 20, '00:00:22', '13/7/2016'),
+(7, 4, 'preguntas', 0, NULL, '13/7/2016'),
+(8, 4, 'preguntas', 0, NULL, '13/7/2016'),
+(9, 4, 'preguntas', 0, NULL, '13/7/2016'),
+(10, 4, 'preguntas', 0, NULL, '13/7/2016'),
+(11, 4, 'preguntas', 0, NULL, '13/7/2016');
 
 -- --------------------------------------------------------
 
@@ -187,6 +211,24 @@ INSERT INTO `respuestapreguntas` (`id`, `idPreg`, `descripcion`, `opcion`) VALUE
 (1, 41, 'Hierro', 'F'),
 (1, 42, '11', 'V'),
 (1, 43, '5', 'F'),
+(1, 68, 'Martillando El sol', 'F'),
+(1, 69, 'Una pareja', 'V'),
+(1, 70, 'Perro Leandro', 'F'),
+(1, 71, 'Piedra', 'F'),
+(1, 72, 'Columna ensanchandose en el centro', 'F'),
+(1, 73, 'Paysandú', 'V'),
+(1, 74, 'Av Sarmiento 600', 'V'),
+(1, 75, 'Hierro', 'F'),
+(1, 76, 'Los tres inmigrantes', 'F'),
+(1, 77, 'El quijote', 'V'),
+(1, 78, 'Protección', 'F'),
+(1, 79, 'El sabio', 'F'),
+(1, 80, 'Piedra', 'F'),
+(1, 81, 'Figura en la playa', 'V'),
+(1, 82, 'Noche de encuentro', 'F'),
+(1, 83, 'Onda vital ', 'F'),
+(1, 84, 'Marmol', 'F'),
+(1, 85, '25 de mayo', 'V'),
 (2, 1, '45.314km', 'V'),
 (2, 2, '5.000 ha', 'F'),
 (2, 3, 'Tres Isleta', 'F'),
@@ -229,6 +271,24 @@ INSERT INTO `respuestapreguntas` (`id`, `idPreg`, `descripcion`, `opcion`) VALUE
 (2, 41, 'Mármol', 'V'),
 (2, 42, '20', 'F'),
 (2, 43, '10', 'F'),
+(2, 68, 'Chaco hacha sol', 'V'),
+(2, 69, 'Una Cabeza', 'F'),
+(2, 70, 'Perro Fernando', 'V'),
+(2, 71, 'Cemento', 'F'),
+(2, 72, 'Vuelo del espiritu', 'V'),
+(2, 73, 'Egipcia', 'F'),
+(2, 74, 'Av belgrano 200', 'F'),
+(2, 75, 'Chapa', 'V'),
+(2, 76, 'Los tres voceros', 'F'),
+(2, 77, 'El jinete', 'F'),
+(2, 78, 'Esperanza', 'F'),
+(2, 79, 'Ausencia', 'V'),
+(2, 80, 'Cemento', 'F'),
+(2, 81, 'Belleza', 'F'),
+(2, 82, 'Homenaje a una primavera', 'V'),
+(2, 83, 'Impulso vital', 'V'),
+(2, 84, 'Bronce', 'V'),
+(2, 85, 'Belgrano', 'F'),
 (3, 1, '80.000 km.', 'F'),
 (3, 2, '80.000 ha', 'F'),
 (3, 3, 'Taco Pozo', 'V'),
@@ -270,7 +330,25 @@ INSERT INTO `respuestapreguntas` (`id`, `idPreg`, `descripcion`, `opcion`) VALUE
 (3, 40, 'Movimiento Moderno', 'V'),
 (3, 41, 'Madera', 'F'),
 (3, 42, '15', 'F'),
-(3, 43, '3', 'V');
+(3, 43, '3', 'V'),
+(3, 68, 'El Sol Anclado', 'F'),
+(3, 69, 'Un Jardín', 'F'),
+(3, 70, 'Perro Nala', 'F'),
+(3, 71, 'Bronce', 'V'),
+(3, 72, 'Envoltura de la vida', 'F'),
+(3, 73, 'Madre oradora', 'F'),
+(3, 74, 'Av 9 de julio 640', 'F'),
+(3, 75, 'Aluminio', 'F'),
+(3, 76, 'Los tres torsos', 'V'),
+(3, 77, 'El paisano', 'F'),
+(3, 78, 'Maternidad', 'V'),
+(3, 79, 'Solitario', 'F'),
+(3, 80, 'Marmol', 'V'),
+(3, 81, 'Mujer Bañandose', 'F'),
+(3, 82, 'Danzantes', 'F'),
+(3, 83, 'Hueso vital', 'F'),
+(3, 84, 'Piedra', 'F'),
+(3, 85, 'Cabral', 'F');
 
 -- --------------------------------------------------------
 
@@ -291,7 +369,9 @@ CREATE TABLE `usuario` (
 
 INSERT INTO `usuario` (`id`, `nombre`, `correo`, `password`) VALUES
 (1, 'facundo', 'facu@gmail.com', '123'),
-(2, 'rodrigo', 'rodrigo@gmail.com', '123');
+(2, 'rodrigo', 'rodrigo@gmail.com', '123'),
+(3, 'Pedro', 'pedro@hotmail.com', '123'),
+(4, 'fati', 'fati@gmail.com', '123');
 
 --
 -- Índices para tablas volcadas
@@ -343,17 +423,17 @@ ALTER TABLE `categorias`
 -- AUTO_INCREMENT de la tabla `preguntas`
 --
 ALTER TABLE `preguntas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
 --
 -- AUTO_INCREMENT de la tabla `puntos`
 --
 ALTER TABLE `puntos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- Restricciones para tablas volcadas
 --
