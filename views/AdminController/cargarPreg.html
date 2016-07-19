@@ -1,0 +1,74 @@
+<head>
+  <style type="text/css">
+  body{
+      background-image: url("{{=URL('static','images/fondo-admin.jpg')}}");
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-attachment: unset;
+      background-size: cover;
+
+  }
+
+  </style>
+  <link rel="stylesheet" href="{{=URL('static','css/bootstrap.min.css')}}"/>
+  
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+      <div class="col-md-4 col-md-offset-4">
+        <div style="background-color: rgba(54, 25, 25, .6);" class="panel panel-default">
+          <form action="{{=URL('adminController','insertarPregunta')}}" method="post">
+          
+          <div>
+            <label>
+              Pregunta<span class="req"></span>
+            </label>
+            <input type="text" name="desc"/>
+          </div>
+          <div>
+            <label>
+              Categoria<span class="req"></span>
+            </label>
+            <input type="text" name="cat"/>
+          </div>
+          <div>
+            <label>
+              imagen<span class="req"></span>
+            </label>
+            <input type="text" name="img"/>
+          </div>
+          <div>
+            <label>
+              Respuesta 1<span class="req"></span>
+            </label>
+            <input type="text" name="resp1"/><input type="text" name="opcion1"/>
+          </div>
+          <div>
+            <label>
+              Respuesta 2<span class="req"></span>
+            </label>
+            <input type="text" name="resp2"/><input type="text" name="opcion2"/>
+          </div>
+          <div>
+            <label>
+              Respuesta 3<span class="req"></span>
+            </label>
+            <input type="text" name="resp3"/><input type="text" name="opcion3"/>
+          </div>
+   
+         
+  
+          <div>
+            <button class="button button-block"/><h1>Cargar</h1></button>
+          </div>
+          
+          
+</form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</body>

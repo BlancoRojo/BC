@@ -2,6 +2,6 @@
 # intente algo como
 def index(): 
     session.invitado='Invitado'
-    response.view= 'HomeController/index.html '
+    response.view= 'HomeController/index.html'
     return dict()
 

@@ -1,0 +1,49 @@
+<head>
+  <style type="text/css">
+  body{
+      background-image: url("{{=URL('static','images/fondo-admin.jpg')}}");
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-attachment: unset;
+      background-size: cover;
+
+  }
+
+  </style>
+  <link rel="stylesheet" href="{{=URL('static','css/bootstrap.min.css')}}"/>
+  
+</head>
+<body>
+  <div class="container">
+  <h2>Preguntas y Respuestas</h2>
+  <div>
+  <a href="{{=URL('AdminController','index')}}" type="button" style="width:250px"  class="btn btn-warning"><span style="font-size:15px">Menu Administrador</span></a>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>idPreg</th>
+        <th>idCat</th>
+        <th>imagen</th>
+        <th>pregunta</th>
+        <th>respuesta</th>
+        <th>opcion</th>
+      </tr>
+    </thead>
+    <tbody>
+    {{for row in listado:}}
+      <tr class="success">
+        <td>{{=row.preguntas.id}}</td>
+        <td>{{=row.preguntas.idCat}}</td>
+        <td>{{=row.preguntas.imagen}}</td>
+        <td>{{=row.preguntas.descripcion}}</td>
+        <td>{{=row.respuestapreguntas.descripcion}}</td>
+        <td>{{=row.respuestapreguntas.opcion}}</td>
+      </tr>
+      {{pass}}
+    </tbody>
+  </table>
+</div>
+
+
+</body>

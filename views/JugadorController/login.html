@@ -47,11 +47,19 @@
           
           </form>
            {{else:}}
+           {{if session.jugador!='AdminPO':}}
            <form action="{{=URL('HomeController','index')}}" method="post">
              <div align="right">
            <button type="submit" class="button button-block"/><h1>Jugar!</h1></button>
            </div>
            </form>
+           {{else:}}
+           <form action="{{=URL('AdminController','index')}}" method="post">
+             <div align="right">
+           <button type="submit" class="button button-block"/><h1>Administracion</h1></button>
+           </div>
+           </form>
+           {{pass}}
           {{pass}}
         </div>
         

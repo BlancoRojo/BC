@@ -1,0 +1,47 @@
+<head>
+  <style type="text/css">
+  body{
+      background-image: url("{{=URL('static','images/fondo-admin.jpg')}}");
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-attachment: unset;
+      background-size: cover;
+
+  }
+
+  </style>
+  <link rel="stylesheet" href="{{=URL('static','css/bootstrap.min.css')}}"/>
+  
+</head>
+
+<body>
+
+<div class="container">
+  <h2>Usuarios Registrados</h2>
+  <div>
+  <a href="{{=URL('AdminController','index')}}" type="button" style="width:250px"  class="btn btn-warning"><span style="font-size:15px">Menu Administrador</span></a>
+
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Email</th>
+        <th>Password</th>
+      </tr>
+    </thead>
+    <tbody>
+    {{for user in users:}}
+      <tr class="success">
+        <td>{{=user.id}}</td>
+        <td>{{=user.nombre}}</td>
+        <td>{{=user.correo}}</td>
+        <td>{{=user.password}}</td>
+      </tr>
+      {{pass}}
+    </tbody>
+  </table>
+</div>
+
+</body>
