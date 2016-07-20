@@ -16,7 +16,7 @@ def seleccionar_pregunta():
 	
  	categoria = {'idCat': resul_categoria[0].id, 'descCat': resul_categoria[0].descripcion}
  	
-	result_pregunta = db(db.preguntas.idCat == result_categoria[0].id ).select()
+	result_pregunta = db(db.preguntas.idCat == resul_categoria[0].id ).select()
 	resul_pregunta = []
 	resul_pregunta.append(result_pregunta[random.randint(0,len(result_pregunta)-1)])
 	

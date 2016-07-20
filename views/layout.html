@@ -8,7 +8,7 @@
          Remove this if you use the .htaccess -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge{{=not request.is_local and ',chrome=1' or ''}}">
     
-
+    <meta name="description" content="BrainChaco,Brain Chaco,Juegos Didactivos,juegos de memoria, preguntados,aprender,cultura chaco,informatorio,bienal,juego bienal,geografia,departamentos chaco, chaco, resistencia,Project one" />
     <!--  Mobile Viewport Fix
           j.mp/mobileviewport & davidbcalhoun.com/2010/viewport-metatag
           device-width: Occupy full width of the screen in its current orientation
@@ -117,6 +117,9 @@
                 <li><a href="{{=URL('JugadorController','login')}}">Acceder</a>
                 </li>
                 <li><a href="{{=URL('JugadorController','registro')}}">Registro</a>
+                </li>
+                <li><a href="{{=URL('JugadorController','ranking')}}">Ranking</a>
+                </li>
             </ul>
         </div>
         </div>
@@ -278,6 +281,8 @@
                 </li>
                 <br>
                 <li><a href="{{=URL('HomeController','index')}}">Menu Principal</a>
+                </li>
+                <li><a href="{{=URL('JugadorController','ranking')}}">Ranking</a>
                 </li>
                 <li><a href="{{=URL('JugadorController','cerrar')}}">Salir</a>
                 </li>

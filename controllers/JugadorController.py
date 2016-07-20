@@ -33,6 +33,8 @@ def registroCompleto():
 		db.usuario.insert(nombre=form.Nom,correo=form.Eml,password=form.Pas)
 		response.view = "JugadorController/registro.html"
    		session.jugador=form.Nom
+   		idjugador = db(db.usuario.nombre == form.Nom).select(db.usuario.id)
+   		session.id = idjugador[0].id
 		return dict(nombre='',email='',psw='',Error='Registro Exitoso!',EError='')
 	elif (len(corr) == 0):
 		response.view = "JugadorController/registro.html"
@@ -95,7 +97,7 @@ def ranking():
 	return dict(preguntas=row_preg, memorias=row_memoria)
 
 def perfil():
-	row=db.executesql("SELECT nombre,correo FROM USUARIO WHERE id="+str(session.id))
+	row=db.executesql("SELECT nombre,correo FROM usuario WHERE id="+str(session.id))
 	return dict(usuario=row)
 
 def cerrar():
